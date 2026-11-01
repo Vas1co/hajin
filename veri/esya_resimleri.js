@@ -1,0 +1,45 @@
+// OTOMATIK URETILDI: araclar/esya_resimleri_kes.ps1. Elle duzenleme, bir sonraki calistirmada silinir.
+// Esya resimleri: oyun ici gorseller (Activision'a ait). DMZHub esya sayfasindan tarayicida ekran goruntusuyle
+// alindi (1 Kasim 2026). Dosyalar site/resimler/esyalar/<id>.png. veri/site.js icinde dmzhubVerileri: false
+// yapilirsa gosterilmez.
+window.DMZ = window.DMZ || {};
+
+DMZ.esyaResimleri = [
+  '1-plate-armor-vest', '2-plate-armor-vest', '2-plate-ballistic-gel-vest', '2-plate-helmet-armor-vest', '3-plate-armor-vest', '3-plate-ballistic-gel-vest',
+  '3-plate-helmet-armor-vest', 'advanced-uav', 'air-base-access-card-multi-use', 'air-base-drc-weapons-locker', 'alloyed-plating', 'alternator',
+  'ammo-box', 'armor-box', 'armor-kit', 'armor-plate', 'artillery-beacon', 'bales-dog-tag',
+  'ballistic-fabric', 'ballistic-flight-logs', 'bandage', 'bank-branch-vault-access', 'basic-restock-kit', 'binding-catalyst',
+  'biomaterials', 'blackmarket-weapons-locker', 'bomb-glider', 'bombing-run', 'c4', 'car-battery',
+  'care-package', 'cipher-code-ledger', 'claymore', 'coin-mining-den', 'combat-drone', 'commandant-office',
+  'comms-module', 'control-unit', 'counting-room-vault', 'cpu', 'crossfire', 'ddos',
+  'decoy-grenade', 'defibrillator', 'degraded-execution-footage', 'detonators', 'disposable-parachute', 'door-breacher-charge',
+  'drill-charge', 'durable-gas-mask', 'electronic-sensors', 'elite-night-vision-goggles', 'encrypted-archive', 'energy-drink',
+  'executive-arms-auction', 'experimental-compounds', 'explosives-equipment-kit', 'flash', 'foreign-intelligence-targets', 'frag-grenade',
+  'fulton', 'gangbyeon-apartment-b', 'gas-can', 'gas-mask', 'gas-station-electrical-room', 'gold-bar',
+  'gold-skull', 'goranis-dog-tag', 'goranis-scout-overlook', 'gun-store-weapons-locker', 'haejeok-radio-station', 'haksan-school-armory',
+  'hanex-guard-station', 'hazard-storehouse', 'heartbeat-sensor', 'high-tenacity-fibers', 'hoesik-supply-room', 'imjin-mill-foremans-office',
+  'impact-warhead', 'infantry-invasion-plans', 'inflatable-decoy', 'irradiated-container', 'iskras-control-room', 'iskras-dog-tag',
+  'jang-uis-converted-power-room', 'jin-taes-dog-tag', 'jin-taes-private-lounge', 'kangs-arms-incinerator', 'large-backpack', 'large-scavenger-backpack',
+  'large-secure-backpack', 'lucera-suite-703-bedroom', 'manual-50-gs', 'manual-apoc-338', 'manual-astaroth-57', 'manual-axion',
+  'manual-cronen-squall', 'manual-finn-lmg', 'manual-han-86', 'manual-hyeon-burst', 'manual-iso-nightshade', 'manual-jokr',
+  'manual-kastov-762', 'manual-kg-7-vulcan', 'manual-krait-p68', 'manual-m4', 'manual-mar-9', 'manual-mojave-357',
+  'manual-mosin-nagant', 'manual-oden', 'manual-oris-86', 'manual-patriot-xmr', 'manual-pila', 'manual-pm-40-anvil',
+  'manual-ppsh-41', 'manual-rezi-12', 'manual-rpg-8', 'manual-signal-50', 'manual-type-73', 'manual-vel-46',
+  'manual-warlord', 'manual-wz55-striga', 'manual-x-58-nyx', 'medium-backpack', 'medium-scavenger-backpack', 'medium-secure-backpack',
+  'medium-weapon-backpack', 'medkit', 'military-composites', 'militia-arms-depot', 'mill-explosives-lab', 'mirae-electrical-room',
+  'molotov-cocktail', 'nano-structured-alloy', 'netshin-it-room', 'nitro-compounds', 'nuclear-program-files', 'nvg',
+  'nylon-cloth', 'nylon-laminate', 'old-barber-shop', 'pain-killers', 'parachute', 'police-station-armory',
+  'police-weapon-depository', 'portable-radar', 'power-regulator', 'printed-circuit-board', 'prison-encampment-storage', 'prototype-rf-module',
+  'proximity-mine', 'radiation-blockers', 'radiation-gear', 'rail-depot-storage', 'railgun-sentry', 'razor-wire-trap',
+  'reactive-metals', 'reactor-02-control-room', 'reactor-drc-locker', 'rebreather', 'recon-drone', 're-education-center-annex',
+  'regional-combat-notes', 'revive-pistol', 'rigid-synthetics', 'riot-shield', 'rozes-dog-tag', 'rozes-highrise-armory',
+  'sam-airburst-turret', 'sanctioned-assassination-list', 'sang-9mm', 'scavengers-dog-tag', 'screamer-mine', 'secure-scavenger-backpack',
+  'sedative-inhaler', 'seeker-drone', 'self-revive', 'semtex', 'sere-kit', 'shock-stick',
+  'shopping-drc-locker', 'shop-records-room', 'small-backpack', 'small-secure-backpack', 'smelling-salts', 'smoke-grenade',
+  'smoke-wall', 'snapshot-grenade', 'spark-plug', 'spotter-scope', 'stabilized-reagents', 'stim',
+  'stock-rod', 'structural-alloy', 'stun-grenade', 'supreme-leaders-bunker-access-card', 'tank-alternator', 'tank-water-pump',
+  'tempered-armor-vest', 'the-chemists-dog-tag', 'the-chemists-secure-armory', 'the-citadel-south-wing', 'the-doctors-dog-tag', 'thermite',
+  'throwing-knife', 'traindepot-storageroom', 'triage-kit', 'trip-wire', 'trophy-system', 'turned-components',
+  'uav', 'underground-propaganda-store-room', 'utility-maintenance-storage', 'vault-armory', 'volatile-explosives', 'weak-night-vision-goggles',
+  'weapons-mod-workshop', 'wmd-manifest', 'zip-gun',
+];
