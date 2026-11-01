@@ -176,6 +176,10 @@ DMZ.Harita = (function () {
 
   function noktalariYerlestir() {
     Object.keys(DMZ.kategoriler).forEach((k) => { katmanlar[k] = L.layerGroup(); });
+    // Telefonda bilgi kutusu dar ve kısa olsun, haritanın çoğunu kapatmasın; uzun yazı kutunun içinde kayar
+    const popupAyari = telefon()
+      ? { maxWidth: 230, minWidth: 180, maxHeight: Math.round(innerHeight * 0.34), autoPanPaddingTopLeft: [10, 64], autoPanPaddingBottomRight: [10, 16] }
+      : { maxWidth: 300, minWidth: 220, autoPanPadding: [24, 24] };
     DMZ.tumNoktalar().forEach((n) => {
       const kat = katmanlar[n.kategori] ? n.kategori : 'diger';
       const isaret = L.marker(ll(n.x, n.y), {
@@ -185,7 +189,7 @@ DMZ.Harita = (function () {
         riseOnHover: true,
         zIndexOffset: zSirasi(n),
       });
-      isaret.bindPopup(() => popupIcerik(n), { maxWidth: 300, minWidth: 220, autoPanPadding: [24, 24] });
+      isaret.bindPopup(() => popupIcerik(n), popupAyari);
       isaret.addTo(katmanlar[kat]);
       isaretler[n.id] = isaret;
       alanCiz(n, katmanlar[kat]);

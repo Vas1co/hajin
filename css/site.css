@@ -827,6 +827,25 @@ a.malzeme-cip:hover { border-color: var(--n-renk); }
   .harita-panel.acik { transform: translateY(0); visibility: visible; }
   #arac-katman { display: inline-flex; }
   #arac-koordinat { display: none; } /* koordinat modu site düzenleyen için, telefonda gereksiz */
+  #arac-sifirla { display: none; } /* haritayı başa döndürme telefonda gereksiz, parmakla zaten kolay */
+
+  /* Bilgi kutusu telefonda küçük: haritanın dörtte biri kadar; uzun yazı kutunun içinde kayar (harita.js, maxHeight) */
+  .leaflet-popup-content { margin: 9px 11px; font-size: 12.5px; line-height: 1.4; }
+  .leaflet-container a.leaflet-popup-close-button { width: 24px; height: 24px; font-size: 18px; }
+  .popup-kat { font-size: 11px; gap: 6px; }
+  .popup-kat .ikon { width: 13px; height: 13px; }
+  .popup-baslik { font-size: 15px; margin: 3px 0 1px; }
+  .popup-tr { font-size: 12px; margin-bottom: 4px; }
+  .popup-tehlike { font-size: 11.5px; }
+  .popup-bilgi { font-size: 12px; margin-top: 4px; }
+  .popup-aciklama { margin: 6px 0; max-height: none; }
+  .popup-malzemeler { margin: 6px 0 2px; gap: 4px; }
+  .popup-malzemeler .malzeme-cip { font-size: 11.5px; padding: 2px 6px; }
+  .popup-malzemeler .malzeme-cip small { display: none; }
+  .popup-rozetler { margin-bottom: 8px; }
+  .popup-dugmeler { gap: 6px; }
+  .popup-dugmeler .dugme { min-height: 30px; padding: 4px 9px; font-size: 12px; }
+  .popup-dugmeler .dugme .ikon { width: 14px; height: 14px; }
   .harita-araclar { top: 12px; right: 12px; }
   .arac span { display: none; }
   #arac-katman span { display: inline; }
