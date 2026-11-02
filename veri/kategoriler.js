@@ -122,6 +122,7 @@ DMZ.kategoriler = {
   },
   kasa: {
     ad: 'Kasa', en: 'Safe', grup: 'ganimet', ikon: 'kasa', renk: '#1d4ed8', ikonRenk: '#facc15',
+    alan: 40, // küçük şeffaf daire (boss ve malzeme dairelerinin üçte biri kadar)
     aciklama: 'Haritaya dağılmış küçük kasalar. Açınca farklı nadirlikte değerli ganimet çıkar. Bazı DMZ emirleri kasa açmanı istiyor (Robbery, Nothing Is Secure).',
   },
   malzeme: {
@@ -131,6 +132,7 @@ DMZ.kategoriler = {
   },
   kilavuz: {
     ad: 'Silah Kılavuzu', en: 'Weapon Manuals', grup: 'ganimet', ikon: 'silah', renk: '#6366f1',
+    alan: 40, // küçük şeffaf daire (boss ve malzeme dairelerinin üçte biri kadar)
     aciklama: 'Silah kılavuzunun çok çıktığı yazılan yerler. Kılavuzun sabit yeri yok, rastgele ganimet; burada sadece şansın daha yüksek. Bulup çıkarınca Silah Ustası\'nda (Gunsmith) o silahı satın alabilirsin. Ayrıntı Rehber\'de.',
   },
   satinalma: {
