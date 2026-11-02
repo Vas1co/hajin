@@ -357,11 +357,11 @@ body[data-sayfa="harita"] .ust { position: relative; }
   background: radial-gradient(circle at 50% 28%, color-mix(in srgb, var(--renk) 78%, #fff), var(--renk) 68%);
   border: 3px solid color-mix(in srgb, var(--renk) 62%, #fff);
 }
-.isaret .ikon { width: 13px; height: 13px; }
-.isaret-onemli .ikon { width: 15px; height: 15px; }
+.isaret .ikon { width: 15px; height: 15px; }
+.isaret-onemli .ikon { width: 17px; height: 17px; }
 .isaret-kap:hover .isaret, .isaret-kap:focus .isaret { transform: scale(1.18); }
 .isaret-kale { border-radius: 8px; border-color: #ffd2c7; }
-.isaret-kale .ikon { width: 17px; height: 17px; }
+.isaret-kale .ikon { width: 19px; height: 19px; }
 /* Boss: koyu zemin, kırmızı kurukafa ve kırmızı parıltı */
 .isaret-boss, .filtre-ikon.kat-boss, .sonuc-ikon.kat-boss { background: #1c0a0a; color: var(--renk); border-color: var(--renk); }
 .isaret-boss { box-shadow: 0 0 0 3px rgba(239, 68, 68, .3), 0 3px 10px rgba(0, 0, 0, .6); }
@@ -370,7 +370,8 @@ body[data-sayfa="harita"] .ust { position: relative; }
   content: ''; position: absolute; right: -2px; bottom: -2px; width: 9px; height: 9px; border-radius: 50%;
   background: var(--t-dusuk); border: 2px solid var(--zemin);
 }
-/* Oyun ikonu resmi: beyaz çizim, siyah kenar. Açık renkli rozette ters çevrilip koyu görünür. */
+/* Oyun ikonu resmi: beyaz çizim, siyah kenar. Açık renkli rozette ters çevrilip koyu görünür.
+   Resimlerdeki çizimler araclar/ikonlari_doldur.ps1 ile karenin %94'ünü dolduracak kadar büyütüldü. */
 .ikon-resim {
   position: absolute; inset: 0; margin: auto; width: 74%; height: 74%; /* rozetin içine ortalı, boyutu rozete göre */
   object-fit: contain; pointer-events: none; user-select: none;
