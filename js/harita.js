@@ -54,6 +54,8 @@ DMZ.Harita = (function () {
       attribution: 'Harita © Activision',
     }).addTo(harita);
 
+    haritaYazisiEkle();
+
     oyunSiniri = L.latLngBounds(ll(OYUN_ALANI.x1, OYUN_ALANI.y2), ll(OYUN_ALANI.x2, OYUN_ALANI.y1));
     harita.setMaxBounds(oyunSiniri.pad(0.3));
     harita.fitBounds(acilisSiniri(), SIGDIRMA_PAYI);
@@ -67,6 +69,22 @@ DMZ.Harita = (function () {
     yakinlikGuncelle();
     // Bilgi kutusundaki düğmeler; kutu yeniden çizilince de çalışsın diye haritaya bağlı
     kap.addEventListener('click', popupEylemi);
+  }
+
+  // Sağ üstteki site yazısı (veri/site.js, haritaYazisi). Kuzeydoğudaki boş arazide, 1200x760 harita
+  // piksellik bir kutuya çizilen svg; harita ile birlikte büyüyüp küçülür, tıklamaları engellemez.
+  function haritaYazisiEkle() {
+    const y = DMZ.site.haritaYazisi;
+    if (!y) return;
+    const [ilk, ...kalan] = (y.ust || '').split(' ');
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 1200 760');
+    svg.innerHTML = `
+      <text x="1180" y="150" font-size="118" letter-spacing="10" stroke-width="10"><tspan>${kacis(ilk)}</tspan><tspan class="yazi-vurgu"> ${kacis(kalan.join(' '))}</tspan></text>
+      <text x="1180" y="420" font-size="270" letter-spacing="16" stroke-width="14">${kacis(y.ad || '')}</text>
+      <text class="yazi-kore" x="1170" y="690" font-size="240" stroke-width="10">${kacis(y.imza || '')}</text>`;
+    // y 800'ün altı: geniş ekranda açılışta görünen en üst sınır ve sağ üstteki düğmelerin altı
+    L.svgOverlay(svg, L.latLngBounds(ll(2200, 1560), ll(3400, 800)), { interactive: false, className: 'harita-yazisi' }).addTo(harita);
   }
 
   // --- İşaretler ---

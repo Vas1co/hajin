@@ -335,12 +335,27 @@ body[data-sayfa="harita"] .ust { position: relative; }
 .leaflet-bar a { background: var(--panel) !important; color: var(--metin) !important; border-bottom-color: var(--cizgi) !important; width: 38px !important; height: 38px !important; line-height: 38px !important; }
 .leaflet-bar a:hover { background: var(--panel-3) !important; }
 
+/* Haritanın sağ üstündeki site yazısı (harita.js, haritaYazisiEkle) */
+.harita-yazisi { pointer-events: none; filter: drop-shadow(0 0 14px rgba(0, 0, 0, .55)); } /* turuncu arazide okunsun */
+.harita-yazisi text {
+  font-family: var(--baslik-font); font-weight: 700; fill: #f4f0e6; text-anchor: end;
+  paint-order: stroke; stroke: rgba(11, 13, 11, .75); stroke-linejoin: round;
+}
+.harita-yazisi .yazi-vurgu { fill: #ff3d2e; }
+.harita-yazisi .yazi-kore { font-family: 'East Sea Dokdo', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; font-weight: 400; }
+
 .isaret-kap, .etiket-kap { background: none; border: 0; }
 /* Harita işareti: kategori renginde dolu rozet, üstünde ikon. Aynı görünüm katman listesinde ve aramada da var. */
 .isaret {
   position: relative; display: grid; place-items: center; width: 100%; height: 100%;
-  border-radius: 50%; background: var(--renk); color: var(--ikon-renk, #fff); border: 2px solid rgba(255, 255, 255, .92);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, .55), 0 3px 8px rgba(0, 0, 0, .4); transition: transform .12s;
+  border-radius: 50%; color: var(--ikon-renk, #fff);
+  box-shadow: 0 0 0 1.5px rgba(0, 0, 0, .6), 0 0 10px color-mix(in srgb, var(--renk) 60%, transparent), 0 3px 8px rgba(0, 0, 0, .4);
+  transition: transform .12s;
+}
+/* Rozetin dolgusu ve halkası: halka beyaz değil, kategorinin kendi renginin açık ve canlı tonu */
+.isaret, .filtre-ikon, .sonuc-ikon {
+  background: radial-gradient(circle at 50% 28%, color-mix(in srgb, var(--renk) 78%, #fff), var(--renk) 68%);
+  border: 3px solid color-mix(in srgb, var(--renk) 62%, #fff);
 }
 .isaret .ikon { width: 13px; height: 13px; }
 .isaret-onemli .ikon { width: 15px; height: 15px; }
@@ -462,7 +477,7 @@ a.malzeme-cip:hover { border-color: var(--n-renk); }
 .sonuc:hover, .sonuc:focus-visible { background: var(--panel-3); outline: 0; }
 .sonuc-ikon {
   position: relative; display: grid; place-items: center; width: 28px; height: 28px; flex: none; border-radius: 50%;
-  background: var(--renk); color: var(--ikon-renk, #fff); border: 2px solid rgba(255, 255, 255, .85);
+  color: var(--ikon-renk, #fff); /* dolgu ve halka .isaret ile ortak */
 }
 .sonuc-ikon .ikon { width: 13px; height: 13px; }
 .sonuc-ikon .ek-isaret, .filtre-ikon .ek-isaret { top: -5px; right: -6px; width: 13px; height: 13px; font-size: 9px; }
@@ -537,7 +552,7 @@ a.malzeme-cip:hover { border-color: var(--n-renk); }
 .filtre input { position: absolute; opacity: 0; pointer-events: none; }
 .filtre-ikon {
   position: relative; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%;
-  background: var(--renk); color: var(--ikon-renk, #fff); border: 2px solid rgba(255, 255, 255, .85);
+  color: var(--ikon-renk, #fff); /* dolgu ve halka .isaret ile ortak */
   transition: opacity .15s, filter .15s;
 }
 .filtre-ikon .ikon { width: 14px; height: 14px; }
