@@ -12,8 +12,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=East+Sea+Dokdo&display=swap">
+  <!-- Temaların yazı tipi (css/temalar.css); tarayıcı sadece tema açıksa indirir -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap">
   <link rel="stylesheet" href="lib/leaflet/leaflet.css">
   <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/temalar.css">
+  <!-- Site ayarları en başta: tema sayfa çizilmeden seçilsin -->
+  <script src="veri/site.js"></script>
+  <script src="js/tema.js"></script>
 </head>
 <body>
   <a class="atla" href="#icerik">İçeriğe geç</a>
@@ -82,8 +88,7 @@
   <!-- Harita kütüphanesi projenin içinde: internet olmadan da çalışır (Leaflet 1.9.4, BSD-2 lisansı: lib/leaflet/LICENSE) -->
   <script src="lib/leaflet/leaflet.js"></script>
 
-  <!-- Veriler: bilgileri bu dosyalardan düzenle -->
-  <script src="veri/site.js"></script>
+  <!-- Veriler: bilgileri bu dosyalardan düzenle (veri/site.js sayfanın başında yükleniyor) -->
   <script src="veri/kategoriler.js"></script>
   <script src="veri/resmi_noktalar.js"></script>
   <script src="veri/noktalar.js"></script>
