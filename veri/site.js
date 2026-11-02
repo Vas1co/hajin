@@ -19,4 +19,8 @@ DMZ.site = {
   // sayfayı kaydetme / kaynak kodu açma kısayolları kapalı. Bu işlerden anlamayanlar kolayca kopyalayamasın
   // diye; bilen biri yine de alabilir. Siteyi düzenlerken rahatsız ederse false yap.
   kopyaKorumasi: true,
+  // Haritanın sağ üstünde, kuzeydoğudaki boş arazide duran yazı. Harita ile birlikte büyüyüp küçülür.
+  // "ust" satırının ilk kelimesi beyaz, gerisi turuncu. "imza" Korece harflerle "Vasco" (바스코).
+  // Kaldırmak için haritaYazisi: null yap.
+  haritaYazisi: { ust: 'DMZ TÜRKİYE', ad: 'HAJİN', imza: '바스코' },
 };
