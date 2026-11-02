@@ -101,7 +101,7 @@ DMZ.Harita = (function () {
     // Önemli işaretler uzaktan bakınca da ikon olarak kalır, diğerleri noktaya döner
     const onemli = ['kale', 'giris', 'hikaye', 'cikis', 'soncikis', 'boss', 'siginak'].includes(n.kategori);
     const tam = tamResim(kat);
-    const boy = n.kategori === 'kale' ? 34 : tam ? (onemli ? 32 : 28) : onemli ? 28 : 26;
+    const boy = n.kategori === 'kale' ? 36 : tam ? (onemli ? 32 : 30) : onemli ? 32 : 30;
     const siniflar = ['isaret', `isaret-${n.kategori}`];
     if (tam) siniflar.push('rozet-tam');
     if (onemli) siniflar.push('isaret-onemli');
