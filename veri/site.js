@@ -4,6 +4,10 @@ window.DMZ = window.DMZ || {};
 DMZ.site = {
   ad: 'Hajin Rehberi',
   altBaslik: 'MW4 DMZ · Türkçe',
+  // Tema: 'radyasyon-sade', 'klasik' (eski yeşilimsi koyu renkler), 'radyasyon' (uyarı şeritli),
+  // 'radyasyon-kehribar' ya da 'menu'. Hepsi css/temalar.css'te.
+  // Başkasına bakmak için adrese ?tema=klasik ekle, sol altta tema düğmeleri çıkar.
+  tema: 'radyasyon-sade',
   guncelleme: '30 Ekim 2026',
   // Arkadaşların bilgi gönderebileceği yer, ör. 'Discord: kullaniciadi'. Boş kalırsa "yakında" yazar.
   iletisim: '',

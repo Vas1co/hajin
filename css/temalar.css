@@ -1,0 +1,158 @@
+/* Temalar. Hangisinin açık olduğu veri/site.js'teki "tema" ayarında; boşsa site.css'teki varsayılan.
+   Denemek için adrese ?tema=radyasyon-sade gibi ekle (ör. localhost:5520/?tema=radyasyon-sade#/harita),
+   sol altta tema düğmeleri çıkar. */
+
+/* =====================================================================
+   RADYASYON: siyah ve zehir sarısı, oyun menüsü gibi seçili menü eğik sarı blok,
+   yan paneldeki satırın üstüne gelince ters renk. Logo sarı zemin üstünde siyah göz (uyarı levhası gibi).
+   Çeşitleri: radyasyon-sade (şerit ve ızgara yok, seçilen bu), radyasyon (uyarı şeridi ve hafif ızgara),
+   radyasyon-kehribar (sarı yerine kehribar).
+   ===================================================================== */
+:root[data-tema^="radyasyon"] {
+  --zemin: #0a0a08; --panel: #111110; --panel-2: #181816; --panel-3: #20201d;
+  --cizgi: #262622; --cizgi-guclu: #3a3a33;
+  --metin: #f2f2ea; --soluk: #a3a397; --cok-soluk: #6e6e64;
+  --vurgu: #e4ff1a; --vurgu-metin: #111400; --vurgu-zemin: #1d2108; --ikincil: #39d0b8;
+  /* Yarı dar yazı tipi: oyun havası var ama dar olanı kadar yormuyor */
+  --baslik-font: 'Barlow Semi Condensed', 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --ust-yukseklik: 72px;
+  --logo-boy: 50px;
+  --izgara:
+    linear-gradient(color-mix(in srgb, var(--vurgu) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--vurgu) 5%, transparent) 1px, transparent 1px);
+  --serit: repeating-linear-gradient(-45deg, var(--vurgu) 0 10px, #0a0a08 10px 20px);
+}
+:root[data-tema="radyasyon-kehribar"] { --vurgu: #ffb000; --vurgu-metin: #1a1000; --vurgu-zemin: #241a06; }
+:root[data-tema="radyasyon-sade"] { --izgara: none; --serit: none; }
+
+/* --- Üst çubuk: solda büyük logo ve site adı, ince çizgiyle menüden ayrılıyor --- */
+:root[data-tema^="radyasyon"] .ust {
+  gap: 22px; padding: 0 24px 0 16px;
+  background-color: var(--zemin); background-image: var(--izgara); background-size: 18px 18px;
+  backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom-color: var(--cizgi-guclu);
+}
+:root[data-tema^="radyasyon"] .ust::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 5px; pointer-events: none;
+  background: var(--serit);
+}
+:root[data-tema^="radyasyon"] .logo {
+  position: relative; isolation: isolate; align-self: stretch; gap: 14px;
+  padding-right: 24px; border-right: 1px solid var(--cizgi-guclu);
+}
+/* Logo resmi siyah-beyaz; altına temanın renginde bir kutu konup "multiply" ile basılınca beyazlar o renge döner */
+:root[data-tema^="radyasyon"] .logo::before {
+  content: ''; position: absolute; z-index: -1; left: 0; top: 50%; transform: translateY(-50%);
+  height: var(--logo-boy); aspect-ratio: 600 / 338; background: var(--vurgu); border-radius: 3px;
+}
+:root[data-tema^="radyasyon"] .logo-resim {
+  height: var(--logo-boy); border: 0; border-radius: 3px; background: none; mix-blend-mode: multiply;
+}
+:root[data-tema^="radyasyon"] .logo-yazi b { font-size: 26px; font-weight: 700; letter-spacing: .01em; text-transform: none; line-height: 1; }
+:root[data-tema^="radyasyon"] .logo-yazi small { margin-top: 4px; font-size: 12.5px; letter-spacing: .03em; text-transform: none; }
+:root[data-tema^="radyasyon"] .logo:hover .logo-yazi b { color: var(--vurgu); }
+
+:root[data-tema^="radyasyon"] .ust-menu a {
+  position: relative; z-index: 0; padding: 0 15px; border-bottom: 0;
+  font-family: var(--baslik-font); font-weight: 600; font-size: 17.5px; letter-spacing: .01em;
+}
+:root[data-tema^="radyasyon"] .ust-menu a:hover { background: none; color: #fff; }
+:root[data-tema^="radyasyon"] .ust-menu a[aria-current="page"],
+:root[data-tema^="radyasyon"] .ust-menu a[aria-current="page"] .ikon { color: var(--vurgu-metin); }
+:root[data-tema^="radyasyon"] .ust-menu a[aria-current="page"]::before {
+  content: ''; position: absolute; inset: 18px 0; z-index: -1; background: var(--vurgu); transform: skewX(-14deg);
+}
+:root[data-tema^="radyasyon"] .canli {
+  color: var(--vurgu); border-color: color-mix(in srgb, var(--vurgu) 45%, transparent); border-radius: 2px;
+  font-size: 14px; letter-spacing: .02em; text-transform: none;
+}
+:root[data-tema^="radyasyon"] .canli i { background: var(--vurgu); box-shadow: 0 0 0 3px color-mix(in srgb, var(--vurgu) 18%, transparent); }
+
+/* --- Yan panel: bölüm başlıklarının solunda sarı çizgi, satırın üstüne gelince sarı zemin siyah yazı --- */
+:root[data-tema^="radyasyon"] .harita-panel { background-image: var(--izgara); background-size: 18px 18px; }
+:root[data-tema^="radyasyon"] .filtre-grup-baslik {
+  font-family: var(--baslik-font); font-weight: 600; font-size: 16px; letter-spacing: .01em; text-transform: none;
+  color: var(--metin); border-left: 3px solid var(--vurgu); padding: 1px 6px 1px 9px; margin-bottom: 6px;
+}
+:root[data-tema^="radyasyon"] .filtre-grup-baslik input:checked + .anahtar::before { background: var(--vurgu-metin); }
+:root[data-tema^="radyasyon"] .filtre { border-radius: 2px; }
+:root[data-tema^="radyasyon"] .filtre:not(.filtre-bos):hover { background: var(--vurgu); }
+:root[data-tema^="radyasyon"] .filtre:not(.filtre-bos):hover :is(.filtre-ad, .filtre-ad small, .filtre-sayi) { color: var(--vurgu-metin); }
+
+/* --- Sayfalar: büyük başlıklar büyük harf değil, yazı tipi yarı dar ve kalın --- */
+:root[data-tema^="radyasyon"] :is(.giris h1, .sayfa-baslik h1, .bolum-karti h2, .kutu-baslik, .popup-baslik, .lok-kart h3,
+  .gorev-sayfa-ad b, .esya-kart h3, .ara-baslik, .rehber-bolum h2) { text-transform: none; letter-spacing: 0; }
+:root[data-tema^="radyasyon"] .giris h1 { font-size: clamp(40px, 5.6vw, 64px); line-height: 1.02; }
+:root[data-tema^="radyasyon"] .sayfa-baslik h1 { font-size: clamp(32px, 4.2vw, 46px); }
+:root[data-tema^="radyasyon"] .bolum-karti h2 { font-size: 22px; }
+:root[data-tema^="radyasyon"] .popup-baslik { font-size: 22px; }
+:root[data-tema^="radyasyon"] :is(.dugme, .arac) {
+  border-radius: 2px; font-family: var(--baslik-font); font-size: 16px; font-weight: 600; letter-spacing: .01em;
+}
+:root[data-tema^="radyasyon"] :is(.arama-kutusu, .kutu, .bolum-karti, .giris, .lok-kart, .giris-harita) { border-radius: 3px; }
+
+@media (max-width: 899px) {
+  :root[data-tema^="radyasyon"] { --ust-yukseklik: 58px; --logo-boy: 38px; }
+  :root[data-tema^="radyasyon"] .logo { padding-right: 0; border-right: 0; }
+  :root[data-tema^="radyasyon"] .logo-yazi b { font-size: 21px; }
+}
+
+/* =====================================================================
+   OYUN MENÜSÜ (önceki denemeden, karşılaştırma için): beyaz seçim bloğu, kehribar vurgu
+   ===================================================================== */
+:root[data-tema="menu"] {
+  --zemin: #0a0b0c; --panel: #111315; --panel-2: #181b1e; --panel-3: #202428;
+  --cizgi: #24282c; --cizgi-guclu: #363c42;
+  --metin: #f2f3f1; --soluk: #9ba1a6; --cok-soluk: #6a7076;
+  --vurgu: #f2f3f1; --vurgu-metin: #0a0b0c; --vurgu-zemin: #1f2326; --ikincil: #f5a300;
+  --baslik-font: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+}
+:root[data-tema="menu"] .ust { background: linear-gradient(#131518, #0a0b0c); border-bottom-color: #2a2f34; }
+:root[data-tema="menu"] .logo-yazi b { font-size: 23px; letter-spacing: .06em; }
+:root[data-tema="menu"] .ust-menu a {
+  position: relative; z-index: 0; font-family: var(--baslik-font); font-weight: 600; font-size: 17px;
+  text-transform: uppercase; letter-spacing: .08em; border-bottom: 0; padding: 0 16px;
+}
+:root[data-tema="menu"] .ust-menu a:hover { background: none; color: #fff; }
+:root[data-tema="menu"] .ust-menu a[aria-current="page"],
+:root[data-tema="menu"] .ust-menu a[aria-current="page"] .ikon { color: var(--vurgu-metin); }
+:root[data-tema="menu"] .ust-menu a[aria-current="page"]::before {
+  content: ''; position: absolute; inset: 13px 0; z-index: -1; background: var(--vurgu); transform: skewX(-14deg);
+}
+:root[data-tema="menu"] .canli { color: var(--ikincil); border-color: color-mix(in srgb, var(--ikincil) 50%, transparent); border-radius: 2px; font-size: 13px; }
+:root[data-tema="menu"] .canli i { background: var(--ikincil); box-shadow: none; }
+:root[data-tema="menu"] :is(.ust-etiket, .giris h1 em) { color: var(--ikincil); }
+:root[data-tema="menu"] .harita-panel { background: linear-gradient(90deg, #0d0f11, #121417); }
+:root[data-tema="menu"] .filtre-grup-baslik {
+  font-family: var(--baslik-font); font-size: 15px; letter-spacing: .1em; color: var(--metin);
+  border-left: 3px solid var(--ikincil); padding: 2px 6px 2px 8px; margin-bottom: 6px;
+}
+:root[data-tema="menu"] .filtre-grup-baslik input:checked + .anahtar::before { background: var(--vurgu-metin); }
+:root[data-tema="menu"] .filtre { border-radius: 2px; }
+:root[data-tema="menu"] .filtre:not(.filtre-bos):hover { background: var(--vurgu); }
+:root[data-tema="menu"] .filtre:not(.filtre-bos):hover :is(.filtre-ad, .filtre-ad small, .filtre-sayi) { color: var(--vurgu-metin); }
+:root[data-tema="menu"] .filtre-ad { font-family: var(--baslik-font); font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: .03em; }
+:root[data-tema="menu"] .filtre-ad small { font-family: var(--govde-font); text-transform: none; letter-spacing: 0; }
+:root[data-tema="menu"] :is(.dugme, .arac) { border-radius: 2px; font-family: var(--baslik-font); font-size: 15px; text-transform: uppercase; letter-spacing: .06em; }
+:root[data-tema="menu"] :is(.arama-kutusu, .kutu, .bolum-karti, .giris, .lok-kart) { border-radius: 3px; }
+
+/* ---------- Bütün temalarda ortak ---------- */
+
+/* Haritadaki bölge adları her temada aynı yazı tipinde kalsın, okunurluk için */
+:root[data-tema] .etiket { font-family: 'Chakra Petch', 'Arial Narrow', system-ui, sans-serif; }
+
+/* Haritanın sağ üstündeki yazıda "TÜRKİYE" temanın renginde */
+:root[data-tema] .harita-yazisi .yazi-vurgu { fill: var(--vurgu); }
+:root[data-tema="menu"] .harita-yazisi .yazi-vurgu { fill: var(--ikincil); }
+
+/* Tema deneme düğmeleri (sadece adreste ?tema= varken, js/tema.js) */
+.tema-secici {
+  position: fixed; left: 12px; bottom: 12px; z-index: 3000; display: flex; flex-wrap: wrap; gap: 6px; max-width: 280px;
+  padding: 8px; border-radius: 10px; background: #111;
+  border: 1px solid #444; box-shadow: 0 8px 30px rgba(0, 0, 0, .5); font-size: 12px;
+}
+.tema-secici b { width: 100%; letter-spacing: .1em; text-transform: uppercase; color: #aaa; font: 600 11px system-ui, sans-serif; }
+.tema-secici button {
+  padding: 5px 9px; border-radius: 6px; border: 1px solid #444; background: #222; color: #eee;
+  font: 600 12px system-ui, sans-serif; cursor: pointer;
+}
+.tema-secici button[aria-pressed="true"] { background: #eee; color: #111; border-color: #eee; }
