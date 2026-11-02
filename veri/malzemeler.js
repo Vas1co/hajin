@@ -73,7 +73,7 @@ DMZ.malzemeBilgisi = {
   },
   'high-tenacity-fibers': {
     ad: 'High-Tenacity Fibers', tr: 'Yüksek dayanımlı lifler', nadirlik: 'nadir',
-    nerede: 'Chang-san Hava Üssü\'nün cephaneliği ve koğuşları; Songdo İskelesi\'ndeki La Grande Vie otelinin çatısı.',
+    nerede: 'Chang-san Hava Üssü\'nün cephaneliği ve koğuşları; Songdo Rıhtımı\'ndaki La Grande Vie otelinin çatısı.',
     kullanim: ['Ballistic Fabric', 'Durable Gas Mask', 'Large Scavenger Backpack', 'Medium Weapon Backpack', 'Uncommon Ingredient Printing'],
   },
   'nitro-compounds': {
@@ -112,7 +112,7 @@ DMZ.malzemeBilgisi = {
   },
   'ballistic-fabric': {
     ad: 'Ballistic Fabric', tr: 'Balistik kumaş', nadirlik: 'epik',
-    nerede: 'Chang-san Hava Üssü\'nün cephaneliği ve koğuşları; Songdo İskelesi\'ndeki La Grande Vie otelinin çatısı.',
+    nerede: 'Chang-san Hava Üssü\'nün cephaneliği ve koğuşları; Songdo Rıhtımı\'ndaki La Grande Vie otelinin çatısı.',
     uretim: '100 Sentetik + 3 High-Tenacity Fibers (Epic Ingredient Printing yükseltmesiyle)',
     kullanim: ['3-Plate Armor Vest', 'Tempered Armor Vest'],
   },

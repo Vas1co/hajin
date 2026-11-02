@@ -17,6 +17,6 @@ DMZ.kilavuzBilgisi = {
     'manual-ppsh-41': 'Chang-san koğuşlarında bir spor çantası; Heavenly Luck Casino\'nun Kasa Cephaneliği (Vault Armory); Cheonwang Zirvesi\'nde bir kasa.',
     'sang-9mm': 'Hareket eden trende, yolcu koltuğundaki mavi spor çantası (Cheongun Outskirts\'ten geçerken).',
     'manual-mar-9': 'Reaktör DRC Dolabı (Reactor DRC Locker).',
-    'manual-kg-7-vulcan': 'Reaktör 02\'de işlenen ışınlanmış konteynerden (Irradiated Container).',
+    'manual-kg-7-vulcan': 'Reaktör 02\'de işlenen radyoaktif konteynerden (Irradiated Container).',
   },
 };

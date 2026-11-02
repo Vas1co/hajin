@@ -21,7 +21,7 @@ DMZ.esyaKategorileri = {
   ekipman:  { ad: 'Hayatta kalma ekipmanı', en: 'Survival Gear',    ikon: 'radyasyon' },
   saha:     { ad: 'Saha ekipmanı',          en: 'Field Upgrades',   ikon: 'ammo' },
   taktik:   { ad: 'Taktik ekipman',         en: 'Tacticals',        ikon: 'taktik' },
-  oldurucu: { ad: 'Öldürücüler',            en: 'Lethals',          ikon: 'oldurucu' },
+  oldurucu: { ad: 'Öldürücü ekipman',       en: 'Lethals',          ikon: 'oldurucu' },
   destek:   { ad: 'Ateş desteği',           en: 'Fire Support',     ikon: 'destek' },
   cikis:    { ad: 'Çıkış araçları',         en: 'Exfil Items',      ikon: 'cikis' },
   anahtar:  { ad: 'Anahtarlar',             en: 'Keys',             ikon: 'anahtar' },
@@ -48,7 +48,7 @@ DMZ.nadirlikler = {
 DMZ.esyalar = [
   // --- Zırh ---
   { id: 'plate-carrier', ad: 'Plate Carrier', tr: 'Zırh yeleği', kategori: 'zirh',
-    not: 'Zırh plakalarını taşır. Kaç plaka aldığı modele göre değişir, ör. 2 plakalı yelek (2-Plate Carrier). Maça girerken yükünde olması önerilir.',
+    not: 'Zırh plakalarını taşır. Kaç plaka aldığı modele göre değişir, ör. 2 plakalı yelek (2-Plate Carrier). Maça girerken teçhizatında olması önerilir.',
     nerede: 'Ganimet, hayatta kalma kitleri. Tarifi açılınca 3D yazıcıda da üretilebilir.' },
   { id: 'armor-plate', ad: 'Armor Plate', tr: 'Zırh plakası', kategori: 'zirh',
     not: 'Yeleğe takılır, hasarı emer. Girişte zırh yuvan otomatik dolar. Fazlasını çanta menüsünden yeleğe takabilirsin.',
@@ -67,7 +67,7 @@ DMZ.esyalar = [
   { id: 'bandage', ad: 'Bandage', tr: 'Bandaj', kategori: 'saglik',
     not: 'Sağlığını geçici olarak yeniler. Çanta menüsünden kullanılır.' },
   { id: 'self-revive', ad: 'Self-Revive Kit', tr: 'Kendini diriltme kiti', kategori: 'saglik',
-    not: 'Yere düştüğünde kendini kaldırmanı sağlar. Yükünde kendine ait bir yuvası var.' },
+    not: 'Yere düştüğünde kendini kaldırmanı sağlar. Teçhizatında kendine ait bir yuvası var.' },
 
   // --- Hayatta kalma ekipmanı ---
   { id: 'radiation-gear', ad: 'Radiation Gear', tr: 'Radyasyon kıyafeti', kategori: 'ekipman',
@@ -79,7 +79,7 @@ DMZ.esyalar = [
     not: 'Kafa yuvasına takılır. Elektriği olmayan karanlık iç mekânlar için: Heavenly Luck Kumarhanesi, NuriGO yeraltı AVM\'si.',
     lokasyon: 'kale-heavenly-luck-casino' },
   { id: 'parachute', ad: 'Parachute', tr: 'Paraşüt', kategori: 'ekipman',
-    not: 'Yükünde kendine ait bir yuvası var.',
+    not: 'Teçhizatında kendine ait bir yuvası var.',
     nerede: 'İtfaiyeler (Fire Station).' },
   { id: 'gas-can', ad: 'Gas Can', tr: 'Benzin bidonu', kategori: 'ekipman',
     not: 'Araçlara yakıt taşımak için.',
