@@ -120,7 +120,7 @@ DMZ.gorevler = [
     id: 'e06', sayfa: 6, ad: 'Counterfeit 2/2', tr: 'Sahte Para 2/2', kaynak: 'dmzhub',
     odul: '20.000 DMZ parası',
     gorevler: [
-      { id: 'e06-1', ad: 'Suit Breach', tr: 'Delik Kıyafet',
+      { id: 'e06-1', ad: 'Suit Breach', tr: 'Kıyafet Delindi',
         adimlar: ['Hazmat kıyafetli 15 düşman öldür (genelde radyasyonlu bölgelerde olurlar).'] },
       { id: 'e06-2', ad: 'Eyes Everywhere', tr: 'Her Yerde Gözler', lokasyon: 'kale-heavenly-luck-casino',
         adimlar: ['Bir keşif dronu (Recon Drone) üret.', 'Heavenly Luck Casino\'da keşif dronuyla 10 düşman işaretle.'] },
@@ -132,7 +132,7 @@ DMZ.gorevler = [
     id: 'e07', sayfa: 7, ad: 'Recognition · Radiation Station · Healer', tr: 'Radyasyon ve sağlık', kaynak: 'dmzhub',
     odul: 'UAV · Armor Box · 20.000 DMZ parası',
     gorevler: [
-      { id: 'e07-1', ad: 'Recognition', tr: 'Tanınma',
+      { id: 'e07-1', ad: 'Recognition', tr: 'Adını Duyur',
         adimlar: ['Yüksek tehlike seviyeli bir bölgede susturucusuz silahla 15 düşman öldür.'],
         ipucu: 'Hangi bölgenin tehlike seviyesi yüksek, Lokasyonlar sayfasında yazıyor.' },
       { id: 'e07-2', ad: 'Radiation Station', tr: 'Radyasyon İstasyonu',
@@ -158,7 +158,7 @@ DMZ.gorevler = [
     id: 'e09', sayfa: 9, ad: 'Underground 2/2', tr: 'Yeraltı 2/2', kaynak: 'dmzhub',
     gorevler: [
       { id: 'e09-1', ad: 'Dead Battery', tr: 'Bitik Pil',
-        adimlar: ['DDOS saha ekipmanı (Field Upgrade) üret.', 'DDOS ile 3 düşman aracını ya da dronunu etkisiz bırak.'] },
+        adimlar: ['DDOS saha ekipmanı (Field Upgrade) üret.', 'DDOS ile 3 düşman aracını ya da dronunu etkisiz hale getir.'] },
       { id: 'e09-2', ad: 'Death From Above', tr: 'Yukarıdan Gelen Ölüm',
         adimlar: ['Bir dronu tuzak bombasıyla (Decoy Grenade) kandır.', '3 dron yok et.', 'Yok ettiğin bir drondan dron anakartı (Drone Motherboard) al.'] },
       { id: 'e09-3', ad: 'Operation Shopping Hacks', tr: 'Hikaye görevi: Shopping Hacks',
@@ -277,7 +277,7 @@ DMZ.gorevler = [
       { id: 'e19-1', ad: 'Avionics', tr: 'Aviyonik',
         adimlar: ['5 elektronik sensör (Electronic Sensors) üret ya da çıkar.', '1 yapısal alaşım (Structural Alloy) çıkar.', 'Bir UAV üret.'] },
       { id: 'e19-2', ad: 'Philanthropist', tr: 'Hayırsever',
-        adimlar: ['Haftalık rastgele görev (Weekly Random Mission Deploy) meydan okumasını bitir.'] },
+        adimlar: ['Haftalık rastgele görevi (Weekly Random Mission Deploy) bitir.'] },
       { id: 'e19-3', ad: 'Multi-Talented', tr: 'Çok Yönlü',
         adimlar: ['6 SAM bataryası ele geçir.', '12 ikmal paketi (Supply Drop) aç.', '4 yerleşke temizle.'] },
     ],

@@ -75,7 +75,7 @@ DMZ.Sayfalar = (function () {
         <a class="giris-harita" href="#/harita" aria-label="Haritayı aç">
           <img src="harita/tiles/2/1/1.jpg" alt=""><img src="harita/tiles/2/2/1.jpg" alt="">
           <img src="harita/tiles/2/1/2.jpg" alt=""><img src="harita/tiles/2/2/2.jpg" alt="">
-          <span class="giris-harita-etiket">${DMZ.ikon('koordinat')} Hajin Dışlama Bölgesi</span>
+          <span class="giris-harita-etiket">${DMZ.ikon('koordinat')} Hajin Yasak Bölgesi</span>
         </a>
       </section>
 
@@ -383,7 +383,7 @@ DMZ.Sayfalar = (function () {
     const dmzhubVar = esyaVerisi.some((e) => e.kaynak === 'dmzhub');
     el.innerHTML = `
       <header class="sayfa-baslik">
-        <span class="ust-etiket">Saha veritabanı</span>
+        <span class="ust-etiket">Ganimet ve ekipman</span>
         <h1>Eşyalar</h1>
         <p>Her eşyanın oyundaki İngilizce adı, Türkçe karşılığı, nadirliği, değeri ve biliniyorsa ne işe yaradığı ve nerede bulunduğu.</p>
       </header>

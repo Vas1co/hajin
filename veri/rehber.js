@@ -11,7 +11,7 @@ window.DMZ = window.DMZ || {};
 DMZ.rehber = [
   {
     id: 'dmz-nedir', baslik: 'DMZ nedir?', ikon: 'harita',
-    metin: 'DMZ, Modern Warfare 4\'ün çıkarma (extraction) modu. Hajin\'e girersin, ganimet toplarsın, görev yaparsın, yapay zekâ düşmanlarla ve başka oyuncularla çatışırsın. Asıl amaç topladıklarınla canlı çıkmak.\n\nÇıkış yaparsan çantandakiler deponda (Stash) kalır, kazandığın para bankana geçer. Ölürsen operatörün kayıp (MIA) olur ve üstündeki ekipmanı kaybedersin.',
+    metin: 'DMZ, Modern Warfare 4\'ün tahliye (extraction) modu. Hajin\'e girersin, ganimet toplarsın, görev yaparsın, yapay zekâ düşmanlarla ve başka oyuncularla çatışırsın. Asıl amaç topladıklarınla canlı çıkmak.\n\nÇıkış yaparsan çantandakiler deponda (Stash) kalır, kazandığın para bankana geçer. Ölürsen operatörün kayıp (MIA) olur ve üstündeki ekipmanı kaybedersin.',
   },
   {
     id: 'giris', baslik: 'Maça giriş (Deploy)', ikon: 'giris',
@@ -31,7 +31,7 @@ DMZ.rehber = [
         ['Kargo uçağı (Cargo Plane)', '100.000', 'Uçaktan atlarsın. İneceğin yeri kendin seçersin.'],
       ],
     },
-    ipucu: 'Hazır olma (Ready Up) ekranında ücretsiz yükü (Free Loadout) seçebilirsin, çıkarsan bunlar da senin olur. Yanına en az zırh yeleği, sırt çantası, silah ve Medkit al. Ekibin yoksa Squad Fill seni iki oyuncuyla eşleştirir.',
+    ipucu: 'Hazır olma (Ready Up) ekranında ücretsiz teçhizatı (Free Loadout) seçebilirsin, çıkarsan bunlar da senin olur. Yanına en az zırh yeleği, sırt çantası, silah ve Medkit al. Ekibin yoksa Squad Fill seni iki oyuncuyla eşleştirir.',
   },
   {
     id: 'cikis', baslik: 'Çıkış (Exfil)', ikon: 'cikis',
@@ -63,8 +63,8 @@ DMZ.rehber = [
         ['Kademe 1: Kuzey Koreli er (Grunt)', 'En zayıf düşman'],
         ['Kademe 2: Zırhlı asker', ''],
         ['Kademe 3: Zırhlı, gaz maskeli asker', ''],
-        ['Kademe 4: Yüzsüz zırhlı asker (Faceless)', 'En güçlü sıradan asker'],
-        ['Otonom drone sürüsü (Drone Swarm)', ''],
+        ['Kademe 4: Maskeli ağır zırhlı asker (Faceless)', 'En güçlü sıradan asker'],
+        ['Otonom dron sürüsü (Drone Swarm)', ''],
         ['Otonom LMG drone', ''],
         ['Robot köpek (K9)', 'Genelde yeraltında'],
         ['Saldırı helikopteri devriyesi', ''],
@@ -91,7 +91,7 @@ DMZ.rehber = [
       basliklar: ['Komutan (Commander)', 'Ne bekleyeceksin'],
       satirlar: [
         ['Colossus', 'Yaklaşık 2,1 m boyunda ağır zırhlı asker; seyreltilmiş uranyum mermili minigun taşıyor. Olası yerleri haritada Boss Alanı katmanında.'],
-        ['Deathstalker', 'Helikopter boyutunda otonom drone, çift makineli tüfek taretli. Ele geçirdiğin SAM bataryası ona otomatik ateş eder.'],
+        ['Deathstalker', 'Helikopter boyutunda otonom dron, çift makineli tüfek taretli. Ele geçirdiğin SAM bataryası ona otomatik ateş eder.'],
         ['Tank', 'Alarm halinde devriye gezen Kuzey Kore ana muharebe tankı.'],
       ],
     },
@@ -120,12 +120,12 @@ DMZ.rehber = [
     maddeler: [
       'Birden fazla aktif operatörün olabilir. Ölen operatör kayıp (MIA) olur, DMZ parasıyla kurtarabilirsin. Ücret, operatörün yetenek (Trait) puanı arttıkça yükselir. Kurtarılan operatör ekipmansız döner.',
       'XP kazandıkça operatörün künyesi yükselir: Steel → Bronze → Silver → Gold → Damascus → Onyx. Her birinin I-II-III kademesi var, toplam 18 seviye. Her seviyede 1 yetenek puanı alırsın.',
-      'Puanları üç yetenek ağacına harcarsın: Warfighter (savaşçı), Scout (keşifçi), Survivalist (hayatta kalmacı). Onyx III\'e ulaşan operatörü prestij yapabilirsin.',
+      'Puanları üç yetenek ağacına harcarsın: Warfighter (savaşçı), Scout (keşifçi), Survivalist (hayatta kalma uzmanı). Onyx III\'e ulaşan operatörü prestij yapabilirsin.',
       'Operatör seviyesi ile genel DMZ seviyen (1-70) ayrı ilerler.',
     ],
   },
   {
-    id: 'canta', baslik: 'Çanta ve yük', ikon: 'canta',
+    id: 'canta', baslik: 'Çanta ve teçhizat', ikon: 'canta',
     maddeler: [
       'Çantasız girersen 8 yuvalı temel çanta (Basic Pack) ile başlarsın. Daha büyük çantalar daha fazla yuva verir.',
       'Kimyasal, Elektronik, Metal ve Sentetik kaynakları topladığın eşyalardan otomatik ayrışır ve ayrı bir cepte durur. 3D yazıcıda malzemelerle birlikte kullanılır.',
@@ -141,10 +141,10 @@ DMZ.rehber = [
       basliklar: ['İstasyon', 'Ne işe yarar'],
       satirlar: [
         ['Operatörler (Active Duty)', 'Operatör seç, yetenek ver, kayıp (MIA) operatörü kurtar.'],
-        ['Depo / Yük (Stash / Loadout)', 'Eşyalarını sakla, bir sonraki girişin yükünü hazırla.'],
+        ['Depo / Teçhizat (Stash / Loadout)', 'Eşyalarını sakla, bir sonraki girişin teçhizatını hazırla.'],
         ['DMZ Emirleri (DMZ Orders)', 'Sayfa sayfa görevler ve ödülleri.'],
         ['Atış Poligonu (Firing Range)', 'Silahını ve dürbününü dene, 100 m\'yi aşan hedefler var.'],
-        ['Hayatta Kalma Kitleri (Survival Kits)', 'Kitleri açıp içindekileri deponla: Deployment, Triage (sağlık), Armor, Equipment, SERE.'],
+        ['Hayatta Kalma Kitleri (Survival Kits)', 'Kitleri açıp içindekileri depona koy: Deployment, Triage (sağlık), Armor, Equipment, SERE.'],
         ['3D Yazıcı (3D Printer)', 'Kaynak ve malzemelerle ekipman üret, üs istasyonlarını yükselt. Hangi malzemenin nerede çıktığına dair ipucu da verir.'],
         ['Silah Ustası (Gunsmith)', 'DMZ parasıyla eklenti al, silah üret. Yeni silah açmak için silah kılavuzu (Weapon Manual) bulup çıkar.'],
         ['Satıcı (Vendor)', 'DMZ parasıyla silah ve eşya satar; ürünler her gün değişir.'],
@@ -225,7 +225,7 @@ DMZ.rehber = [
     maddeler: [
       '<b>Chang-san koğuşları (en çok önerilen):</b> Operation Iron Citadel hikaye görevini seç; görev seni üssün yanında başlatır, görevi yapman gerekmiyor. Çevre duvarındaki yıkık yerden gir, duvarın dibindeki üç alçak koğuşu tara: mavi spor çantaları, yeşil sandıklar, dolaplar, yataklar, banyo dolapları. Ateş etme, bütün üs alarma geçer. Bir tur 5 dakika kadar sürüyor; hiç çıkmayan turlar da oluyor.',
       '<b>Tren:</b> Imjin Tarlaları\'ndaki raylara araçla ya da Hajin Nehri\'nden tekneyle git, treni bekle ve açık yan kapıdan bin. Vagonları baştan sona tara: koltuklardaki mavi spor çantaları ve beyaz valizler, öndeki yeşil askeri dolaplar ve sandıklar. Cheongun Village\'da atla.',
-      '<b>Reaktör 02:</b> Kimyasal depolardan çıkan ışınlanmış konteyneri (Irradiated Container) Reaktör 02\'deki "Process Radioactive Material" makinesinde işle. Bazı oyuncular neredeyse her seferinde kılavuz çıktığını yazıyor, garanti değil. Radyasyon koruyucu kıyafet şart.',
+      '<b>Reaktör 02:</b> Kimyasal depolardan çıkan radyoaktif konteyneri (Irradiated Container) Reaktör 02\'deki "Process Radioactive Material" makinesinde işle. Bazı oyuncular neredeyse her seferinde kılavuz çıktığını yazıyor, garanti değil. Radyasyon koruyucu kıyafet şart.',
       '<b>Kilitli odalar:</b> Kumarhanenin Kasa Cephaneliği ve Sayım Odası, Reaktör DRC Dolabı, Karaborsa silah dolapları (Blackmarket Weapons Locker), Yeniden Eğitim Merkezi Ek Binası, karakol cephanelikleri ve Iron Citadel\'den sonra açılan Yüce Lider Sığınağı. Yerleri haritada Anahtar Odası katmanında.',
       '<b>Kasalar ve askeri kutular:</b> Kasalar, yeşil askeri sandıklar ve silah dolapları en çok kılavuz çıkan kutular. Yerleşkelerde (Compound) bunlardan dört beş tane var. Cheonwang Zirvesi\'ndeki üç kasa ve Gangbyeon apartmanlarındaki kasalar sık öneriliyor.',
       '<b>Sığınaklar:</b> Hava üssünün batısındaki sığınaklar (Silo) hızlıca dolaşılabilir: arka kapıdan gir, dolapları ve silah çantalarını ara, koridorun sonundaki düğmeyle kapağı açıp çık.',
@@ -266,7 +266,7 @@ DMZ.rehber = [
     id: 'teknoloji', baslik: 'Dronlar, DDOS ve zırhlılar', ikon: 'iha',
     maddeler: [
       'Savaş dronları ve ağır savaş dronları havadan saldırır. Şişme tuzak (Inflatable Decoy) ya da tuzak bombası (Decoy Grenade) dikkatlerini dağıtır.',
-      'DDOS saha ekipmanı araçları ve dronları bir süre etkisiz bırakır, tankın reaktif zırhını da kapatır.',
+      'DDOS saha ekipmanı araçları ve dronları bir süre etkisiz hale getirir, tankın reaktif zırhını da kapatır.',
       '<b>Tank:</b> Önce DDOS\'la zırhını kapat, sonra roketle vur.',
       '<b>Deathstalker:</b> SAM bataryası, roketatar ya da DDOS işe yarar.',
       '<b>K9 robot köpekler:</b> NuriGO Mall\'un yeraltında olurlar. Öldürünce batarya çekirdeği düşürebilirler.',
@@ -291,8 +291,8 @@ DMZ.sozluk = [
   { en: 'Deploy', tr: 'Maça gir', aciklama: 'Üsten Hajin\'e iniş.' },
   { en: 'FOB', tr: 'İleri harekât üssü', aciklama: 'Maçlar arasında bulunduğun üs: istasyonlar, depo, yazıcı.' },
   { en: 'Stash', tr: 'Depo', aciklama: 'Üste sakladığın eşyalar.' },
-  { en: 'Loadout', tr: 'Yük', aciklama: 'Maça yanında götürdüğün silah ve ekipman.' },
-  { en: 'Backpack', tr: 'Sırt çantası', aciklama: 'Yükün dışındaki eşyaları taşıdığın çanta.' },
+  { en: 'Loadout', tr: 'Teçhizat', aciklama: 'Maça yanında götürdüğün silah ve ekipman.' },
+  { en: 'Backpack', tr: 'Sırt çantası', aciklama: 'Teçhizatının dışındaki eşyaları taşıdığın çanta.' },
   { en: 'Plate Carrier', tr: 'Zırh yeleği', aciklama: 'Zırh plakalarını taşıyan yelek.' },
   { en: 'Armor Plate', tr: 'Zırh plakası', aciklama: 'Yeleğe takılan, hasarı emen plaka.' },
   { en: 'Self-Revive Kit', tr: 'Kendini diriltme kiti', aciklama: 'Yere düşünce kendini kaldırmanı sağlar.' },
@@ -332,7 +332,7 @@ DMZ.sozluk = [
   { en: 'Squad Fill', tr: 'Ekip tamamlama', aciklama: 'Seni rastgele iki oyuncuyla eşleştirir.' },
   { en: 'Proximity Chat', tr: 'Yakın sohbet', aciklama: 'Yakındaki herkesin duyduğu sesli sohbet.' },
   { en: 'Hunt Squad', tr: 'Av timi', aciklama: 'Çok düşman öldürünce peşine düşen düşman ekibi.' },
-  { en: 'Marked for Death', tr: 'Ölüme işaretli', aciklama: 'Av timinin seni takip ettiği durum.' },
+  { en: 'Marked for Death', tr: 'Ölüme mahkûm', aciklama: 'Av timinin seni takip ettiği durum.' },
   { en: 'Radiation Storm', tr: 'Radyasyon fırtınası', aciklama: 'Zamanla şiddetlenen, oyuncuların "gaz" dediği tehlike.' },
   { en: 'Print', tr: 'Üret', aciklama: '3D yazıcıda malzemelerle eşya üretmek.' },
   { en: 'Track', tr: 'Takibe al', aciklama: 'Yazıcıda bir tarifi takip listene eklemek.' },
@@ -342,7 +342,7 @@ DMZ.sozluk = [
   { en: 'Lost Supply Drop', tr: 'Kayıp ikmal sandığı', aciklama: '"Crashed Crate" emrinin istediği sandık.' },
   { en: 'Rocket', tr: 'Roket', aciklama: 'Yere saplanmış patlamamış füze; aranınca ganimet çıkar.' },
   { en: 'SAM Site', tr: 'SAM bataryası', aciklama: 'Ele geçirilince hava araçlarını düşüren füze bataryası.' },
-  { en: 'DDOS', tr: 'DDOS', aciklama: 'Araçları, dronları ve tank zırhını bir süre etkisiz bırakan saha ekipmanı.' },
+  { en: 'DDOS', tr: 'DDOS', aciklama: 'Araçları, dronları ve tank zırhını bir süre etkisiz hale getiren saha ekipmanı.' },
   { en: 'Decoy', tr: 'Tuzak', aciklama: 'Düşmanın ve dronların dikkatini dağıtan şişme tuzak ya da bomba.' },
   { en: 'Transmitter', tr: 'Verici', aciklama: 'Emirlerde kule tepelerine yerleştirilen cihaz.' },
   { en: 'DRC Locker', tr: 'DRC dolabı', aciklama: 'Ultra nadirlikte anahtarla açılan değerli silah dolabı.' },

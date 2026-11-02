@@ -59,13 +59,13 @@ DMZ.lokasyonlar = [
     id: 'mirae-general-hospital', ad: 'Mirae General Hospital', tr: 'Mirae Genel Hastanesi', tur: 'ana', nokta: 'r6013',
     tehlike: 'dusuk',
     tehlikeDetay: [{ ad: 'Mirae General Hospital', seviye: 'dusuk' }],
-    aciklama: 'Haritanın ortasına yakın, bütün Hajin\'e hizmet veren ana hastane. Yanında tren istasyonu ve otopark var, kuzeyinden ana otoyol geçiyor. Bahçeye triaj çadırları ve geçici koğuşlar kurulmuş.\n\nİçeride yıkılmış çok katlı bir lobi ve renk kodlu koğuşlar var, yakın mesafe çatışmaya hazır ol. Güneydeki ormanlık tepede (Mujin Pass) keskin nişancılar olabilir.',
+    aciklama: 'Haritanın ortasına yakın, bütün Hajin\'e hizmet veren ana hastane. Yanında tren istasyonu ve otopark var, kuzeyinden ana otoyol geçiyor. Bahçeye triyaj çadırları ve geçici koğuşlar kurulmuş.\n\nİçeride yıkılmış çok katlı bir lobi ve renk kodlu koğuşlar var, yakın mesafe çatışmaya hazır ol. Güneydeki ormanlık tepede (Mujin Pass) keskin nişancılar olabilir.',
   },
   {
     id: 'nurigo-mall', ad: 'NuriGo Mall', tr: 'NuriGo AVM', tur: 'ana', nokta: 'r6014',
     tehlike: 'yuksek',
     tehlikeDetay: [{ ad: 'NuriGO East', seviye: 'orta' }, { ad: 'NuriGO West', seviye: 'yuksek' }],
-    aciklama: 'Hajin şehrinin kuzeydoğusundaki alışveriş bölgesi. Yüzeyde karakol, klinik, belediye binası, restoranlar ve şehri çevreleyen, hâlâ çalışan bir monoray istasyonu var.\n\nEski tren istasyonunun yanındaki avluda üç yuvarlak yapı (bir köşk ve iki ışık kuyusu, birinde asansör) yerin altındaki büyük AVM\'ye iniyor. Aşağıda elektrik yok, NVG kullan. Güneydeki The Grid çok daha tehlikeli.',
+    aciklama: 'Hajin şehrinin kuzeydoğusundaki alışveriş bölgesi. Yüzeyde karakol, klinik, belediye binası, restoranlar ve şehri çevreleyen, hâlâ çalışan bir monoray istasyonu var.\n\nEski tren istasyonunun yanındaki avluda üç yuvarlak yapı (bir giriş kulübesi ve iki ışık kuyusu, birinde asansör) yerin altındaki büyük AVM\'ye iniyor. Aşağıda elektrik yok, NVG kullan. Güneydeki The Grid çok daha tehlikeli.',
   },
   {
     id: 'cheonwang-peak-array', ad: 'Cheonwang Peak Array', tr: 'Cheonwang Zirvesi Anten Dizisi', tur: 'ana', nokta: 'r6015',
@@ -74,7 +74,7 @@ DMZ.lokasyonlar = [
     aciklama: 'Haritanın ortasında, düz bir zirvenin üstündeki büyük DBN TV anten tesisi. Düşman ele geçirmiş ve binaları koğuşa çevirmiş, içerisi dar ve sıkışık.\n\nBatısındaki dev kayaların arasından patikalar geçiyor, kuzeydeki ormandan hastaneye inebilirsin. Çatıda bir helipad ve çevreyi uzaktan gören iyi bir gözetleme noktası var.',
   },
   {
-    id: 'the-grid', ad: 'The Grid', tr: 'Şebeke', tur: 'ana', nokta: 'r6016',
+    id: 'the-grid', ad: 'The Grid', tr: 'Tahkimatlı Şehir Merkezi', tur: 'ana', nokta: 'r6016',
     tehlike: 'asiri',
     tehlikeDetay: [{ ad: 'The Grid', seviye: 'kritik' }, { ad: 'Netshin Tech Complex', seviye: 'asiri' }, { ad: 'DBN Headquarters', seviye: 'kritik' }, { ad: 'Hanex Bank', seviye: 'kritik' }, { ad: 'Minsok Art School', seviye: 'kritik' }, { ad: 'Construction Zone', seviye: 'kritik' }],
     aciklama: 'Hajin şehir merkezinde, dikenli tel ve çelik duvarlarla çevrilmiş tahkimatlı bölge. Haritanın en tehlikeli yeri. Sokaklar barikatlı, her yerde gözetleme kulesi ve devriye var, kaçış yolu az.\n\nİçinde Hanex Bank kulesi, Hajin\'in en yüksek binası olan DBN TV kulesi, Minsok Sanat Okulu ve doğuda büyük bir inşaat alanı var. En tehlikelisi kırmızı çatılı ikiz kule Netshin Tech Complex. Önce çatılarda, sonra sokak sokak çatışma bekle.',
@@ -105,7 +105,7 @@ DMZ.lokasyonlar = [
     aciklama: 'Cezaevi avlusunun ortasındaki Y şeklindeki bina. Dar metal köprüler, karanlık koridorlar, hücre blokları ve büyük bir fırın odasından oluşuyor. İçeride sesler her yönden geliyor ve kolayca kuşatılabilirsin. Ekip halinde, katları paylaşarak temizleyin.',
   },
   {
-    id: 'kale-heavenly-luck-casino', ad: 'Heavenly Luck Casino', tr: 'Cennet Şansı Kumarhanesi', tur: 'kale', ust: 'cheongun-village', nokta: 'r6049',
+    id: 'kale-heavenly-luck-casino', ad: 'Heavenly Luck Casino', tr: 'Heavenly Luck Kumarhanesi', tur: 'kale', ust: 'cheongun-village', nokta: 'r6049',
     tehlike: 'yuksek',
     aciklama: 'Cheongun Köyü\'ndeki çok katlı eski lüks kumarhane. Altında yeraltı otoparkı, katlarında oyun salonları var. Elektrik yok, oyun makinelerinin arası karanlık bir labirent. NVG takmadan girme.',
   },
