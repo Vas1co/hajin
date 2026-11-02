@@ -83,8 +83,9 @@ DMZ.Harita = (function () {
       <text x="1180" y="150" font-size="118" letter-spacing="10" stroke-width="10"><tspan>${kacis(ilk)}</tspan><tspan class="yazi-vurgu"> ${kacis(kalan.join(' '))}</tspan></text>
       <text x="1180" y="420" font-size="270" letter-spacing="16" stroke-width="14">${kacis(y.ad || '')}</text>
       <text class="yazi-kore" x="1170" y="690" font-size="240" stroke-width="10">${kacis(y.imza || '')}</text>`;
-    // y 800'ün altı: geniş ekranda açılışta görünen en üst sınır ve sağ üstteki düğmelerin altı
-    L.svgOverlay(svg, L.latLngBounds(ll(2200, 1560), ll(3400, 800)), { interactive: false, className: 'harita-yazisi' }).addTo(harita);
+    // y 800'ün altı: geniş ekranda açılışta görünen en üst sınır ve sağ üstteki düğmelerin altı.
+    // Sağ kenar oyun alanının içinde (x 3300'den küçük), dar ekranda açılışta kesilmesin.
+    L.svgOverlay(svg, L.latLngBounds(ll(2080, 1560), ll(3280, 800)), { interactive: false, className: 'harita-yazisi' }).addTo(harita);
   }
 
   // --- İşaretler ---
