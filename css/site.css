@@ -92,6 +92,10 @@ main { flex: 1 0 auto; }
   display: block; height: 38px; width: auto; aspect-ratio: 600 / 338; flex: none; object-fit: cover;
   border-radius: 6px; border: 1px solid var(--cizgi-guclu); background: #fff;
 }
+/* Yeni logo (logo2.jpg): site adı resmin içinde, yazı sadece ekran okuyucular için kalır.
+   Resmin siyah zemini "lighten" ile üst çubuğun rengine karışır, kutu gibi durmaz. */
+.logo-dmz .logo-resim { aspect-ratio: 729 / 272; height: 44px; border: 0; border-radius: 0; background: none; mix-blend-mode: lighten; }
+.logo-dmz .logo-yazi { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .logo-yazi { display: flex; flex-direction: column; min-width: 0; }
 .logo-yazi b { font-family: var(--baslik-font); font-size: 19px; letter-spacing: .04em; text-transform: uppercase; line-height: 1.1; }
 .logo-yazi small { color: var(--soluk); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; }
@@ -343,6 +347,17 @@ body[data-sayfa="harita"] .ust { position: relative; }
 }
 .harita-yazisi .yazi-vurgu { fill: #ff3d2e; }
 .harita-yazisi .yazi-kore { font-family: 'East Sea Dokdo', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif; font-weight: 400; }
+
+/* Raylarda giden tren (js/tren.js). Boyu yakınlaştırmaya göre --vagon-boy ve --vagon-en ile ayarlanır. */
+.tren-kap { background: none; border: 0; }
+.tren-vagon {
+  position: absolute; left: 0; top: 0; width: var(--vagon-boy, 16px); height: var(--vagon-en, 4px);
+  filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, .7)); will-change: transform; pointer-events: none;
+}
+.tren-vagon svg { display: block; width: 100%; height: 100%; }
+.tren-govde { fill: #eef1ec; stroke: #22261f; stroke-width: 1; vector-effect: non-scaling-stroke; }
+.tren-cam { fill: #1b232c; }
+.tren-serit { fill: var(--vurgu); }
 
 .isaret-kap, .etiket-kap { background: none; border: 0; }
 /* Harita işareti: kategori renginde dolu rozet, üstünde ikon. Aynı görünüm katman listesinde ve aramada da var. */
@@ -816,6 +831,7 @@ a.malzeme-cip:hover { border-color: var(--n-renk); }
   .ust { padding: 0 16px; padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
   .ust-menu { display: none; } /* telefonda menü altta */
   .logo-resim { height: 32px; }
+  .logo-dmz .logo-resim { height: 36px; }
   .logo-yazi b { font-size: 17px; }
   .logo-yazi small { display: none; }
 
@@ -840,7 +856,8 @@ a.malzeme-cip:hover { border-color: var(--n-renk); }
   .alt-menu a[aria-current="page"] .ikon { color: var(--vurgu); }
 
   .giris { grid-template-columns: 1fr; padding: 22px; gap: 22px; }
-  .giris-harita { max-height: 320px; aspect-ratio: auto; height: 240px; }
+  /* Kare kalsın: alçak bir şeride sığdırınca dört harita parçası kırpılıp sadece turuncu arazi görünüyordu */
+  .giris-harita { width: 100%; max-width: 420px; justify-self: center; }
   .bolum-kartlari, .iki-kolon { grid-template-columns: 1fr; }
   .bolum-karti { padding: 16px; }
 

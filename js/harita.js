@@ -62,6 +62,7 @@ DMZ.Harita = (function () {
     harita.setMinZoom(Math.max(0, harita.getBoundsZoom(oyunSiniri) - 0.75));
 
     noktalariYerlestir();
+    if (DMZ.Tren) DMZ.Tren.kur(harita, ll, MAX_ZOOM); // raylarda giden tren (js/tren.js)
     paneliKur();
     araclariKur();
 
