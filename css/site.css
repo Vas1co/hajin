@@ -253,6 +253,35 @@ body[data-sayfa="harita"] .alt-bilgi { display: none; }
 }
 .bildirim.gorunur { opacity: 1; transform: translate(-50%, 0); }
 
+/* ---------- Arama motorları için üretilen sayfalar (araclar/sayfalari_uret.mjs) ---------- */
+
+.statik { max-width: 980px; }
+.ekmek { font-size: 13px; color: var(--cok-soluk); margin-bottom: 18px; }
+.ekmek a { color: var(--soluk); text-decoration: none; }
+.ekmek a:hover { color: var(--vurgu); }
+.statik-baslik { display: flex; align-items: center; gap: 18px; }
+.statik-resim { width: 96px; height: 96px; object-fit: contain; flex: none; border-radius: 10px; background: var(--panel); border: 1px solid var(--cizgi); }
+.statik-bilgi { display: grid; gap: 10px; margin: 0 0 22px; }
+.statik-bilgi div { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 14px; padding: 10px 14px; border-radius: 8px; background: var(--panel); border: 1px solid var(--cizgi); }
+.statik-bilgi dt { color: var(--cok-soluk); font-size: 13px; font-weight: 600; }
+.statik-bilgi dd { margin: 0; }
+.statik-bilgi a, .statik-metin a, .statik-maddeler a { color: var(--vurgu); }
+.statik-metin { margin-bottom: 18px; }
+.statik-maddeler { margin: 0 0 20px; padding-left: 20px; display: grid; gap: 8px; color: var(--soluk); }
+.statik-gorev { margin-bottom: 14px; }
+.statik-gorev h2 { font-size: 19px; margin-bottom: 10px; }
+.statik-liste { list-style: none; margin: 0 0 22px; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 8px; }
+.statik-liste a { display: block; height: 100%; padding: 10px 12px; border-radius: 8px; background: var(--panel); border: 1px solid var(--cizgi); text-decoration: none; }
+.statik-liste a:hover { border-color: var(--vurgu); }
+.statik-liste b { display: block; font-size: 14.5px; }
+.statik-liste small { display: block; color: var(--soluk); font-size: 12.5px; margin-top: 2px; }
+.statik .giris-dugmeler { margin: 8px 0 24px; }
+@media (max-width: 899px) {
+  .statik-bilgi div { grid-template-columns: 1fr; gap: 4px; }
+  .statik-baslik { align-items: flex-start; }
+  .statik-resim { width: 72px; height: 72px; }
+}
+
 /* ---------- Ana sayfa ---------- */
 
 .giris {

@@ -2,8 +2,8 @@
 window.DMZ = window.DMZ || {};
 
 DMZ.site = {
-  ad: 'Hajin Rehberi',
-  altBaslik: 'MW4 DMZ · Türkçe',
+  ad: 'DMZ Rehberi',
+  altBaslik: 'MW4 DMZ Hajin · Türkçe',
   // Tema: 'radyasyon-sade', 'klasik' (eski yeşilimsi koyu renkler), 'radyasyon' (uyarı şeritli),
   // 'radyasyon-kehribar' ya da 'menu'. Hepsi css/temalar.css'te.
   // Başkasına bakmak için adrese ?tema=klasik ekle, sol altta tema düğmeleri çıkar.
