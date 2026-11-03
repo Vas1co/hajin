@@ -47,6 +47,9 @@
 :root[data-tema^="radyasyon"] .logo-resim {
   height: var(--logo-boy); border: 0; border-radius: 3px; background: none; mix-blend-mode: multiply;
 }
+/* Yeni logo (logo2.jpg) kendi renginde: altına sarı kutu konmaz, multiply yerine lighten */
+:root[data-tema^="radyasyon"] .logo-dmz::before { content: none; }
+:root[data-tema^="radyasyon"] .logo-dmz .logo-resim { aspect-ratio: 729 / 272; mix-blend-mode: lighten; }
 :root[data-tema^="radyasyon"] .logo-yazi b { font-size: 26px; font-weight: 700; letter-spacing: .01em; text-transform: none; line-height: 1; }
 :root[data-tema^="radyasyon"] .logo-yazi small { margin-top: 4px; font-size: 12.5px; letter-spacing: .03em; text-transform: none; }
 :root[data-tema^="radyasyon"] .logo:hover .logo-yazi b { color: var(--vurgu); }
