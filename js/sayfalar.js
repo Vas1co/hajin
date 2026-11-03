@@ -103,7 +103,7 @@ DMZ.Sayfalar = (function () {
         <div class="kutu kutu-vurgu">
           <h2 class="kutu-baslik">Bir şey mi buldun?</h2>
           <p>Bu site oyuncularla büyüyor. Çıkış noktası, anahtarlı kapı, kasa ya da görev bilgisi bulduysan ekran görüntüsünü al ve gönder, ekleyelim.</p>
-          <p class="iletisim">${site.iletisim ? kacis(site.iletisim) : 'İletişim bilgisi yakında eklenecek.'}</p>
+          <p class="iletisim">${site.iletisim ? `Gönder: ${DMZ.iletisimHtml()}` : 'İletişim bilgisi yakında eklenecek.'}</p>
         </div>
       </section>`;
 

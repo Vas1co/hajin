@@ -11,8 +11,9 @@ DMZ.site = {
   // Başkasına bakmak için adrese ?tema=klasik ekle, sol altta tema düğmeleri çıkar.
   tema: 'radyasyon-sade',
   guncelleme: '30 Ekim 2026',
-  // Arkadaşların bilgi gönderebileceği yer, ör. 'Discord: kullaniciadi'. Boş kalırsa "yakında" yazar.
-  iletisim: '',
+  // Arkadaşların bilgi gönderebileceği yer: e-posta adresi ya da 'Discord: kullaniciadi' gibi bir yazı.
+  // Ana sayfada ve her sayfanın altında çıkar; e-postaysa tıklanınca mail açılır. Boş kalırsa "yakında" yazar.
+  iletisim: 'dmz@peekdock.com',
   // DMZHub'dan alınan her şey gösterilsin mi: haritadaki noktalar (boss alanları, çıkışlar, sığınaklar,
   // kayıp ikmal, roketler), hazır ikonlar (harita/ikonlar/dmzhub-*) ve DMZ Emirleri.
   // Site herkese açık yayınlanacaksa ve DMZHub'dan izin yoksa false yap.

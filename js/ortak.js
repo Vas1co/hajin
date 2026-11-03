@@ -126,6 +126,13 @@ DMZ.tumEsyalar = function () {
   return DMZ._esyalar;
 };
 
+// veri/site.js'teki iletişim bilgisi; e-posta adresiyse tıklanabilir
+DMZ.iletisimHtml = function () {
+  const { kacis } = DMZ.yardim;
+  const i = String(DMZ.site.iletisim || '').trim();
+  return /^[^s@]+@[^s@]+.[a-z]+$/i.test(i) ? `<a href="mailto:${kacis(i)}">${kacis(i)}</a>` : kacis(i);
+};
+
 // Eşyanın oyun içi resmi (veri/esya_resimleri.js, araclar/esya_resimleri_kes.ps1 üretir). Resimler DMZHub'ın
 // eşya sayfasından alındığı için site.js'te dmzhubVerileri ya da resimIkonlar kapalıysa gösterilmez.
 DMZ.esyaResmi = function (id) {
