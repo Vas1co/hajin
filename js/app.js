@@ -11,6 +11,8 @@
     { id: 'rehber',      yol: 'rehber',      ad: 'Rehber',         kisa: 'Rehber',   ikon: 'kilavuz', ciz: DMZ.Sayfalar.rehber },
   ];
   const cizilenler = new Set();
+  // Ana sayfanın başlığı index.html'deki <title> (Google'da çıkan); uygulama onu ezmesin
+  const ANA_BASLIK = document.title;
 
   function menuleriKur() {
     const site = DMZ.site;
@@ -43,7 +45,7 @@
       if (a.dataset.sayfa === sayfa.id) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
     });
     document.body.dataset.sayfa = sayfa.id;
-    document.title = sayfa.id === 'ana' ? `${DMZ.site.ad} · ${DMZ.site.altBaslik}` : `${sayfa.ad} · ${DMZ.site.ad}`;
+    document.title = sayfa.id === 'ana' ? ANA_BASLIK : `${sayfa.ad} · ${DMZ.site.ad}`;
 
     if (sayfa.ciz && !cizilenler.has(sayfa.id)) {
       sayfa.ciz($(`#sayfa-${sayfa.id}`));
