@@ -23,6 +23,7 @@
     $$('[data-site-ad]').forEach((e) => { e.textContent = site.ad; });
     $$('[data-site-alt]').forEach((e) => { e.textContent = site.altBaslik; });
     $('#site-guncelleme').textContent = `Son güncelleme: ${site.guncelleme}`;
+    if (site.iletisim) { $('#site-iletisim').innerHTML = `İletişim, hata ya da öneri: ${DMZ.iletisimHtml()}`; $('#site-iletisim').hidden = false; }
 
     $('#ust-menu').innerHTML = SAYFALAR.map((s) => `
       <a href="${s.yol}" data-sayfa="${s.id}">${DMZ.ikon(s.ikon)}<span>${kacis(s.ad)}</span></a>`).join('');

@@ -341,6 +341,7 @@ body[data-sayfa="harita"] .alt-bilgi { display: none; }
 .kutu-baslik { font-size: 18px; text-transform: uppercase; margin-bottom: 14px; }
 .kutu p { color: var(--soluk); }
 .iletisim { color: var(--metin) !important; font-weight: 600; }
+.iletisim a, .alt-iletisim a { color: var(--vurgu); font-weight: 600; }
 .adim-listesi { margin: 0; padding: 0; list-style: none; counter-reset: adim; display: grid; gap: 12px; }
 /* Numara solda sabit; li grid olursa içindeki kalın yazı ve düz metin ayrı sütunlara bölünüyor */
 .adim-listesi li { counter-increment: adim; position: relative; min-height: 28px; padding-left: 40px; color: var(--soluk); }
