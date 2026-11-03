@@ -190,24 +190,24 @@ DMZ.rehber = [
   },
   {
     id: 'uretim', baslik: '3D yazıcı ve üretim (Print)', ikon: 'malzeme',
-    metin: 'Üsteki 3D yazıcıda malzemelerle (Ingredients) ekipman üretirsin: zırh yeleği, çanta, Medkit, flaş, C4, UAV, keşif dronu, DDOS gibi. <a href="#/gorevler">DMZ Emirleri</a>\'nin çoğu bir şey üretmeni ister.',
+    metin: 'Üsteki 3D yazıcıda malzemelerle (Ingredients) ekipman üretirsin: zırh yeleği, çanta, Medkit, flaş, C4, UAV, keşif dronu, DDOS gibi. <a href="/gorevler/">DMZ Emirleri</a>\'nin çoğu bir şey üretmeni ister.',
     maddeler: [
       'Bir tarifi yazıcıda takibe alabilirsin (Track). Emirlerden biri bunu istiyor.',
       'Bazı emirler "üret ya da çıkar" (Print or Extract) der: o malzemeyi ya yazıcıda üretirsin ya da maçtan çantanda çıkarırsın.',
       'Tarifler (Recipe) ve silah kılavuzları (Weapon Manual) maçta bulunur; çıkarınca senin olur.',
-      'Malzemelerin nadirliği ve değeri <a href="#/esyalar">Eşyalar</a> sayfasında, "Üretim malzemesi" kategorisinde.',
+      'Malzemelerin nadirliği ve değeri <a href="/esyalar/">Eşyalar</a> sayfasında, "Üretim malzemesi" kategorisinde.',
     ],
     ipucu: 'Maça girmeden önce emir sayfana bak, hangi malzeme lazımsa onu topla. Hangi malzemenin nerede çıktığı aşağıdaki "Yazıcı malzemeleri nerede çıkar?" bölümünde.',
   },
   {
     // Tablo veri/malzemeler.js'ten çizilir, malzeme bilgisini orada düzelt
     id: 'malzeme-yerleri', baslik: 'Yazıcı malzemeleri nerede çıkar?', ikon: 'malzeme',
-    metin: 'Hangi malzemenin nerede çıktığını oyun kendisi söylüyor: üsteki 3D yazıcıda bir tarif seç, <b>Ingredient Locations</b>\'a bas. Aşağıdaki tablo bu ipuçlarının Türkçesi. Belli bir yer gösterenler haritada <a href="#/harita">Yazıcı Malzemesi</a> katmanında, sarı daireyle işaretli.\n\nİpuçlarını <a href="https://codcentral.net/blog/mw4-dmz-ingredient-locations/" target="_blank" rel="noopener">CODCentral</a>, <a href="https://gamerant.com/mw4-dmz-all-ingredients-locations/" target="_blank" rel="noopener">GameRant</a>, <a href="https://dmzmap.com/materials" target="_blank" rel="noopener">DMZMap</a> ve <a href="https://dmzcodex.com/guides/dmz-crafting-material-locations-guide/" target="_blank" rel="noopener">DMZ Codex</a> topladı (Ekim 2026); dördü de aynı yerleri yazıyor.',
+    metin: 'Hangi malzemenin nerede çıktığını oyun kendisi söylüyor: üsteki 3D yazıcıda bir tarif seç, <b>Ingredient Locations</b>\'a bas. Aşağıdaki tablo bu ipuçlarının Türkçesi. Belli bir yer gösterenler haritada <a href="/harita/hajin/">Yazıcı Malzemesi</a> katmanında, sarı daireyle işaretli.\n\nİpuçlarını <a href="https://codcentral.net/blog/mw4-dmz-ingredient-locations/" target="_blank" rel="noopener">CODCentral</a>, <a href="https://gamerant.com/mw4-dmz-all-ingredients-locations/" target="_blank" rel="noopener">GameRant</a>, <a href="https://dmzmap.com/materials" target="_blank" rel="noopener">DMZMap</a> ve <a href="https://dmzcodex.com/guides/dmz-crafting-material-locations-guide/" target="_blank" rel="noopener">DMZ Codex</a> topladı (Ekim 2026); dördü de aynı yerleri yazıyor.',
     maddeler: [
       '<b>Sıra dışı (yeşil)</b> malzemeler belli bir yerde değil, belli kutularda çıkar: alet kutusu, teknoloji çantası, spor çantası, kimyasal dolabı gibi.',
       '<b>Nadir ve epik</b> malzemeler ikişer ikişer aynı yerlerde çıkar, CPU ile Comms Module gibi. Epik olanı yazıcıda 100 temel kaynak ve 3 nadir malzemeyle de üretebilirsin.',
       '<b>Efsanevi</b> malzemelerin çoğu haritada bulunmaz, komutanlardan düşer: Colossus, Deathstalker ve tank. Külçe altın ve altın kafatası (Ultra) kasalardan çıkar, üs yükseltmelerinde kullanılır.',
-      'Her malzemenin hangi tariflere girdiği <a href="#/esyalar">Eşyalar</a> sayfasında, malzemenin kartında yazıyor.',
+      'Her malzemenin hangi tariflere girdiği <a href="/esyalar/">Eşyalar</a> sayfasında, malzemenin kartında yazıyor.',
       'İpucu arama alanıdır, garanti değil. Namjjog İstasyonu ve elektrik trafolarının yeri, Bubun Yard\'ın da Chang-san Hava Üssü\'nün neresinde olduğu henüz bilinmiyor; bulursan haber ver, ekleyelim.',
     ],
     tablo: {
@@ -221,7 +221,7 @@ DMZ.rehber = [
   {
     // Kılavuz bilgisi veri/kilavuzlar.js'te; aşağıdaki tablo oradan çizilir
     id: 'kilavuzlar', baslik: 'Silah kılavuzları nereden çıkar?', ikon: 'kilavuz',
-    metin: 'Silah kılavuzunu (Weapon Manual) bulup maçtan çıkarınca Silah Ustası\'nda (Gunsmith, DMZ seviye 10\'da açılır) o silahı satın alabilirsin. Kılavuz çıkışta harcanır; çantada taşımak tek başına bir şey açmaz. Üsteki 3D yazıcının yanındaki ekran kaç kılavuz topladığını gösterir.\n\nKılavuzların sabit yeri yok, rastgele ganimet; ama bazı yerlerde çok daha sık çıkıyor. En iyi yerler haritada <a href="#/harita">Silah Kılavuzu</a> katmanında. Bilgiler rehber sitelerinden ve oyuncu raporlarından (Ekim 2026): <a href="https://allthings.how/how-to-get-weapon-manuals-and-3d-printer-recipes-in-call-of-duty-modern-warfare-4-dmz/" target="_blank" rel="noopener">All Things How</a>, <a href="https://dmztracker.gg/guides/weapon-manuals/" target="_blank" rel="noopener">DMZTracker</a>, <a href="https://skycoach.gg/blog/call-of-duty/articles/dmz-manuals-guide" target="_blank" rel="noopener">Skycoach</a>, <a href="https://conquestcapped.com/guides/call-of-duty/mw4-dmz-weapon-manuals/" target="_blank" rel="noopener">ConquestCapped</a>.',
+    metin: 'Silah kılavuzunu (Weapon Manual) bulup maçtan çıkarınca Silah Ustası\'nda (Gunsmith, DMZ seviye 10\'da açılır) o silahı satın alabilirsin. Kılavuz çıkışta harcanır; çantada taşımak tek başına bir şey açmaz. Üsteki 3D yazıcının yanındaki ekran kaç kılavuz topladığını gösterir.\n\nKılavuzların sabit yeri yok, rastgele ganimet; ama bazı yerlerde çok daha sık çıkıyor. En iyi yerler haritada <a href="/harita/hajin/">Silah Kılavuzu</a> katmanında. Bilgiler rehber sitelerinden ve oyuncu raporlarından (Ekim 2026): <a href="https://allthings.how/how-to-get-weapon-manuals-and-3d-printer-recipes-in-call-of-duty-modern-warfare-4-dmz/" target="_blank" rel="noopener">All Things How</a>, <a href="https://dmztracker.gg/guides/weapon-manuals/" target="_blank" rel="noopener">DMZTracker</a>, <a href="https://skycoach.gg/blog/call-of-duty/articles/dmz-manuals-guide" target="_blank" rel="noopener">Skycoach</a>, <a href="https://conquestcapped.com/guides/call-of-duty/mw4-dmz-weapon-manuals/" target="_blank" rel="noopener">ConquestCapped</a>.',
     maddeler: [
       '<b>Chang-san koğuşları (en çok önerilen):</b> Operation Iron Citadel hikaye görevini seç; görev seni üssün yanında başlatır, görevi yapman gerekmiyor. Çevre duvarındaki yıkık yerden gir, duvarın dibindeki üç alçak koğuşu tara: mavi spor çantaları, yeşil sandıklar, dolaplar, yataklar, banyo dolapları. Ateş etme, bütün üs alarma geçer. Bir tur 5 dakika kadar sürüyor; hiç çıkmayan turlar da oluyor.',
       '<b>Tren:</b> Imjin Tarlaları\'ndaki raylara araçla ya da Hajin Nehri\'nden tekneyle git, treni bekle ve açık yan kapıdan bin. Vagonları baştan sona tara: koltuklardaki mavi spor çantaları ve beyaz valizler, öndeki yeşil askeri dolaplar ve sandıklar. Cheongun Village\'da atla.',
@@ -248,11 +248,11 @@ DMZ.rehber = [
       'Hava Üssü giriş kartı ya da Yüce Lider\'in sığınak kartı gibi kartlar da anahtar sayılır.',
       'En değerli kilitler DRC silah dolapları (Ultra nadirlik): Chang-san Air Base cephaneliğinde, Haneul Nuclear Reactor\'da ve NuriGO Mall laboratuvarlarında.',
     ],
-    ipucu: 'Bilinen 46 anahtarın listesi ve nadirlikleri <a href="#/esyalar">Eşyalar</a> sayfasında, "Anahtarlar" kategorisinde.',
+    ipucu: 'Bilinen 46 anahtarın listesi ve nadirlikleri <a href="/esyalar/">Eşyalar</a> sayfasında, "Anahtarlar" kategorisinde.',
   },
   {
     id: 'gorev-noktalari', baslik: 'Haritadaki görev noktaları', ikon: 'harita',
-    metin: 'Emirlerde sık geçen yerler. Bir kısmı <a href="#/harita">haritada</a> kendi katmanıyla duruyor.',
+    metin: 'Emirlerde sık geçen yerler. Bir kısmı <a href="/harita/hajin/">haritada</a> kendi katmanıyla duruyor.',
     maddeler: [
       '<b>Kayıp ikmal sandığı (Lost Supply Drop):</b> "Crashed Crate" emri bunları istiyor. Haritada "Kayıp İkmal Sandığı" katmanı.',
       '<b>Roket (Rocket):</b> Yere saplanmış, patlamamış füze. İçini arayınca ganimet çıkar. Haritada "Roket" katmanı.',

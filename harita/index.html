@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <!-- Bu dosya araclar/sayfalari_uret.mjs ile index.html'den üretildi, elle düzenleme -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a08">
+  <meta name="description" content="MW4 DMZ Hajin interaktif haritası Türkçe: 347 nokta. Anahtar odaları, kasalar, çıkış noktaları, 3D yazıcı malzemeleri, silah kılavuzları, boss&#39;lar.">
+  <title>Hajin haritası (interaktif, Türkçe): anahtar odaları, kasalar, çıkışlar · MW4 DMZ</title>
+  <!-- Arama motorları için asıl adres (eski github.io adresi buraya yönlenir) -->
+  <link rel="canonical" href="https://dmz.peekdock.com/harita/hajin/">
+  <!-- Bağlantı Discord, WhatsApp gibi yerlerde paylaşılınca çıkan kart -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DMZ Rehberi">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:title" content="Hajin haritası (interaktif, Türkçe): anahtar odaları, kasalar, çıkışlar · MW4 DMZ">
+  <meta property="og:description" content="MW4 DMZ Hajin interaktif haritası Türkçe: 347 nokta. Anahtar odaları, kasalar, çıkış noktaları, 3D yazıcı malzemeleri, silah kılavuzları, boss&#39;lar.">
+  <meta property="og:url" content="https://dmz.peekdock.com/harita/hajin/">
+  <meta property="og:image" content="https://dmz.peekdock.com/logo2.jpg">
+  <meta name="twitter:card" content="summary">
+  <!-- Site ikonu: favicon/ klasöründe (yeni logodan). favicon.ico kökte de var, tarayıcılar orada arıyor. -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=East+Sea+Dokdo&display=swap">
+  <!-- Temaların yazı tipi (css/temalar.css); tarayıcı sadece tema açıksa indirir -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="/lib/leaflet/leaflet.css">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/temalar.css">
+  <!-- Site ayarları en başta: tema sayfa çizilmeden seçilsin -->
+  <script src="/veri/site.js"></script>
+  <script src="/js/tema.js"></script>
+</head>
+<body>
+  <a class="atla" href="#icerik">İçeriğe geç</a>
+
+  <header class="ust">
+    <!-- Logo: logo2.jpg (kaynağı kaynak/logo2.JPG), adı resmin içinde. Eski göz logosuna dönmek için
+         logo-dmz sınıfını sil ve src="logo.gif" width="68" height="38" yap. -->
+    <a class="logo logo-dmz" href="/">
+      <img class="logo-resim" src="/logo2.jpg" alt="" width="729" height="272">
+      <span class="logo-yazi"><b data-site-ad>Hajin Rehberi</b><small data-site-alt>MW4 DMZ · Türkçe</small></span>
+    </a>
+    <nav id="ust-menu" class="ust-menu" aria-label="Ana menü"></nav>
+    <span class="canli"><i></i>Sezon 0</span>
+  </header>
+
+  <main id="icerik">
+    <section id="sayfa-ana" class="sayfa" hidden></section>
+
+    <section id="sayfa-harita" class="sayfa sayfa-harita" hidden>
+      <!-- Bilgisayarda haritanın solunda durur, telefonda alttan açılır -->
+      <aside class="harita-panel" id="harita-panel" aria-label="Katmanlar">
+        <div class="panel-ust">
+          <label class="arama-kutusu">
+            <span data-ikon="ara"></span>
+            <input type="search" id="harita-ara" placeholder="Ara: anahtar, kale, eşya, görev…" autocomplete="off" aria-label="Haritada ve bütün sitede ara">
+          </label>
+          <button class="dugme-ikon panel-kapat" id="panel-kapat" aria-label="Paneli kapat" data-ikon="kapat"></button>
+        </div>
+        <div id="harita-sonuclar" class="arama-sonuclari" hidden></div>
+        <div class="panel-govde">
+          <div class="isaret-ozeti" id="isaret-ozeti" hidden>
+            <span data-ikon="isaretle"></span>
+            <span id="isaret-sayisi"></span>
+            <button class="dugme dugme-kucuk" id="isaret-temizle">Temizle</button>
+          </div>
+          <div id="harita-filtreler"></div>
+          <div class="panel-alt">
+            <button class="dugme dugme-kucuk" id="filtre-hepsi">Hepsini göster</button>
+            <button class="dugme dugme-kucuk" id="filtre-hicbiri">Hepsini gizle</button>
+          </div>
+        </div>
+      </aside>
+
+      <div class="harita-alan">
+        <div id="harita" class="harita-kap"></div>
+        <div class="harita-araclar">
+          <button class="arac" id="arac-katman" aria-expanded="false" aria-controls="harita-panel" data-ikon="katman"><span>Katmanlar</span></button>
+          <button class="arac" id="arac-koordinat" aria-pressed="false" data-ikon="koordinat"><span>Koordinat</span></button>
+          <button class="arac" id="arac-sifirla" data-ikon="sifirla"><span>Sıfırla</span></button>
+        </div>
+        <div id="koordinat-gosterge" class="koordinat-gosterge" hidden></div>
+      </div>
+    </section>
+
+    <section id="sayfa-lokasyonlar" class="sayfa" hidden></section>
+    <section id="sayfa-gorevler" class="sayfa" hidden></section>
+    <section id="sayfa-esyalar" class="sayfa" hidden></section>
+    <section id="sayfa-rehber" class="sayfa" hidden></section>
+  </main>
+
+  <footer class="alt-bilgi">
+    <p id="site-guncelleme"></p>
+    <!-- Arama motorları bu bağlantılardan araclar/sayfalari_uret.mjs'in ürettiği sayfaları bulur -->
+    <p class="alt-baglantilar">Sayfalar: <a href="/lokasyonlar/">Lokasyonlar</a> · <a href="/esyalar/">Eşyalar</a> · <a href="/gorevler/">DMZ Emirleri</a> · <a href="/rehber/">Rehber</a> · <a href="/rehber/sozluk/">Terimler sözlüğü</a></p>
+    <p>Resmi olmayan bir hayran sitesidir, Activision ile bağlantısı yoktur. Call of Duty, Modern Warfare, harita görseli ve oyun ikonları Activision'a aittir. Harita koordinatları ve oyun ikonları callofduty.com'daki resmi haritadan alınmıştır.</p>
+  </footer>
+
+  <nav id="alt-menu" class="alt-menu" aria-label="Menü"></nav>
+
+  <!-- Harita kütüphanesi projenin içinde: internet olmadan da çalışır (Leaflet 1.9.4, BSD-2 lisansı: lib/leaflet/LICENSE) -->
+  <script src="/lib/leaflet/leaflet.js"></script>
+
+  <!-- Veriler: bilgileri bu dosyalardan düzenle (veri/site.js sayfanın başında yükleniyor) -->
+  <script src="/veri/kategoriler.js"></script>
+  <script src="/veri/resmi_noktalar.js"></script>
+  <script src="/veri/noktalar.js"></script>
+  <script src="/veri/lokasyonlar.js"></script>
+  <script src="/veri/gorevler.js"></script>
+  <script src="/veri/esyalar.js"></script>
+  <script src="/veri/esyalar_dmzhub.js"></script>
+  <script src="/veri/malzemeler.js"></script>
+  <script src="/veri/kilavuzlar.js"></script>
+  <script src="/veri/esya_resimleri.js"></script>
+  <script src="/veri/rehber.js"></script>
+  <script src="/veri/tren.js"></script>
+
+  <script src="/js/koruma.js"></script>
+  <script src="/js/ikonlar.js"></script>
+  <script src="/js/ortak.js"></script>
+  <script src="/js/arama.js"></script>
+  <script src="/js/tren.js"></script>
+  <script src="/js/harita.js"></script>
+  <script src="/js/sayfalar.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
