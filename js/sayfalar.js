@@ -50,11 +50,11 @@ DMZ.Sayfalar = (function () {
     const gercekGorev = emirSayfalari().filter((s) => !s.ornek).reduce((t, s) => t + s.gorevler.length, 0);
     const gercekEsya = DMZ.tumEsyalar().filter((e) => !e.ornek).length;
     const kartlar = [
-      { hash: '#/harita', ikon: 'harita', baslik: 'Hajin Haritası', metin: 'Yakınlaştırılabilir harita. Klinik, benzinlik, İHA kulesi, kale... Hepsi Türkçe ve filtrelenebilir.', sayi: `${noktaSayisi} nokta` },
-      { hash: '#/lokasyonlar', ikon: 'bolge', baslik: 'Lokasyonlar', metin: 'Bölgeler ve kaleler: neresi tehlikeli, oraya nasıl girilir, içinde ne var.', sayi: `${DMZ.lokasyonlar.length} lokasyon` },
-      { hash: '#/gorevler', ikon: 'gorev', baslik: 'Görevler', metin: 'DMZ Orders sayfa sayfa, adım adım Türkçe. Bitirdiğin görevi işaretle.', sayi: gercekGorev ? `${gercekGorev} görev` : 'Hazırlanıyor' },
-      { hash: '#/esyalar', ikon: 'esya', baslik: 'Eşyalar', metin: 'Zırh, çanta, sağlık, anahtar, malzeme: ne işe yarar, nerede bulunur.', sayi: gercekEsya ? `${gercekEsya} eşya` : 'Hazırlanıyor' },
-      { hash: '#/rehber', ikon: 'kilavuz', baslik: 'Rehber', metin: 'Giriş, çıkış, tehlike seviyeleri, boss\'lar, araçlar ve oyundaki İngilizce terimlerin Türkçe sözlüğü.', sayi: `${(DMZ.rehber || []).length} konu` },
+      { yol: '/harita/hajin/', ikon: 'harita', baslik: 'Hajin Haritası', metin: 'Yakınlaştırılabilir harita. Klinik, benzinlik, İHA kulesi, kale... Hepsi Türkçe ve filtrelenebilir.', sayi: `${noktaSayisi} nokta` },
+      { yol: '/lokasyonlar/', ikon: 'bolge', baslik: 'Lokasyonlar', metin: 'Bölgeler ve kaleler: neresi tehlikeli, oraya nasıl girilir, içinde ne var.', sayi: `${DMZ.lokasyonlar.length} lokasyon` },
+      { yol: '/gorevler/', ikon: 'gorev', baslik: 'Görevler', metin: 'DMZ Orders sayfa sayfa, adım adım Türkçe. Bitirdiğin görevi işaretle.', sayi: gercekGorev ? `${gercekGorev} görev` : 'Hazırlanıyor' },
+      { yol: '/esyalar/', ikon: 'esya', baslik: 'Eşyalar', metin: 'Zırh, çanta, sağlık, anahtar, malzeme: ne işe yarar, nerede bulunur.', sayi: gercekEsya ? `${gercekEsya} eşya` : 'Hazırlanıyor' },
+      { yol: '/rehber/', ikon: 'kilavuz', baslik: 'Rehber', metin: 'Giriş, çıkış, tehlike seviyeleri, boss\'lar, araçlar ve oyundaki İngilizce terimlerin Türkçe sözlüğü.', sayi: `${(DMZ.rehber || []).length} konu` },
     ];
 
     // Arama en üstte: oyunda bir şey bulan direkt adını yazsın, sonuçlar hemen altında çıksın
@@ -68,20 +68,20 @@ DMZ.Sayfalar = (function () {
           <span class="ust-etiket">Modern Warfare 4 · DMZ · Hajin</span>
           <h1>Hajin'de kaybolma.<br><em>Her şey Türkçe.</em></h1>
           <div class="giris-dugmeler">
-            <a class="dugme dugme-vurgu dugme-buyuk" href="#/harita">${DMZ.ikon('harita')} Haritayı aç</a>
-            <a class="dugme dugme-buyuk" href="#/lokasyonlar">${DMZ.ikon('bolge')} Lokasyonlar</a>
+            <a class="dugme dugme-vurgu dugme-buyuk" href="/harita/hajin/">${DMZ.ikon('harita')} Haritayı aç</a>
+            <a class="dugme dugme-buyuk" href="/lokasyonlar/">${DMZ.ikon('bolge')} Lokasyonlar</a>
           </div>
         </div>
-        <a class="giris-harita" href="#/harita" aria-label="Haritayı aç">
-          <img src="harita/tiles/2/1/1.jpg" alt=""><img src="harita/tiles/2/2/1.jpg" alt="">
-          <img src="harita/tiles/2/1/2.jpg" alt=""><img src="harita/tiles/2/2/2.jpg" alt="">
+        <a class="giris-harita" href="/harita/hajin/" aria-label="Haritayı aç">
+          <img src="/harita/tiles/2/1/1.jpg" alt=""><img src="/harita/tiles/2/2/1.jpg" alt="">
+          <img src="/harita/tiles/2/1/2.jpg" alt=""><img src="/harita/tiles/2/2/2.jpg" alt="">
           <span class="giris-harita-etiket">${DMZ.ikon('koordinat')} Hajin Yasak Bölgesi</span>
         </a>
       </section>
 
       <section class="bolum-kartlari">
         ${kartlar.map((k) => `
-          <a class="bolum-karti" href="${k.hash}">
+          <a class="bolum-karti" href="${k.yol}">
             <span class="bolum-ikon">${DMZ.ikon(k.ikon)}</span>
             <h2>${k.baslik}</h2>
             <p>${k.metin}</p>
@@ -97,7 +97,7 @@ DMZ.Sayfalar = (function () {
             <li><b>Haritayı aç,</b> soldaki listeden görmek istediğin şeyleri seç. Başlıkların yanındaki anahtar o gruptaki her şeyi birden açıp kapatır. Telefonda "Katmanlar" düğmesine bas.</li>
             <li><b>Bir noktaya dokun.</b> Türkçe açıklaması ve oyundaki İngilizce adı çıkar. "İşaretle" dersen oyundaki gibi etrafına altın halka gelir.</li>
             <li><b>"Bağlantıyı kopyala"</b> ile o noktayı ekibine gönder, açan direkt oraya gider.</li>
-            <li><b>Yeni misin?</b> Önce <a href="#/rehber">Rehber</a>'i oku: giriş, çıkış ve oyundaki İngilizce terimler orada.</li>
+            <li><b>Yeni misin?</b> Önce <a href="/rehber/">Rehber</a>'i oku: giriş, çıkış ve oyundaki İngilizce terimler orada.</li>
           </ol>
         </div>
         <div class="kutu kutu-vurgu">
@@ -170,9 +170,9 @@ DMZ.Sayfalar = (function () {
           ${malzemeler.length ? `<div class="lok-malzemeler"><small>Burada aranacak yazıcı malzemeleri</small>${DMZ.malzemeCipleri(malzemeler)}</div>` : ''}
           ${emirler.length ? `
             <div class="lok-emirler"><small>Burada geçen DMZ emirleri</small>
-              ${emirler.map(({ s, g }) => `<a class="lok-emir" href="#/gorevler?g=${encodeURIComponent(g.id)}"><b>S${kacis(s.sayfa)}</b> ${kacis(g.tr || g.ad)}</a>`).join('')}
+              ${emirler.map(({ s, g }) => `<a class="lok-emir" href="/gorevler/?g=${encodeURIComponent(g.id)}"><b>S${kacis(s.sayfa)}</b> ${kacis(g.tr || g.ad)}</a>`).join('')}
             </div>` : ''}
-          ${n ? `<a class="dugme dugme-kucuk" href="#/harita?n=${encodeURIComponent(n.id)}">${DMZ.ikon('harita')} Haritada göster</a>` : ''}
+          ${n ? `<a class="dugme dugme-kucuk" href="/harita/hajin/?n=${encodeURIComponent(n.id)}">${DMZ.ikon('harita')} Haritada göster</a>` : ''}
         </div>
       </article>`;
   }
@@ -294,7 +294,7 @@ DMZ.Sayfalar = (function () {
                   ${g.ipucu ? `<p class="gorev-ipucu">${DMZ.ikon('uyari')} ${kacis(g.ipucu)}</p>` : ''}
                   <div class="gorev-alt">
                     ${g.odul ? `<span class="gorev-odul"><small>Ödül</small>${kacis(g.odul)}</span>` : ''}
-                    ${lok && lok.nokta ? `<a class="dugme dugme-kucuk" href="#/harita?n=${encodeURIComponent(lok.nokta)}">${DMZ.ikon('harita')} ${kacis(lok.ad)}</a>` : ''}
+                    ${lok && lok.nokta ? `<a class="dugme dugme-kucuk" href="/harita/hajin/?n=${encodeURIComponent(lok.nokta)}">${DMZ.ikon('harita')} ${kacis(lok.ad)}</a>` : ''}
                   </div>
                 </div>`;
               }).join('')}
@@ -360,7 +360,7 @@ DMZ.Sayfalar = (function () {
 
   let gorevArama;
 
-  // #/gorevler?g=e17-1 gibi bağlantılar: emrin sayfasını açıp emri vurgula
+  // /gorevler/?g=e17-1 gibi bağlantılar: emrin sayfasını açıp emri vurgula
   function gorevVurgula(id) {
     const kart = $(`.gorev[data-gorev="${CSS.escape(id)}"]`);
     if (!kart) return;
@@ -433,7 +433,7 @@ DMZ.Sayfalar = (function () {
   const tarifAdi = (ad) => {
     esyaAdlari = esyaAdlari || new Map(DMZ.tumEsyalar().map((e) => [sade(e.ad), e]));
     const e = esyaAdlari.get(sade(ad));
-    return e ? `<a href="#/esyalar?e=${encodeURIComponent(e.id)}" lang="en">${kacis(ad)}</a>` : `<span lang="en">${kacis(ad)}</span>`;
+    return e ? `<a href="/esyalar/?e=${encodeURIComponent(e.id)}" lang="en">${kacis(ad)}</a>` : `<span lang="en">${kacis(ad)}</span>`;
   };
 
   function esyaCiz() {
@@ -478,15 +478,15 @@ DMZ.Sayfalar = (function () {
             ${e.deger != null ? `<div><dt>Değer</dt><dd>$${Number(e.deger).toLocaleString('tr-TR')}</dd></div>` : ''}
             ${e.yigin ? `<div><dt>Yığın</dt><dd>En fazla ${kacis(e.yigin)} tane üst üste</dd></div>` : ''}
           </dl>
-          ${lok && lok.nokta ? `<a class="dugme dugme-kucuk" href="#/harita?n=${encodeURIComponent(lok.nokta)}">${DMZ.ikon('harita')} ${kacis(lok.ad)}</a>` : ''}
-          ${odalar.map((n) => `<a class="dugme dugme-kucuk" href="#/harita?n=${encodeURIComponent(n.id)}">${DMZ.ikon('harita')} Açtığı oda haritada${odalar.length > 1 && n.izgara ? ` (${kacis(n.izgara)})` : ''}</a>`).join('')}
-          ${alanlar.length ? `<div class="esya-alanlar"><small>${kilavuz ? 'Haritada' : 'Haritada arama alanı'}</small>${alanlar.map((n) => `<a class="dugme dugme-kucuk" href="#/harita?n=${encodeURIComponent(n.id)}" lang="en">${DMZ.ikon('harita')} ${kacis(n.ad)}</a>`).join('')}</div>` : ''}
-          ${kilavuz ? `<a class="dugme dugme-kucuk" href="#/rehber?b=kilavuzlar">${DMZ.ikon('kilavuz')} Kılavuz nereden çıkar?</a>` : ''}
+          ${lok && lok.nokta ? `<a class="dugme dugme-kucuk" href="/harita/hajin/?n=${encodeURIComponent(lok.nokta)}">${DMZ.ikon('harita')} ${kacis(lok.ad)}</a>` : ''}
+          ${odalar.map((n) => `<a class="dugme dugme-kucuk" href="/harita/hajin/?n=${encodeURIComponent(n.id)}">${DMZ.ikon('harita')} Açtığı oda haritada${odalar.length > 1 && n.izgara ? ` (${kacis(n.izgara)})` : ''}</a>`).join('')}
+          ${alanlar.length ? `<div class="esya-alanlar"><small>${kilavuz ? 'Haritada' : 'Haritada arama alanı'}</small>${alanlar.map((n) => `<a class="dugme dugme-kucuk" href="/harita/hajin/?n=${encodeURIComponent(n.id)}" lang="en">${DMZ.ikon('harita')} ${kacis(n.ad)}</a>`).join('')}</div>` : ''}
+          ${kilavuz ? `<a class="dugme dugme-kucuk" href="/rehber/?b=kilavuzlar">${DMZ.ikon('kilavuz')} Kılavuz nereden çıkar?</a>` : ''}
         </article>`;
     }).join('') : '<p class="bos-durum">Aramana uyan eşya yok.</p>';
   }
 
-  // #/esyalar?e=blackmarket-weapons-locker gibi bağlantılar: eşyanın kartını bul ve vurgula
+  // /esyalar/?e=blackmarket-weapons-locker gibi bağlantılar: eşyanın kartını bul ve vurgula
   function esyaVurgula(id) {
     let kart = $(`#esya-${CSS.escape(id)}`);
     if (!kart) {
@@ -555,7 +555,7 @@ DMZ.Sayfalar = (function () {
 
   let sozlukCiz = () => {};
 
-  // #/rehber?t=Exfil gibi bağlantılar: sözlükte o terimi bul ve vurgula
+  // /rehber/?t=Exfil gibi bağlantılar: sözlükte o terimi bul ve vurgula
   function terimVurgula(en) {
     const bul = () => $$('#sozluk-liste [data-terim]').find((d) => d.dataset.terim === en);
     let terim = bul();

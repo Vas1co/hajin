@@ -44,7 +44,7 @@ DMZ.Harita = (function () {
     L.control.zoom({ position: 'bottomright', zoomInTitle: 'Yakınlaştır', zoomOutTitle: 'Uzaklaştır' }).addTo(harita);
 
     const tumHarita = L.latLngBounds(ll(0, BOYUT), ll(BOYUT, 0));
-    L.tileLayer('harita/tiles/{z}/{x}/{y}.jpg', {
+    L.tileLayer('/harita/tiles/{z}/{x}/{y}.jpg', {
       minZoom: 0,
       maxZoom: 6,
       maxNativeZoom: MAX_ZOOM,
@@ -140,7 +140,7 @@ DMZ.Harita = (function () {
     // Anahtar eşya listesinde varsa adı o eşyanın kartına gider
     const anahtarEsyasi = DMZ.anahtarEsyasi(n);
     const anahtarAdi = anahtarEsyasi
-      ? `<a href="#/esyalar?e=${encodeURIComponent(anahtarEsyasi.id)}" lang="en">${kacis(n.anahtar)}</a>`
+      ? `<a href="/esyalar/?e=${encodeURIComponent(anahtarEsyasi.id)}" lang="en">${kacis(n.anahtar)}</a>`
       : `<span lang="en">${kacis(n.anahtar)}</span>`;
     const bilgiSatirlari = [
       n.anahtar
@@ -160,9 +160,9 @@ DMZ.Harita = (function () {
       : n.kaynak === 'dmzhub'
         ? '<a class="rozet rozet-dmzhub" href="https://dmzhub.gg/maps/hajin" target="_blank" rel="noopener">Kaynak: DMZHub</a>'
         : n.kaynak === 'ipucu'
-          ? '<a class="rozet rozet-ipucu" href="#/rehber?b=malzeme-yerleri">Oyun ipucu: 3D yazıcı</a>'
+          ? '<a class="rozet rozet-ipucu" href="/rehber/?b=malzeme-yerleri">Oyun ipucu: 3D yazıcı</a>'
           : n.kaynak === 'rapor'
-            ? '<a class="rozet rozet-rapor" href="#/rehber?b=kilavuzlar">Oyuncu raporu</a>'
+            ? '<a class="rozet rozet-rapor" href="/rehber/?b=kilavuzlar">Oyuncu raporu</a>'
             : `<span class="rozet rozet-topluluk">Ekip</span>${n.dogrulandi ? '<span class="rozet rozet-dogru">Doğrulandı</span>' : ''}`;
     // Yazıcı malzemesi alanında aranacak malzemeler, kılavuz noktasında oyuncuların bulduğu kılavuzlar; eşya kartlarına bağlı
     const malzemeler = [
@@ -172,7 +172,7 @@ DMZ.Harita = (function () {
       .map(([liste, baslik]) => `<div class="popup-malzemeler"><small>${baslik}</small>${DMZ.malzemeCipleri(liste)}</div>`)
       .join('');
     const lokDugme = lok
-      ? `<a class="dugme dugme-kucuk" href="#/lokasyonlar?l=${encodeURIComponent(lok.id)}">Lokasyon kartı ${DMZ.ikon('ok')}</a>`
+      ? `<a class="dugme dugme-kucuk" href="/lokasyonlar/?l=${encodeURIComponent(lok.id)}">Lokasyon kartı ${DMZ.ikon('ok')}</a>`
       : '';
     const isaretli = isaretliNoktalar.has(n.id);
     const isaretDugme = n.kategori === 'bolge' ? '' : `
@@ -399,7 +399,7 @@ DMZ.Harita = (function () {
     if (!d) return;
     if (d.dataset.eylem === 'isaretle') isaretDegistir(d.dataset.id);
     if (d.dataset.eylem === 'baglanti') {
-      const oldu = await kopyala(baglanti(`#/harita?n=${encodeURIComponent(d.dataset.id)}`));
+      const oldu = await kopyala(baglanti(`/harita/hajin/?n=${encodeURIComponent(d.dataset.id)}`));
       bildirim(oldu ? 'Bağlantı kopyalandı, ekibe gönderebilirsin' : 'Kopyalanamadı');
     }
     if (d.dataset.eylem === 'kopyala-satir') {

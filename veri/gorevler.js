@@ -39,14 +39,14 @@ DMZ.gorevBilgi = [
       'Her görevin brifingi, hedefleri ve ödülü var. Ödül genelde değerli ekipman ve DMZ parası.',
       'Belirli sayıda görev bitirince ek ödüller açılır.',
       'Emirlerde geçen hikaye görevleri: Critical Extraction, Silent Ledger, Shopping Hacks, Grid Assault, Iron Citadel, Fallen Ember.',
-      'Haritadaki <a href="#/harita">Hikaye Görevi Girişi</a> katmanı görevlerin başladığı noktaları gösterir.',
+      'Haritadaki <a href="/harita/hajin/">Hikaye Görevi Girişi</a> katmanı görevlerin başladığı noktaları gösterir.',
     ],
   },
   {
     id: 'operasyon', baslik: 'Dinamik operasyonlar ve yan görevler', ikon: 'iha',
     maddeler: [
       'Maç içinde başlatılan kısa görevler. Dinamik operasyon (Dynamic Op) bir telefonla başlar, bitince ödül sandığı gelir. Yan görevler (Side Op) kule çalıştırmak, kamyon tamiri, radyo kulesi yağmalamak gibi işler.',
-      'Ayrıntılar <a href="#/rehber?b=operasyonlar">Rehber</a> sayfasında.',
+      'Ayrıntılar <a href="/rehber/?b=operasyonlar">Rehber</a> sayfasında.',
     ],
   },
 ];

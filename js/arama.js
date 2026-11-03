@@ -137,7 +137,7 @@ DMZ.Arama = (function () {
         grup: 'harita', id: n.id, baslik: n.ad, en: true,
         alt: [(lok && lok.tr) || n.tr, katAd, !lok && yakin && `${yakin.ad} yakını`, n.izgara].filter(Boolean).join(' · '),
         ikon: DMZ.noktaRozeti(n, 'sonuc-ikon'),
-        hedef: `#/harita?n=${encodeURIComponent(n.id)}`,
+        hedef: `/harita/hajin/?n=${encodeURIComponent(n.id)}`,
         lokasyonlu: !!lok, // bölge ve kalelerin lokasyon kartı da var, harita dışında kart olarak çıkarlar
       }, [n.ad, n.tr, n.anahtar, lok && lok.ad, lok && lok.tr],
       [katAd, kat.en, yakin && yakin.ad, n.izgara, nad && nad.ad, ...((lok && lok.tehlikeDetay) || []).map((d) => d.ad),
@@ -153,8 +153,8 @@ DMZ.Arama = (function () {
         grup: 'lokasyon', id: l.id, baslik: l.ad, en: true,
         alt: [l.tr, TUR_ADLARI[l.tur], ust && `${ust.ad} içinde`].filter(Boolean).join(' · '),
         ikon: n ? DMZ.noktaRozeti(n, 'sonuc-ikon') : duzIkon('bolge'),
-        hedef: `#/lokasyonlar?l=${encodeURIComponent(l.id)}`,
-        ek: n && { hedef: `#/harita?n=${encodeURIComponent(n.id)}`, etiket: 'Haritada göster' },
+        hedef: `/lokasyonlar/?l=${encodeURIComponent(l.id)}`,
+        ek: n && { hedef: `/harita/hajin/?n=${encodeURIComponent(n.id)}`, etiket: 'Haritada göster' },
       }, [l.ad, l.tr],
       [TUR_ADLARI[l.tur], ust && ust.ad, teh && teh.ad, ...(l.tehlikeDetay || []).map((d) => d.ad)],
       [l.aciklama]);
@@ -171,8 +171,8 @@ DMZ.Arama = (function () {
         ikon: DMZ.esyaResmi(e.id)
           ? `<span class="sonuc-ikon sonuc-ikon-esya sonuc-resimli" style="--renk:${nad ? nad.renk : 'var(--panel-3)'}"><img src="${kacis(DMZ.esyaResmi(e.id))}" alt="" loading="lazy"></span>`
           : `<span class="sonuc-ikon sonuc-ikon-esya" style="--renk:${nad ? nad.renk : 'var(--panel-3)'}">${DMZ.ikon(kat.ikon)}</span>`,
-        hedef: `#/esyalar?e=${encodeURIComponent(e.id)}`,
-        ek: oda && { hedef: `#/harita?n=${encodeURIComponent(oda.id)}`, etiket: 'Açtığı oda haritada' },
+        hedef: `/esyalar/?e=${encodeURIComponent(e.id)}`,
+        ek: oda && { hedef: `/harita/hajin/?n=${encodeURIComponent(oda.id)}`, etiket: 'Açtığı oda haritada' },
       }, [e.ad, e.tr], [kat.ad, nad && nad.ad],
       [e.not, e.nerede, malzeme.nerede, ...(malzeme.kullanim || []), ((DMZ.kilavuzBilgisi || {}).bulunan || {})[e.id]]);
     });
@@ -183,21 +183,21 @@ DMZ.Arama = (function () {
         grup: 'gorev', id: g.id, baslik: g.ad, en: true,
         alt: [`Sayfa ${s.sayfa}`, g.tr].filter(Boolean).join(' · '),
         ikon: duzIkon('gorev'),
-        hedef: `#/gorevler?g=${encodeURIComponent(g.id)}`,
+        hedef: `/gorevler/?g=${encodeURIComponent(g.id)}`,
       }, [g.ad, g.tr], [`s${s.sayfa}`, s.ad, s.tr, lok && lok.ad, lok && lok.tr], [...(g.adimlar || []), g.ipucu, g.odul]);
     }));
 
     (DMZ.rehber || []).forEach((b) => {
       ekle({
         grup: 'rehber', id: b.id, baslik: b.baslik, en: false, alt: 'Rehber konusu',
-        ikon: duzIkon(b.ikon), hedef: `#/rehber?b=${encodeURIComponent(b.id)}`,
+        ikon: duzIkon(b.ikon), hedef: `/rehber/?b=${encodeURIComponent(b.id)}`,
       }, [b.baslik], [], [duzMetin(b.metin), ...(b.maddeler || []).map(duzMetin), duzMetin(b.ipucu), ...(b.tablo ? b.tablo.satirlar.flat() : [])]);
     });
 
     (DMZ.sozluk || []).forEach((t) => {
       ekle({
         grup: 'rehber', id: `terim-${t.en}`, baslik: t.en, en: true, alt: `${t.tr} · ${t.aciklama}`,
-        ikon: duzIkon('kilavuz'), hedef: `#/rehber?t=${encodeURIComponent(t.en)}`,
+        ikon: duzIkon('kilavuz'), hedef: `/rehber/?t=${encodeURIComponent(t.en)}`,
       }, [t.en, t.tr], [], [t.aciklama]);
     });
 
@@ -307,11 +307,8 @@ DMZ.Arama = (function () {
         ciz(kutu, ara(giris.value, secenekler), secenekler, acikGruplar);
         return;
       }
-      const a = e.target.closest('a[href^="#"]');
-      if (!a) return;
-      if (secenekler.secince) secenekler.secince(a);
-      // Zaten o adresteysek (ör. haritada aynı noktaya yeniden tıklandı) sayfa yine de oraya gitsin
-      if (a.getAttribute('href') === location.hash) { e.preventDefault(); window.dispatchEvent(new HashChangeEvent('hashchange')); }
+      const a = e.target.closest('a[href^="/"]');
+      if (a && secenekler.secince) secenekler.secince(a);
     });
     return { guncelle };
   }

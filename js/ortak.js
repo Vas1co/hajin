@@ -64,8 +64,8 @@ DMZ.yardim = (function () {
   }
 
   // Sitenin bulunduğu adresle birlikte paylaşılabilir bağlantı
-  function baglanti(hash) {
-    return location.href.split('#')[0] + hash;
+  function baglanti(yol) {
+    return location.origin + yol;
   }
 
   return { $, $$, kacis, paragraflar, sade, depo, kopyala, bildirim, baglanti };
@@ -91,10 +91,10 @@ DMZ.tamResim = (kat) => DMZ.site.resimIkonlar !== false && DMZ.dmzhubAcik() && k
 DMZ.rozetIci = function (kat, n) {
   const { kacis } = DMZ.yardim;
   const tam = DMZ.tamResim(kat);
-  if (tam) return `<img class="ikon-tam" src="harita/ikonlar/${kacis(tam)}" alt="" draggable="false">`;
+  if (tam) return `<img class="ikon-tam" src="/harita/ikonlar/${kacis(tam)}" alt="" draggable="false">`;
   const resim = DMZ.site.resimIkonlar !== false && ((n && n.resim) || kat.resim);
   const ikon = resim
-    ? `<img class="ikon-resim${kat.ikonRenk ? ' ikon-resim-ters' : ''}" src="harita/ikonlar/${kacis(resim)}" alt="" draggable="false">`
+    ? `<img class="ikon-resim${kat.ikonRenk ? ' ikon-resim-ters' : ''}" src="/harita/ikonlar/${kacis(resim)}" alt="" draggable="false">`
     : DMZ.ikon(kat.ikon);
   return ikon + (kat.rozet ? `<i class="ek-isaret" aria-hidden="true">${kacis(kat.rozet)}</i>` : '');
 };
@@ -130,7 +130,7 @@ DMZ.tumEsyalar = function () {
 // eşya sayfasından alındığı için site.js'te dmzhubVerileri ya da resimIkonlar kapalıysa gösterilmez.
 DMZ.esyaResmi = function (id) {
   if (!DMZ._esyaResimleri) DMZ._esyaResimleri = new Set(DMZ.esyaResimleri || []);
-  return DMZ.site.resimIkonlar !== false && DMZ.dmzhubAcik() && DMZ._esyaResimleri.has(id) ? `resimler/esyalar/${id}.png` : null;
+  return DMZ.site.resimIkonlar !== false && DMZ.dmzhubAcik() && DMZ._esyaResimleri.has(id) ? `/resimler/esyalar/${id}.png` : null;
 };
 
 // Haritada bir eşyanın arandığı yerler: yazıcı malzemesi alanları ("malzemeler") ve oyuncuların silah kılavuzu
@@ -148,7 +148,7 @@ DMZ.malzemeCipleri = function (idler) {
     const ic = (resim ? `<img src="${kacis(resim)}" alt="">` : '')
       + `<span lang="en">${kacis((e && e.ad) || bilgi.ad || id)}</span><small>${kacis((e && e.tr) || bilgi.tr || '')}</small>`;
     return e
-      ? `<a class="malzeme-cip nadirlik-${kacis(nadirlik)}" href="#/esyalar?e=${encodeURIComponent(id)}">${ic}</a>`
+      ? `<a class="malzeme-cip nadirlik-${kacis(nadirlik)}" href="/esyalar/?e=${encodeURIComponent(id)}">${ic}</a>`
       : `<span class="malzeme-cip nadirlik-${kacis(nadirlik)}">${ic}</span>`;
   }).join('');
 };

@@ -30,7 +30,9 @@
       const b = e.target.closest('button');
       if (!b) return;
       uygula(b.dataset.temaSec);
-      history.replaceState(null, '', `?tema=${b.dataset.temaSec}${location.hash}`);
+      const simdiki = new URLSearchParams(location.search);
+      simdiki.set('tema', b.dataset.temaSec);
+      history.replaceState(history.state, '', `${location.pathname}?${simdiki}${location.hash}`);
       isaretle();
     });
     isaretle();

@@ -4,6 +4,8 @@ window.DMZ = window.DMZ || {};
 DMZ.site = {
   ad: 'DMZ Rehberi',
   altBaslik: 'MW4 DMZ Hajin · Türkçe',
+  // Ana sayfanın sekme başlığı (Google'da çıkan). index.html'deki <title> ile aynı olmalı.
+  anaBaslik: 'DMZ Hajin Haritası ve Türkçe Rehber (MW4) · DMZ Rehberi',
   // Tema: 'radyasyon-sade', 'klasik' (eski yeşilimsi koyu renkler), 'radyasyon' (uyarı şeritli),
   // 'radyasyon-kehribar' ya da 'menu'. Hepsi css/temalar.css'te.
   // Başkasına bakmak için adrese ?tema=klasik ekle, sol altta tema düğmeleri çıkar.
