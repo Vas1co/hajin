@@ -1,4 +1,6 @@
-// Sayfa geçişleri (/harita/hajin/, /esyalar/?e=... gibi gerçek adresler) ve menüler.
+// Sayfa geçişleri (/harita/hajin/, /esyalar/ gibi gerçek adresler) ve menüler.
+// Sayfa içindeki seçim (haritada nokta, listede eşya) # işaretinden sonra: /harita/hajin/#n=..., /esyalar/#e=...
+// Google # sonrasını ayrı sayfa saymaz, böylece aynı sayfanın kopyaları dizine girmez. Eski ?n= linkleri de çalışır.
 // Her adresin sunucuda bir dosyası var (araclar/sayfalari_uret.mjs bu index.html'in kopyalarını yazar),
 // adres doğrudan açılınca da aynı uygulama yüklenir. Site içi tıklamalarda sayfa yenilenmez, sadece adres değişir.
 (function () {
@@ -51,6 +53,7 @@
     const bulunan = sayfaBul(location.pathname) || { sayfa: SAYFALAR[0], yol: '/' };
     const { sayfa } = bulunan;
     const parametreler = new URLSearchParams(location.search);
+    if (location.hash.includes('=')) new URLSearchParams(location.hash.slice(1)).forEach((d, a) => parametreler.set(a, d));
     // /harita/ → /harita/hajin/, bilinmeyen adres → ana sayfa
     if (bulunan.yol !== location.pathname) history.replaceState(null, '', bulunan.yol + location.search + location.hash);
     const oncekiAcik = $('.sayfa:not([hidden])');

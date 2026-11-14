@@ -46,7 +46,7 @@ DMZ.gorevBilgi = [
     id: 'operasyon', baslik: 'Dinamik operasyonlar ve yan görevler', ikon: 'iha',
     maddeler: [
       'Maç içinde başlatılan kısa görevler. Dinamik operasyon (Dynamic Op) bir telefonla başlar, bitince ödül sandığı gelir. Yan görevler (Side Op) kule çalıştırmak, kamyon tamiri, radyo kulesi yağmalamak gibi işler.',
-      'Ayrıntılar <a href="/rehber/?b=operasyonlar">Rehber</a> sayfasında.',
+      'Ayrıntılar <a href="/rehber/#b=operasyonlar">Rehber</a> sayfasında.',
     ],
   },
 ];
