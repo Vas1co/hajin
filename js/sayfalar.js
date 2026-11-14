@@ -170,9 +170,9 @@ DMZ.Sayfalar = (function () {
           ${malzemeler.length ? `<div class="lok-malzemeler"><small>Burada aranacak yazıcı malzemeleri</small>${DMZ.malzemeCipleri(malzemeler)}</div>` : ''}
           ${emirler.length ? `
             <div class="lok-emirler"><small>Burada geçen DMZ emirleri</small>
-              ${emirler.map(({ s, g }) => `<a class="lok-emir" href="/gorevler/?g=${encodeURIComponent(g.id)}"><b>S${kacis(s.sayfa)}</b> ${kacis(g.tr || g.ad)}</a>`).join('')}
+              ${emirler.map(({ s, g }) => `<a class="lok-emir" href="/gorevler/#g=${encodeURIComponent(g.id)}"><b>S${kacis(s.sayfa)}</b> ${kacis(g.tr || g.ad)}</a>`).join('')}
             </div>` : ''}
-          ${n ? `<a class="dugme dugme-kucuk" href="/harita/hajin/?n=${encodeURIComponent(n.id)}">${DMZ.ikon('harita')} Haritada göster</a>` : ''}
+          ${n ? `<a class="dugme dugme-kucuk" href="/harita/hajin/#n=${encodeURIComponent(n.id)}">${DMZ.ikon('harita')} Haritada göster</a>` : ''}
         </div>
       </article>`;
   }
@@ -294,7 +294,7 @@ DMZ.Sayfalar = (function () {
                   ${g.ipucu ? `<p class="gorev-ipucu">${DMZ.ikon('uyari')} ${kacis(g.ipucu)}</p>` : ''}
                   <div class="gorev-alt">
                     ${g.odul ? `<span class="gorev-odul"><small>Ödül</small>${kacis(g.odul)}</span>` : ''}
-                    ${lok && lok.nokta ? `<a class="dugme dugme-kucuk" href="/harita/hajin/?n=${encodeURIComponent(lok.nokta)}">${DMZ.ikon('harita')} ${kacis(lok.ad)}</a>` : ''}
+                    ${lok && lok.nokta ? `<a class="dugme dugme-kucuk" href="/harita/hajin/#n=${encodeURIComponent(lok.nokta)}">${DMZ.ikon('harita')} ${kacis(lok.ad)}</a>` : ''}
                   </div>
                 </div>`;
               }).join('')}
@@ -360,7 +360,7 @@ DMZ.Sayfalar = (function () {
 
   let gorevArama;
 
-  // /gorevler/?g=e17-1 gibi bağlantılar: emrin sayfasını açıp emri vurgula
+  // /gorevler/#g=e17-1 gibi bağlantılar: emrin sayfasını açıp emri vurgula
   function gorevVurgula(id) {
     const kart = $(`.gorev[data-gorev="${CSS.escape(id)}"]`);
     if (!kart) return;
@@ -433,7 +433,7 @@ DMZ.Sayfalar = (function () {
   const tarifAdi = (ad) => {
     esyaAdlari = esyaAdlari || new Map(DMZ.tumEsyalar().map((e) => [sade(e.ad), e]));
     const e = esyaAdlari.get(sade(ad));
-    return e ? `<a href="/esyalar/?e=${encodeURIComponent(e.id)}" lang="en">${kacis(ad)}</a>` : `<span lang="en">${kacis(ad)}</span>`;
+    return e ? `<a href="/esyalar/#e=${encodeURIComponent(e.id)}" lang="en">${kacis(ad)}</a>` : `<span lang="en">${kacis(ad)}</span>`;
   };
 
   function esyaCiz() {
@@ -478,15 +478,15 @@ DMZ.Sayfalar = (function () {
             ${e.deger != null ? `<div><dt>Değer</dt><dd>$${Number(e.deger).toLocaleString('tr-TR')}</dd></div>` : ''}
             ${e.yigin ? `<div><dt>Yığın</dt><dd>En fazla ${kacis(e.yigin)} tane üst üste</dd></div>` : ''}
           </dl>
-          ${lok && lok.nokta ? `<a class="dugme dugme-kucuk" href="/harita/hajin/?n=${encodeURIComponent(lok.nokta)}">${DMZ.ikon('harita')} ${kacis(lok.ad)}</a>` : ''}
-          ${odalar.map((n) => `<a class="dugme dugme-kucuk" href="/harita/hajin/?n=${encodeURIComponent(n.id)}">${DMZ.ikon('harita')} Açtığı oda haritada${odalar.length > 1 && n.izgara ? ` (${kacis(n.izgara)})` : ''}</a>`).join('')}
-          ${alanlar.length ? `<div class="esya-alanlar"><small>${kilavuz ? 'Haritada' : 'Haritada arama alanı'}</small>${alanlar.map((n) => `<a class="dugme dugme-kucuk" href="/harita/hajin/?n=${encodeURIComponent(n.id)}" lang="en">${DMZ.ikon('harita')} ${kacis(n.ad)}</a>`).join('')}</div>` : ''}
-          ${kilavuz ? `<a class="dugme dugme-kucuk" href="/rehber/?b=kilavuzlar">${DMZ.ikon('kilavuz')} Kılavuz nereden çıkar?</a>` : ''}
+          ${lok && lok.nokta ? `<a class="dugme dugme-kucuk" href="/harita/hajin/#n=${encodeURIComponent(lok.nokta)}">${DMZ.ikon('harita')} ${kacis(lok.ad)}</a>` : ''}
+          ${odalar.map((n) => `<a class="dugme dugme-kucuk" href="/harita/hajin/#n=${encodeURIComponent(n.id)}">${DMZ.ikon('harita')} Açtığı oda haritada${odalar.length > 1 && n.izgara ? ` (${kacis(n.izgara)})` : ''}</a>`).join('')}
+          ${alanlar.length ? `<div class="esya-alanlar"><small>${kilavuz ? 'Haritada' : 'Haritada arama alanı'}</small>${alanlar.map((n) => `<a class="dugme dugme-kucuk" href="/harita/hajin/#n=${encodeURIComponent(n.id)}" lang="en">${DMZ.ikon('harita')} ${kacis(n.ad)}</a>`).join('')}</div>` : ''}
+          ${kilavuz ? `<a class="dugme dugme-kucuk" href="/rehber/#b=kilavuzlar">${DMZ.ikon('kilavuz')} Kılavuz nereden çıkar?</a>` : ''}
         </article>`;
     }).join('') : '<p class="bos-durum">Aramana uyan eşya yok.</p>';
   }
 
-  // /esyalar/?e=blackmarket-weapons-locker gibi bağlantılar: eşyanın kartını bul ve vurgula
+  // /esyalar/#e=blackmarket-weapons-locker gibi bağlantılar: eşyanın kartını bul ve vurgula
   function esyaVurgula(id) {
     let kart = $(`#esya-${CSS.escape(id)}`);
     if (!kart) {
@@ -555,7 +555,7 @@ DMZ.Sayfalar = (function () {
 
   let sozlukCiz = () => {};
 
-  // /rehber/?t=Exfil gibi bağlantılar: sözlükte o terimi bul ve vurgula
+  // /rehber/#t=Exfil gibi bağlantılar: sözlükte o terimi bul ve vurgula
   function terimVurgula(en) {
     const bul = () => $$('#sozluk-liste [data-terim]').find((d) => d.dataset.terim === en);
     let terim = bul();

@@ -155,7 +155,7 @@ DMZ.malzemeCipleri = function (idler) {
     const ic = (resim ? `<img src="${kacis(resim)}" alt="">` : '')
       + `<span lang="en">${kacis((e && e.ad) || bilgi.ad || id)}</span><small>${kacis((e && e.tr) || bilgi.tr || '')}</small>`;
     return e
-      ? `<a class="malzeme-cip nadirlik-${kacis(nadirlik)}" href="/esyalar/?e=${encodeURIComponent(id)}">${ic}</a>`
+      ? `<a class="malzeme-cip nadirlik-${kacis(nadirlik)}" href="/esyalar/#e=${encodeURIComponent(id)}">${ic}</a>`
       : `<span class="malzeme-cip nadirlik-${kacis(nadirlik)}">${ic}</span>`;
   }).join('');
 };
