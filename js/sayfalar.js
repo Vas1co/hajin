@@ -502,6 +502,162 @@ DMZ.Sayfalar = (function () {
     vurgula(kart);
   }
 
+  // ---------------- Özellikler (Traits) ----------------
+  // Veri veri/ozellikler.js, ikonlar resimler/ozellikler (DMZHub'dan). Arama varken sekmeler yerine düz sonuç listesi çıkar.
+
+  const ozellikDurumu = { sekme: 'agaclar', sorgu: '' };
+  const OZELLIK_SEKMELERI = { agaclar: 'Yetenek ağaçları', pro: 'Prestij (Pro)', kucuk: 'Küçük özellikler', dizilis: 'Önerilen dizilişler' };
+  const PRO_RENK = '#f5c542';
+  let ozellikArama;
+
+  const ozellikRengi = (o) => {
+    if (o.tip === 'pro') return PRO_RENK;
+    const a = DMZ.ozellikAgaclari[DMZ.ozellikAgaci(o)];
+    return a ? a.renk : '#8fb5a5';
+  };
+  const ozellikIkonu = (o, sinif = 'ozellik-ikon') => {
+    const r = DMZ.ozellikResmi(o);
+    return `<span class="${sinif}${r ? ' resimli' : ''}" style="--o-renk:${ozellikRengi(o)}">${r ? `<img src="${kacis(r)}" alt="" loading="lazy">` : DMZ.ikon('operator')}</span>`;
+  };
+  const ozellikLinki = (id) => `/ozellikler/#o=${encodeURIComponent(id)}`;
+
+  function ozellikKarti(o) {
+    const agacId = DMZ.ozellikAgaci(o);
+    const agac = DMZ.ozellikAgaclari[agacId];
+    const ana = o.ana && DMZ.ozellikBul(o.ana);
+    const pro = o.tip === 'ana' && DMZ.tumOzellikler().find((x) => x.ana === o.id);
+    return `
+      <article class="ozellik-kart ozellik-${o.tip}" id="ozellik-${kacis(o.id)}" style="--o-renk:${ozellikRengi(o)}">
+        ${ozellikIkonu(o)}
+        <div class="ozellik-metin">
+          <h3 lang="en">${kacis(o.ad)}</h3>
+          <div class="ozellik-tr">${kacis(o.tr)}</div>
+          <p>${kacis(o.aciklama)}</p>
+          <div class="ozellik-rozetler">
+            <span class="rozet ozellik-tip">${kacis(DMZ.OZELLIK_TIPLERI[o.tip])}</span>
+            ${agac ? `<span class="rozet" style="--o-renk:${agac.renk}">${kacis(agac.ad)}</span>` : ''}
+            ${o.puan ? `<span class="rozet">${o.puan}. puan</span>` : ''}
+            ${ana ? `<a class="rozet rozet-baglanti" href="${ozellikLinki(ana.id)}">Temel hali: ${kacis(ana.tr)}</a>` : ''}
+            ${pro ? `<a class="rozet rozet-baglanti" href="${ozellikLinki(pro.id)}">Pro sürümü var</a>` : ''}
+          </div>
+        </div>
+      </article>`;
+  }
+
+  function ozellikAgaclariHtml() {
+    const hepsi = DMZ.tumOzellikler();
+    return Object.entries(DMZ.ozellikAgaclari).map(([id, a]) => `
+      <section class="ozellik-agac" style="--o-renk:${a.renk}">
+        <header class="ozellik-agac-baslik">
+          <h2>${kacis(a.ad)} <small lang="en">${kacis(a.en)}</small></h2>
+          <p>${kacis(a.not)}</p>
+        </header>
+        <p class="ozellik-satir-not">1. puan: rastgele bir küçük özellik. 2, 4, 5, 7 ve 8. puanlar: çıkan üç küçük özellikten birini seçersin.</p>
+        ${[3, 6, 9].map((puan) => {
+          const cift = hepsi.filter((o) => o.agac === id && o.tip === 'ana' && o.puan === puan);
+          return `
+            <div class="ozellik-satir">
+              <div class="ozellik-puan"><b>${puan}</b><span>puan</span></div>
+              <div class="ozellik-cift">${cift.map(ozellikKarti).join('<span class="ozellik-yada">ya da</span>')}</div>
+            </div>`;
+        }).join('')}
+      </section>`).join('');
+  }
+
+  function ozellikDizilisleriHtml() {
+    return `
+      <p class="ozellik-satir-not">Rehberlerin önerdiği dizilişler. İki ağacı doldurursun (9 + 9 puan); burada her ağaçtaki üç ana özellik seçimi var.</p>
+      <div class="dizilis-izgara">${(DMZ.ozellikDizilisleri || []).map((d) => `
+        <article class="dizilis-kart">
+          <h3>${kacis(d.tr)} <small>${kacis(d.ad)}</small></h3>
+          <div class="ozellik-rozetler">${d.secim.map((a) => `<span class="rozet" style="--o-renk:${DMZ.ozellikAgaclari[a].renk}">${kacis(DMZ.ozellikAgaclari[a].ad)}</span>`).join('')}</div>
+          <ul class="dizilis-liste">${d.ozellikler.map(DMZ.ozellikBul).filter(Boolean).map((o) => `
+            <li><a href="${ozellikLinki(o.id)}">${ozellikIkonu(o, 'ozellik-ikon ozellik-ikon-kucuk')}<span><b lang="en">${kacis(o.ad)}</b><small>${kacis(o.tr)}</small></span></a></li>`).join('')}
+          </ul>
+        </article>`).join('')}
+      </div>`;
+  }
+
+  function ozellikler(el) {
+    const hepsi = DMZ.tumOzellikler();
+    const say = (tip) => hepsi.filter((o) => o.tip === tip).length;
+    el.innerHTML = `
+      <header class="sayfa-baslik">
+        <span class="ust-etiket">Operatör yetenekleri</span>
+        <h1>Özellikler</h1>
+        <p>Operatörünün yetenek ağaçları (Traits): hangi özellik ne işe yarar, hangisini seçmeli, prestijde ne olur. Oyundaki İngilizce adı ve Türkçe karşılığıyla.</p>
+      </header>
+      <p class="kaynak-notu">Özellik listesi, açıklamalar ve ikonlar <a class="rozet rozet-dmzhub" href="https://dmzhub.gg/traits" target="_blank" rel="noopener">Kaynak: DMZHub</a> özellik sayfasından, Türkçeleştirildi.
+        Puan kuralları, prestij ve dizilişler <a href="https://dmztracker.gg/guides/traits-guide/" target="_blank" rel="noopener">DMZTracker</a> ve
+        <a href="https://codcentral.net/blog/mw4-dmz-traits/" target="_blank" rel="noopener">CODCentral</a> rehberlerinden. Oyun içi görseller Activision'a aittir.</p>
+      <details class="kutu ozellik-kurallar"${matchMedia('(min-width: 900px)').matches ? ' open' : ''}>
+        <summary><span class="bolum-ikon">${DMZ.ikon('kilavuz')}</span>Nasıl çalışır?</summary>
+        <ul class="rehber-maddeler">${(DMZ.ozellikKurallari || []).map((k) => `<li>${kacis(k)}</li>`).join('')}</ul>
+      </details>
+      <div class="arac-cubugu">
+        ${aramaKutusu('ozellik-ara', 'Ara: özellik adı, Türkçesi, ne işe yaradığı…')}
+        <div class="cipler" id="ozellik-sekmeler"></div>
+      </div>
+      <div class="genel-sonuclar" id="ozellik-genel" hidden></div>
+      <p class="sonuc-sayisi" id="ozellik-sayi" hidden></p>
+      <div id="ozellik-icerik"></div>`;
+
+    const sayilar = { agaclar: say('ana'), pro: say('pro'), kucuk: say('kucuk'), dizilis: (DMZ.ozellikDizilisleri || []).length };
+    sekmeler($('#ozellik-sekmeler', el), Object.entries(OZELLIK_SEKMELERI).map(([deger, ad]) => ({ deger, ad, sayi: sayilar[deger] })),
+      ozellikDurumu.sekme, (d) => { ozellikDurumu.sekme = d; ozellikCiz(); });
+
+    ozellikArama = DMZ.Arama.bagla($('#ozellik-ara', el), $('#ozellik-genel', el), digerBolumler({
+      haric: ['ozellik'],
+      degisince: (v) => { ozellikDurumu.sorgu = v; ozellikCiz(); },
+    }));
+    ozellikCiz();
+  }
+
+  const ozellikAlanlari = (o) => {
+    const agac = DMZ.ozellikAgaclari[DMZ.ozellikAgaci(o)];
+    return [[o.ad, o.tr], [agac && agac.ad, agac && agac.en, DMZ.OZELLIK_TIPLERI[o.tip]], [o.aciklama]];
+  };
+
+  function ozellikCiz() {
+    const icerik = $('#ozellik-icerik');
+    const sayi = $('#ozellik-sayi');
+    const sorgu = ozellikDurumu.sorgu.trim();
+    $('#ozellik-sekmeler').hidden = !!sorgu;
+    if (sorgu) {
+      const { liste, benzer } = DMZ.Arama.suz(DMZ.tumOzellikler(), sorgu, ozellikAlanlari);
+      sayi.hidden = false;
+      sayi.textContent = benzer ? `Tam eşleşme yok, yazdığına benzeyen ${liste.length} özellik` : `${liste.length} özellik`;
+      icerik.innerHTML = liste.length ? `<div class="ozellik-izgara">${liste.map(ozellikKarti).join('')}</div>` : '<p class="bos-durum">Aramana uyan özellik yok.</p>';
+      return;
+    }
+    sayi.hidden = true;
+    const s = ozellikDurumu.sekme;
+    if (s === 'agaclar') icerik.innerHTML = ozellikAgaclariHtml();
+    else if (s === 'dizilis') icerik.innerHTML = ozellikDizilisleriHtml();
+    else {
+      icerik.innerHTML = `
+        <p class="ozellik-satir-not">${s === 'pro'
+          ? 'Prestij yapınca rastgele biri kalıcı olarak gelir, ağaç sıfırlansa da kalır. Hepsi bir ana özelliğin güçlendirilmiş hali; ana özelliği ağaçta ayrıca seçmen gerekmez.'
+          : 'Ağaçların ara satırlarında rastgele üçlü olarak çıkar, birini seçersin. Hangisinin çıkacağı operatörden operatöre değişir.'}</p>
+        <div class="ozellik-izgara">${DMZ.tumOzellikler().filter((o) => o.tip === s).map(ozellikKarti).join('')}</div>`;
+    }
+  }
+
+  // /ozellikler/#o=possum gibi bağlantılar: özelliğin olduğu sekmeyi aç, kartı vurgula
+  function ozellikVurgula(id) {
+    const o = DMZ.ozellikBul(id);
+    if (!o) return;
+    const sekme = o.tip === 'ana' ? 'agaclar' : o.tip;
+    if (ozellikDurumu.sorgu || ozellikDurumu.sekme !== sekme || !$(`#ozellik-${CSS.escape(id)}`)) {
+      ozellikDurumu.sekme = sekme;
+      $$('#ozellik-sekmeler .cip').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.deger === sekme)));
+      $('#ozellik-ara').value = '';
+      ozellikArama.guncelle();
+    }
+    const kart = $(`#ozellik-${CSS.escape(id)}`);
+    if (kart) vurgula(kart);
+  }
+
   // ---------------- Rehber ----------------
   // rehber.js bizim yazdığımız içerik; metin ve maddelerde basit HTML (<b>) kullanılabilir
 
@@ -586,5 +742,5 @@ DMZ.Sayfalar = (function () {
     vurgula(hedef, 'start');
   }
 
-  return { anaSayfa, lokasyonlar, lokasyonVurgula, gorevler, gorevVurgula, esyalar, esyaVurgula, rehber, rehberGit, terimVurgula };
+  return { anaSayfa, lokasyonlar, lokasyonVurgula, gorevler, gorevVurgula, esyalar, esyaVurgula, ozellikler, ozellikVurgula, rehber, rehberGit, terimVurgula };
 })();

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <!-- Bu dosya araclar/sayfalari_uret.mjs ile index.html'den üretildi, elle düzenleme -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a08">
+  <meta name="description" content="MW4 DMZ operatör özellikleri Türkçe: Savaşçı, Keşifçi ve Hayatta Kalan ağaçları, 78 özellik, prestij (Pro) özellikleri ve önerilen dizilişler.">
+  <title>MW4 DMZ özellikleri (Traits) Türkçe: yetenek ağaçları, prestij, dizilişler · DMZ Rehberi</title>
+  <!-- Arama motorları için asıl adres (eski github.io adresi buraya yönlenir) -->
+  <link rel="canonical" href="https://dmz.peekdock.com/ozellikler/">
+  <!-- Bağlantı Discord, WhatsApp gibi yerlerde paylaşılınca çıkan kart -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DMZ Rehberi">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:title" content="MW4 DMZ özellikleri (Traits) Türkçe: yetenek ağaçları, prestij, dizilişler · DMZ Rehberi">
+  <meta property="og:description" content="MW4 DMZ operatör özellikleri Türkçe: Savaşçı, Keşifçi ve Hayatta Kalan ağaçları, 78 özellik, prestij (Pro) özellikleri ve önerilen dizilişler.">
+  <meta property="og:url" content="https://dmz.peekdock.com/ozellikler/">
+  <meta property="og:image" content="https://dmz.peekdock.com/logo2.jpg">
+  <meta name="twitter:card" content="summary">
+  <!-- Site ikonu: favicon/ klasöründe (yeni logodan). favicon.ico kökte de var, tarayıcılar orada arıyor.
+       192x192 ilk sırada: Google arama sonucundaki ikon için 48'in katı bir boyut istiyor (16/32'yi kullanmıyor). -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=East+Sea+Dokdo&display=swap">
+  <!-- Temaların yazı tipi (css/temalar.css); tarayıcı sadece tema açıksa indirir -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="/lib/leaflet/leaflet.css">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/temalar.css">
+  <!-- Site ayarları en başta: tema sayfa çizilmeden seçilsin -->
+  <script src="/veri/site.js"></script>
+  <script src="/js/tema.js"></script>
+</head>
+<body>
+  <a class="atla" href="#icerik">İçeriğe geç</a>
+
+  <header class="ust">
+    <!-- Logo: logo2.jpg (kaynağı kaynak/logo2.JPG), adı resmin içinde. Eski göz logosuna dönmek için
+         logo-dmz sınıfını sil ve src="logo.gif" width="68" height="38" yap. -->
+    <a class="logo logo-dmz" href="/">
+      <img class="logo-resim" src="/logo2.jpg" alt="" width="729" height="272">
+      <span class="logo-yazi"><b data-site-ad>Hajin Rehberi</b><small data-site-alt>MW4 DMZ · Türkçe</small></span>
+    </a>
+    <nav id="ust-menu" class="ust-menu" aria-label="Ana menü"></nav>
+    <span class="canli"><i></i>Sezon 0</span>
+  </header>
+
+  <main id="icerik">
+    <section id="sayfa-ana" class="sayfa" hidden></section>
+
+    <section id="sayfa-harita" class="sayfa sayfa-harita" hidden>
+      <!-- Bilgisayarda haritanın solunda durur, telefonda alttan açılır -->
+      <aside class="harita-panel" id="harita-panel" aria-label="Katmanlar">
+        <div class="panel-ust">
+          <label class="arama-kutusu">
+            <span data-ikon="ara"></span>
+            <input type="search" id="harita-ara" placeholder="Ara: anahtar, kale, eşya, görev…" autocomplete="off" aria-label="Haritada ve bütün sitede ara">
+          </label>
+          <button class="dugme-ikon panel-kapat" id="panel-kapat" aria-label="Paneli kapat" data-ikon="kapat"></button>
+        </div>
+        <div id="harita-sonuclar" class="arama-sonuclari" hidden></div>
+        <div class="panel-govde">
+          <div class="isaret-ozeti" id="isaret-ozeti" hidden>
+            <span data-ikon="isaretle"></span>
+            <span id="isaret-sayisi"></span>
+            <button class="dugme dugme-kucuk" id="isaret-temizle">Temizle</button>
+          </div>
+          <div id="harita-filtreler"></div>
+          <div class="panel-alt">
+            <button class="dugme dugme-kucuk" id="filtre-hepsi">Hepsini göster</button>
+            <button class="dugme dugme-kucuk" id="filtre-hicbiri">Hepsini gizle</button>
+          </div>
+        </div>
+      </aside>
+
+      <div class="harita-alan">
+        <div id="harita" class="harita-kap"></div>
+        <div class="harita-araclar">
+          <button class="arac" id="arac-katman" aria-expanded="false" aria-controls="harita-panel" data-ikon="katman"><span>Katmanlar</span></button>
+          <button class="arac" id="arac-koordinat" aria-pressed="false" data-ikon="koordinat"><span>Koordinat</span></button>
+          <button class="arac" id="arac-sifirla" data-ikon="sifirla"><span>Sıfırla</span></button>
+        </div>
+        <div id="koordinat-gosterge" class="koordinat-gosterge" hidden></div>
+      </div>
+    </section>
+
+    <section id="sayfa-lokasyonlar" class="sayfa" hidden></section>
+    <section id="sayfa-gorevler" class="sayfa" hidden></section>
+    <section id="sayfa-esyalar" class="sayfa" hidden></section>
+    <section id="sayfa-ozellikler" class="sayfa" hidden>
+    <header class="sayfa-baslik"><span class="ust-etiket">Operatör yetenekleri</span><h1>Özellikler</h1>
+      <p>Operatörünün yetenek ağaçları (Traits): hangi özellik ne işe yarar, prestijde ne olur.</p></header>
+    <section class="kutu statik-metin"><h2 class="kutu-baslik">Savaşçı (Warfighter)</h2><ul class="rehber-maddeler"><li><b lang="en">Equipment Professional</b> <small>Ekipman Ustası · 3. puan</small><br>Kullandığın öldürücü ve taktik ekipmanlar zamanla kendiliğinden dolar, yuvanın sınırına kadar.</li><li><b lang="en">Combat Resistance</b> <small>Çatışma Direnci · 3. puan</small><br>Patlamalardan aldığın hasar ve düşmanın taktik ekipmanlarının (flaş, sersemletici) etkisi azalır.</li><li><b lang="en">Viper Sense</b> <small>Engerek Duyusu · 6. puan</small><br>Termal dürbünlerde görünmezsin, yapay zekâ hedefleme sistemleri seni seçemez.</li><li><b lang="en">Quick Fix</b> <small>Hızlı Toparlanma · 6. puan</small><br>Düşman operatör ya da asker öldürünce canın daha erken dolmaya başlar.</li><li><b lang="en">Possum</b> <small>Ölü Taklidi · 9. puan</small><br>Maç başına bir kez, ölünce kendi kendine son direnişe (Last Stand) kalkarsın ve canın tamamen dolar. 28 Ekim yamasından beri seni düşüren takım yakındayken ya da 4 dakika geçmeden çalışmıyor.</li><li><b lang="en">Adaptive Restock</b> <small>Uyumlu İkmal · 9. puan</small><br>Düşman askerler öldüğünde bir eşya fazla düşürür.</li></ul></section><section class="kutu statik-metin"><h2 class="kutu-baslik">Keşifçi (Scout)</h2><ul class="rehber-maddeler"><li><b lang="en">Hostile Looter</b> <small>Düşman Yağmacısı · 3. puan</small><br>Düşman askerler bazen sıra dışı (yeşil) bir yazıcı malzemesi düşürür, çok düşük ihtimalle nadir (mavi) olanını.</li><li><b lang="en">Container Looter</b> <small>Kutu Yağmacısı · 3. puan</small><br>Kutulardan bir parça fazla ganimet çıkma ihtimali.</li><li><b lang="en">Field Crafting</b> <small>Sahada Üretim · 6. puan</small><br>Maçtayken temel yazıcı kaynaklarından (metal, sentetik, kimyasal, elektronik) doğrudan eşya üretebilirsin.</li><li><b lang="en">UAV Upgrade</b> <small>İHA Yükseltmesi · 6. puan</small><br>İHA&#39;ların menzili ve süresi artar, Gelişmiş İHA (Advanced UAV) olurlar.</li><li><b lang="en">Overwatch</b> <small>Gözcü · 9. puan</small><br>Senin açtığın İHA kuleleri hiç kapanmaz.</li><li><b lang="en">Thermal Padding</b> <small>Termal Astar · 9. puan</small><br>İHA&#39;larda görünmezsin; Gelişmiş İHA seni normal İHA gibi görür.</li></ul></section><section class="kutu statik-metin"><h2 class="kutu-baslik">Hayatta Kalan (Survivalist)</h2><ul class="rehber-maddeler"><li><b lang="en">Faster Revive</b> <small>Hızlı Diriltme · 3. puan</small><br>Diriltme hızın artar.</li><li><b lang="en">Consumable Duration</b> <small>Uzun Etki · 3. puan</small><br>Tüketilen eşyaların (ağrı kesici, enerji içeceği gibi) etkisi daha uzun sürer.</li><li><b lang="en">Impact Smokes</b> <small>Düşüş Dumanı · 6. puan</small><br>Yere düşünce etrafına duman çıkar.</li><li><b lang="en">Free Revive</b> <small>Bedava Yara Sarma · 6. puan</small><br>İlk yaran kendiliğinden iyileşir.</li><li><b lang="en">Numb the Pain</b> <small>Acıyı Dindir · 9. puan</small><br>Diriltilince ağrı kesici ve koklama tuzu etkisi alırsın.</li><li><b lang="en">Die Hard</b> <small>Zor Ölen · 9. puan</small><br>Son direnişteyken çıkış noktasına yaklaşınca çıkış kendiliğinden çağrılır, son direnişte kan kaybından ölmezsin.</li></ul></section>
+    <section class="kutu statik-metin"><h2 class="kutu-baslik">Prestij (Pro) özellikleri</h2><ul class="rehber-maddeler"><li><b lang="en">Viper Sense Pro</b> <small>Engerek Duyusu Pro</small><br>Termal dürbünlerde ve yapay zekâ hedeflemesinde görünmezsin; ayrıca bir düşman operatör sana nişan alınca uyarılırsın.</li><li><b lang="en">Quick Fix Pro</b> <small>Hızlı Toparlanma Pro</small><br>Düşman operatör ya da asker öldürünce canın hemen dolmaya başlar.</li><li><b lang="en">Possum Pro</b> <small>Ölü Taklidi Pro</small><br>Maç başına bir kez ölünce son direnişe kalkarsın; turnike can cezası da kalkar.</li><li><b lang="en">Adaptive Restock Pro</b> <small>Uyumlu İkmal Pro</small><br>Düşman askerlerin fazladan düşürdüğü eşyalar daha nadir olur.</li><li><b lang="en">Field Crafting Pro</b> <small>Sahada Üretim Pro</small><br>Maçta temel kaynaklardan eşya üretirsin ve her üretimin kaynak maliyeti yarıya iner.</li><li><b lang="en">UAV Upgrade Pro</b> <small>İHA Yükseltmesi Pro</small><br>İHA&#39;lar Gelişmiş İHA olur; mini haritan da 1,5 kat büyür.</li><li><b lang="en">Overwatch Pro</b> <small>Gözcü Pro</small><br>Açtığın İHA kuleleri hiç kapanmaz ve menzilleri artar.</li><li><b lang="en">Thermal Padding Pro</b> <small>Termal Astar Pro</small><br>Termal Astar, içinde olduğun aracı da İHA&#39;dan gizler.</li><li><b lang="en">Impact Smokes Pro</b> <small>Düşüş Dumanı Pro</small><br>Yere düşünce çıkan duman daha büyük olur ve daha uzun sürer.</li><li><b lang="en">Free Revive Pro</b> <small>Bedava Yara Sarma Pro</small><br>İlk yaran kendiliğinden iyileşir; yaralıyken turnike de takabilirsin.</li><li><b lang="en">Numb The Pain Pro</b> <small>Acıyı Dindir Pro</small><br>Diriltilince ağrı kesici ve koklama tuzu etkisi alırsın (gelişmiş sürüm).</li><li><b lang="en">Die Hard Pro</b> <small>Zor Ölen Pro</small><br>Son direnişte çıkışa yaklaşınca çıkış kendiliğinden çağrılır, kan kaybından ölmezsin ve daha hızlı hareket edersin.</li></ul></section>
+    <section class="kutu statik-metin"><h2 class="kutu-baslik">Küçük özellikler</h2><ul class="rehber-maddeler"><li><b lang="en">Adrenaline Burst</b> <small>Adrenalin Patlaması</small><br>Düşman öldürünce taktik koşu yenilenir.</li><li><b lang="en">Air Superiority</b> <small>Hava Üstünlüğü</small><br>İHA kulelerinin ve SAM bataryalarının süresi uzar.</li><li><b lang="en">Ammo Reserves</b> <small>Cephane Yedeği</small><br>Bütün mermi türlerinde taşıyabildiğin yedek cephane artar.</li><li><b lang="en">Ammo Scavenger</b> <small>Cephane Toplayıcı</small><br>Cephane paketlerinden iki kat mermi alırsın.</li><li><b lang="en">Auto Fill</b> <small>Otomatik Doldurma</small><br>Öldürücü ve taktik ekipmanların çantadan kendiliğinden dolar.</li><li><b lang="en">Bounty Hunter</b> <small>Ödül Avcısı</small><br>Ödül avından (Bounty) aldığın ödüller artar.</li><li><b lang="en">Bounty Intel</b> <small>Ödül İstihbaratı</small><br>Ödül istihbaratı satın almak ucuzlar.</li><li><b lang="en">Cash Ops</b> <small>Nakit Görevler</small><br>Operasyonlardan %20 fazla para alırsın.</li><li><b lang="en">Combat Scanner</b> <small>Çatışma Tarayıcı</small><br>Bir oyuncuyu yere düşürünce onun yerinde tek seferlik İHA taraması olur.</li><li><b lang="en">Combat Scavenger</b> <small>Çatışma Toplayıcısı</small><br>Öldürülen düşman askerlerin küçük ihtimalle yazıcı malzemesi ya da değerli eşya düşürmesi.</li><li><b lang="en">Consumable Stacker</b> <small>Etki Biriktirici</small><br>Zaten etkisi süren bir tüketim eşyasını tekrar kullanınca süreler toplanır, en fazla iki katına kadar.</li><li><b lang="en">Deep Breath</b> <small>Derin Nefes</small><br>Su altında nefesin daha uzun yeter.</li><li><b lang="en">Expedited Extraction</b> <small>Hızlı Çıkış</small><br>Çıkış helikopteri çok daha çabuk gelir.</li><li><b lang="en">Fast Learner</b> <small>Hızlı Öğrenen</small><br>Operatör deneyimi %10 fazla gelir.</li><li><b lang="en">Faster Learner</b> <small>Daha Hızlı Öğrenen</small><br>Operatör deneyimi %10 fazla gelir; Hızlı Öğrenen ile toplanır.</li><li><b lang="en">Field Medic</b> <small>Sahra Sıhhiyecisi</small><br>Takım arkadaşlarını daha hızlı diriltirsin.</li><li><b lang="en">Final Intel</b> <small>Son Çıkış Bilgisi</small><br>Son çıkış noktası maçın başından taktik haritada işaretli olur.</li><li><b lang="en">Free Prep</b> <small>Bedava Hazırlık</small><br>Bedava teçhizatla girince çantana rastgele bir tüketim eşyası eklenir.</li><li><b lang="en">Fuel Economy</b> <small>Yakıt Tasarrufu</small><br>Araçlar daha az yakıt harcar.</li><li><b lang="en">Hostile Ammo</b> <small>Düşman Cephanesi</small><br>Öldürülen düşman askerler fazladan bir cephane paketi düşürür.</li><li><b lang="en">Investor</b> <small>Yatırımcı</small><br>Çıkardığın para biraz artar.</li><li><b lang="en">Key Cash</b> <small>Anahtar Parası</small><br>Kilitli bir yeri anahtarla açınca para kazanırsın; anahtar ne kadar nadirse o kadar çok.</li><li><b lang="en">Killing Spree</b> <small>Öldürme Serisi</small><br>Düşman öldürdükçe aktif etkilerin süresi uzar, en fazla iki katına kadar.</li><li><b lang="en">LT Hunter</b> <small>Teğmen Avcısı</small><br>Teğmen kulesini açınca bir teğmen daha görünür.</li><li><b lang="en">Lucky</b> <small>Şanslı</small><br>Kötü bir etki altındayken ya da malzemen azken işe yarar eşya bulma ihtimalin artar.</li><li><b lang="en">Mechanic</b> <small>Tamirci</small><br>Araçlara yakıt doldurma ve tamir hızın iki katına çıkar.</li><li><b lang="en">Metabolism</b> <small>Metabolizma</small><br>Turnike yüzünden kaybettiğin can yavaş yavaş geri gelir.</li><li><b lang="en">Mini Tracker</b> <small>Mini İz Sürücü</small><br>Açılmamış bir kutuyu yağmalayınca %50 ihtimalle radar taraması olur.</li><li><b lang="en">Objective Oriented</b> <small>Hedef Odaklı</small><br>Operasyon ödül sandıkları bir nadirlik üstte çıkar, en fazla nadire kadar.</li><li><b lang="en">Operator Tracker</b> <small>Operatör İz Sürücü</small><br>Düşman operatörlerini ayak izlerinden takip edebilirsin.</li><li><b lang="en">Pack Rat</b> <small>İstifçi</small><br>Taşıyabildiğin yazıcı kaynağı %20 artar; Kaynak Biriktirici ile toplanır.</li><li><b lang="en">Plate Organization</b> <small>Plaka Düzeni</small><br>Yedek zırh plakası yerin 2 artar; Plaka Kesesi ile toplanır.</li><li><b lang="en">Plate Pouch</b> <small>Plaka Kesesi</small><br>Yedek zırh plakası yerin 2 artar; Plaka Düzeni ile toplanır.</li><li><b lang="en">Plate Speed</b> <small>Hızlı Plaka</small><br>Zırh plakası takmak daha kısa sürer.</li><li><b lang="en">Popcorn Lethals</b> <small>Patlayıcı Bereketi</small><br>Öldürücü ekipmandan etkilenen düşman askerlerin öldürücü ekipman düşürme ihtimali artar.</li><li><b lang="en">Popcorn Tacticals</b> <small>Taktik Bereketi</small><br>Taktik ekipmandan etkilenen düşman askerlerin taktik ekipman düşürme ihtimali artar.</li><li><b lang="en">Quick Knife</b> <small>Hızlı Bıçak</small><br>Silahla vurma yerine bıçakla saldırırsın.</li><li><b lang="en">Quick Regen</b> <small>Hızlı Yenilenme</small><br>Can dolumunun başlaması biraz kısalır.</li><li><b lang="en">Rad Blocker</b> <small>Radyasyon Kalkanı</small><br>Radyasyondan daha az hasar alırsın.</li><li><b lang="en">Rampage</b> <small>Öfke</small><br>Düşman operatör öldürünce kısa bir ağrı kesici etkisi alırsın.</li><li><b lang="en">Rescuer</b> <small>Kurtarıcı</small><br>Yere düşmüş takım arkadaşını sürüklerken daha hızlı hareket edersin.</li><li><b lang="en">Resource Hoarder</b> <small>Kaynak Biriktirici</small><br>Taşıyabildiğin yazıcı kaynağı %20 artar; İstifçi ile toplanır.</li><li><b lang="en">Resource Management</b> <small>Kaynak Yönetimi</small><br>Dolu olan bir kaynaktan aldığın fazlalığın bir kısmı en az olan kaynağına eklenir.</li><li><b lang="en">Resource Pockets</b> <small>Kaynak Cepleri</small><br>Eşya söküp parçalayınca %20 fazla yazıcı kaynağı alırsın.</li><li><b lang="en">Resupply</b> <small>Yeniden İkmal</small><br>Cephane ikmallerinden ve sandıklarından fazla mermi, zırh kutularından 2 fazla plaka alırsın.</li><li><b lang="en">Stealthy</b> <small>Sinsi</small><br>Av timi (Hunt Squad) peşine düşmeden önce daha çok düşman öldürebilirsin.</li><li><b lang="en">Strong Arm</b> <small>Güçlü Kol</small><br>Ekipmanları daha uzağa atarsın ve atış çizgisi görünür.</li><li><b lang="en">Supplied Drops</b> <small>Dolu İkmal</small><br>İkmal paketinden fazladan bir kutu çıkma ihtimali; bütün takıma geçer ve toplanır.</li></ul></section></section>
+    <section id="sayfa-rehber" class="sayfa" hidden></section>
+  </main>
+
+  <footer class="alt-bilgi">
+    <p id="site-guncelleme"></p>
+    <p class="alt-iletisim" id="site-iletisim" hidden></p>
+    <!-- Arama motorları bu bağlantılardan araclar/sayfalari_uret.mjs'in ürettiği sayfaları bulur -->
+    <p class="alt-baglantilar">Sayfalar: <a href="/lokasyonlar/">Lokasyonlar</a> · <a href="/esyalar/">Eşyalar</a> · <a href="/gorevler/">DMZ Emirleri</a> · <a href="/rehber/">Rehber</a> · <a href="/rehber/sozluk/">Terimler sözlüğü</a></p>
+    <p>Resmi olmayan bir hayran sitesidir, Activision ile bağlantısı yoktur. Call of Duty, Modern Warfare, harita görseli ve oyun ikonları Activision'a aittir. Harita koordinatları ve oyun ikonları callofduty.com'daki resmi haritadan alınmıştır.</p>
+  </footer>
+
+  <nav id="alt-menu" class="alt-menu" aria-label="Menü"></nav>
+
+  <!-- Harita kütüphanesi projenin içinde: internet olmadan da çalışır (Leaflet 1.9.4, BSD-2 lisansı: lib/leaflet/LICENSE) -->
+  <script src="/lib/leaflet/leaflet.js"></script>
+
+  <!-- Veriler: bilgileri bu dosyalardan düzenle (veri/site.js sayfanın başında yükleniyor) -->
+  <script src="/veri/kategoriler.js"></script>
+  <script src="/veri/resmi_noktalar.js"></script>
+  <script src="/veri/noktalar.js"></script>
+  <script src="/veri/lokasyonlar.js"></script>
+  <script src="/veri/gorevler.js"></script>
+  <script src="/veri/esyalar.js"></script>
+  <script src="/veri/esyalar_dmzhub.js"></script>
+  <script src="/veri/malzemeler.js"></script>
+  <script src="/veri/kilavuzlar.js"></script>
+  <script src="/veri/esya_resimleri.js"></script>
+  <script src="/veri/ozellikler.js"></script>
+  <script src="/veri/ozellik_resimleri.js"></script>
+  <script src="/veri/rehber.js"></script>
+  <script src="/veri/tren.js"></script>
+
+  <script src="/js/koruma.js"></script>
+  <script src="/js/ikonlar.js"></script>
+  <script src="/js/ortak.js"></script>
+  <script src="/js/arama.js"></script>
+  <script src="/js/tren.js"></script>
+  <script src="/js/harita.js"></script>
+  <script src="/js/sayfalar.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

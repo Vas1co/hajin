@@ -140,6 +140,20 @@ DMZ.esyaResmi = function (id) {
   return DMZ.site.resimIkonlar !== false && DMZ.dmzhubAcik() && DMZ._esyaResimleri.has(id) ? `/resimler/esyalar/${id}.png` : null;
 };
 
+// Özellik (trait) listesi ve ikonu. İkonlar da DMZHub'dan alındığı için aynı ayarlarla kapanır.
+// Pro sürümün kendi ikonu yoksa ana özelliğinkini kullanır.
+DMZ.tumOzellikler = () => (DMZ.dmzhubAcik() ? DMZ.ozellikler || [] : []);
+DMZ.ozellikBul = (id) => DMZ.tumOzellikler().find((o) => o.id === id);
+DMZ.ozellikResmi = function (o) {
+  if (!DMZ._ozellikResimleri) DMZ._ozellikResimleri = new Set(DMZ.ozellikResimleri || []);
+  if (DMZ.site.resimIkonlar === false || !DMZ.dmzhubAcik() || !o) return null;
+  const id = DMZ._ozellikResimleri.has(o.id) ? o.id : o.ana && DMZ._ozellikResimleri.has(o.ana) ? o.ana : null;
+  return id ? `/resimler/ozellikler/${id}.png` : null;
+};
+// Özelliğin bağlı olduğu ağaç (Pro sürüm ana özelliğin ağacında)
+DMZ.ozellikAgaci = (o) => o && (o.agac || (o.ana && (DMZ.ozellikBul(o.ana) || {}).agac)) || null;
+DMZ.OZELLIK_TIPLERI = { ana: 'Ana özellik', kucuk: 'Küçük özellik', pro: 'Prestij (Pro)' };
+
 // Haritada bir eşyanın arandığı yerler: yazıcı malzemesi alanları ("malzemeler") ve oyuncuların silah kılavuzu
 // bulduğu yerler ("kilavuzlar"), veri/noktalar.js
 DMZ.malzemeAlanlari = (id) => DMZ.tumNoktalar().filter((n) => (n.malzemeler || []).includes(id) || (n.kilavuzlar || []).includes(id));
