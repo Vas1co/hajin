@@ -1,7 +1,6 @@
-// OTOMATIK URETILDI: araclar/esya_resimleri_kes.ps1. Elle duzenleme, bir sonraki calistirmada silinir.
-// Esya resimleri: oyun ici gorseller (Activision'a ait). DMZHub esya sayfasindan tarayicida ekran goruntusuyle
-// alindi (1 Kasim 2026). Dosyalar site/resimler/esyalar/<id>.png. veri/site.js icinde dmzhubVerileri: false
-// yapilirsa gosterilmez.
+// OTOMATIK URETILDI: araclar/esya_resimleri_kes.ps1 (esya). Elle duzenleme, bir sonraki calistirmada silinir.
+// Oyun ici gorseller (Activision'a ait). DMZHub sayfasindan tarayicida ekran goruntusuyle alindi.
+// Dosyalar site/resimler/esyalar/<id>.png. veri/site.js icinde dmzhubVerileri: false yapilirsa gosterilmez.
 window.DMZ = window.DMZ || {};
 
 DMZ.esyaResimleri = [

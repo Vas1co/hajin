@@ -13,6 +13,7 @@ DMZ.Arama = (function () {
     lokasyon: { ad: 'Lokasyonlar', ikon: 'bolge' },
     esya:     { ad: 'Eşyalar', ikon: 'esya' },
     gorev:    { ad: 'Görevler', ikon: 'gorev' },
+    ozellik:  { ad: 'Özellikler', ikon: 'operator' },
     rehber:   { ad: 'Rehber ve sözlük', ikon: 'kilavuz' },
   };
   const TUR_ADLARI = { ana: 'Ana bölge', ara: 'Ara bölge', kale: 'Kale' };
@@ -186,6 +187,19 @@ DMZ.Arama = (function () {
         hedef: `/gorevler/#g=${encodeURIComponent(g.id)}`,
       }, [g.ad, g.tr], [`s${s.sayfa}`, s.ad, s.tr, lok && lok.ad, lok && lok.tr], [...(g.adimlar || []), g.ipucu, g.odul]);
     }));
+
+    DMZ.tumOzellikler().forEach((o) => {
+      const agac = DMZ.ozellikAgaclari[DMZ.ozellikAgaci(o)];
+      const resim = DMZ.ozellikResmi(o);
+      ekle({
+        grup: 'ozellik', id: o.id, baslik: o.ad, en: true,
+        alt: [o.tr, DMZ.OZELLIK_TIPLERI[o.tip], agac && agac.ad].filter(Boolean).join(' · '),
+        ikon: resim
+          ? `<span class="sonuc-ikon sonuc-ikon-esya sonuc-resimli" style="--renk:${o.tip === 'pro' ? '#f5c542' : agac ? agac.renk : 'var(--panel-3)'}"><img src="${kacis(resim)}" alt="" loading="lazy"></span>`
+          : duzIkon('operator'),
+        hedef: `/ozellikler/#o=${encodeURIComponent(o.id)}`,
+      }, [o.ad, o.tr], [agac && agac.ad, agac && agac.en, DMZ.OZELLIK_TIPLERI[o.tip], 'trait', 'özellik'], [o.aciklama]);
+    });
 
     (DMZ.rehber || []).forEach((b) => {
       ekle({

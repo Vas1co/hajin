@@ -12,8 +12,9 @@
     { id: 'lokasyonlar', yol: '/lokasyonlar/', ad: 'Lokasyonlar', kisa: 'Lokasyon', ikon: 'bolge',  ciz: DMZ.Sayfalar.lokasyonlar },
     { id: 'gorevler',    yol: '/gorevler/',    ad: 'Görevler',    kisa: 'Görev',    ikon: 'gorev',  ciz: DMZ.Sayfalar.gorevler },
     { id: 'esyalar',     yol: '/esyalar/',     ad: 'Eşyalar',     kisa: 'Eşya',     ikon: 'esya',   ciz: DMZ.Sayfalar.esyalar },
+    { id: 'ozellikler',  yol: '/ozellikler/',  ad: 'Özellikler',  kisa: 'Özellik',  ikon: 'operator', ciz: DMZ.Sayfalar.ozellikler, gizli: () => !DMZ.tumOzellikler().length },
     { id: 'rehber',      yol: '/rehber/',      ad: 'Rehber',      kisa: 'Rehber',   ikon: 'kilavuz', ciz: DMZ.Sayfalar.rehber },
-  ];
+  ].filter((s) => !s.gizli || !s.gizli());
   // Haritalar /harita/<ad>/ adresinde. Şimdilik sadece Hajin; yeni harita (ör. Black Site) gelince buraya eklenir.
   const HARITALAR = ['hajin'];
   const cizilenler = new Set();
@@ -82,6 +83,9 @@
     }
     if (sayfa.id === 'esyalar' && parametreler.get('e')) {
       requestAnimationFrame(() => DMZ.Sayfalar.esyaVurgula(parametreler.get('e')));
+    }
+    if (sayfa.id === 'ozellikler' && parametreler.get('o')) {
+      requestAnimationFrame(() => DMZ.Sayfalar.ozellikVurgula(parametreler.get('o')));
     }
     if (sayfa.id === 'rehber' && parametreler.get('b')) {
       requestAnimationFrame(() => DMZ.Sayfalar.rehberGit(parametreler.get('b')));
