@@ -141,6 +141,60 @@ DMZ.kategoriler = {
   diger: {
     ad: 'Diğer', en: 'Other', grup: 'ganimet', ikon: 'nokta', renk: '#64748b',
   },
+
+  // --- Sadece X01 Black Site'ta olanlar (harita: 'x01'); Hajin'in panelinde çıkmazlar ---
+  // Açıklamalar DMZHub X01 haritasındaki notlardan ve resmi Sezon 1 yama notlarından kendi cümlelerimizle.
+  acilcikis: {
+    ad: 'Acil Çıkış', en: 'Emergency Exfil', grup: 'giriscikis', ikon: 'acilcikis', renk: '#38bdf8', ikonRenk: '#082f49', harita: 'x01',
+    aciklama: 'DMZHub\'da acil çıkış (Emergency Exfil) olarak işaretlenen kaçış yolu. Normal çıkışlar kapalıysa ya da üstünde pusu varsa alternatif.',
+  },
+  wheelson: {
+    ad: 'Wheelson Commander', en: 'Wheelson Commander', grup: 'tehlike', ikon: 'robot', renk: '#ef4444', harita: 'x01',
+    alan: 160,
+    aciklama: 'X01\'in boss\'u: silahlı, paletli bir robot. Birinci katın dış halkasında devriye gezer.',
+  },
+  mayin: {
+    ad: 'Mayın Tuzağı', en: 'Mine Trap', grup: 'tehlike', ikon: 'mayin', renk: '#f97316', harita: 'x01',
+    aciklama: 'Kurulu mayın tuzağı. Bu koridordan geçerken yere bak, koşarak geçme.',
+  },
+  odulterminal: {
+    ad: 'Ödül Terminali', en: 'Bounty Terminal', grup: 'ikmal', ikon: 'odulterminal', renk: '#a855f7', harita: 'x01',
+    aciklama: 'Açık ödülleri (Bounty) ve ne kazandıracaklarını gösteren terminal.',
+  },
+  kodlayici: {
+    ad: 'Kart Kodlayıcı', en: 'Keycard Encoder', grup: 'ikmal', ikon: 'kodlayici', renk: '#22d3ee', ikonRenk: '#083344', harita: 'x01',
+    aciklama: 'Boş anahtar kartını (Encodable Blank Keycard) personel, yönetici ya da başka bir erişim kartı olarak kodlar. Yönetici Odası (Executive Room) için gerekiyor.',
+  },
+  yazici: {
+    ad: '3D Yazıcı', en: '3D Printer', grup: 'ikmal', ikon: 'yazici', renk: '#f59e0b', ikonRenk: '#1c1917', harita: 'x01',
+    aciklama: 'Resmi Sezon 1 notlarına göre X01\'in içinde kendi 3D yazıcısı var; malzemelerle maçın içinde üretim yapabilirsin.',
+  },
+  kontrol: {
+    ad: 'Kasa Kontrol Şalteri', en: 'Vault Control Switch', grup: 'ganimet', ikon: 'kontrol', renk: '#eab308', ikonRenk: '#1c1917', harita: 'x01',
+  },
+  argonaut: {
+    ad: 'Argonaut Zırhı', en: 'Argonaut Armor', grup: 'ganimet', ikon: 'zirh', renk: '#f97316', harita: 'x01',
+  },
+  gizli: {
+    ad: 'Gizli Giriş', en: 'Hidden Entrance', grup: 'ganimet', ikon: 'gizli', renk: '#14b8a6', harita: 'x01',
+    aciklama: 'Kapısı olmayan ya da içeriden kilitli bir odaya giden gizli yol.',
+  },
+  dolap: {
+    ad: 'Silah Dolabı', en: 'Weapon Locker', grup: 'ganimet', ikon: 'silah', renk: '#6366f1', harita: 'x01',
+    aciklama: 'Açınca silah ve ekipman çıkan dolap. Çoğu kilitli odaların ya da gizli bölümlerin içinde.',
+  },
+  ceset: {
+    ad: 'Ceset', en: 'Corpse', grup: 'ganimet', ikon: 'ceset', renk: '#94a3b8', ikonRenk: '#0f172a', harita: 'x01',
+    aciklama: 'İçi aranabilen ceset. Farklı nadirlikte eşya, ekipman ve malzeme çıkabilir.',
+  },
+  merdiven: {
+    ad: 'Merdiven', en: 'Stairs', grup: 'yollar', ikon: 'merdiven', renk: '#cbd5e1', ikonRenk: '#0f172a', harita: 'x01',
+    aciklama: 'Birinci ve ikinci kat arasındaki merdiven. Üstteki düğmeden diğer kata geçip devamına bakabilirsin.',
+  },
+  yukselici: {
+    ad: 'Yükselme Halatı', en: 'Ascender', grup: 'yollar', ikon: 'yukselici', renk: '#cbd5e1', ikonRenk: '#0f172a', harita: 'x01',
+    aciklama: 'Halatla yukarı çıkılan nokta (Ascender). Katlar arasında hızlı geçiş.',
+  },
 };
 
 DMZ.kategoriGruplari = [
@@ -149,4 +203,5 @@ DMZ.kategoriGruplari = [
   { id: 'tehlike',    ad: 'Tehlikeli noktalar' },
   { id: 'ikmal',      ad: 'İkmal ve keşif' },
   { id: 'ganimet',    ad: 'Ganimet ve sığınaklar' },
+  { id: 'yollar',     ad: 'Katlar arası geçiş' },
 ];

@@ -44,69 +44,9 @@ DMZ.Sayfalar = (function () {
 
   // ---------------- Ana Sayfa ----------------
 
+  // HTML'i js/ortak.js'teki DMZ.anaSayfaHtml yazar (sayfa üretilirken de aynısı index.html'e konur)
   function anaSayfa(el) {
-    const site = DMZ.site;
-    const noktaSayisi = DMZ.tumNoktalar().filter((n) => n.kategori !== 'bolge').length;
-    const gercekGorev = emirSayfalari().filter((s) => !s.ornek).reduce((t, s) => t + s.gorevler.length, 0);
-    const gercekEsya = DMZ.tumEsyalar().filter((e) => !e.ornek).length;
-    const kartlar = [
-      { yol: '/harita/hajin/', ikon: 'harita', baslik: 'Hajin Haritası', metin: 'Yakınlaştırılabilir harita. Klinik, benzinlik, İHA kulesi, kale... Hepsi Türkçe ve filtrelenebilir.', sayi: `${noktaSayisi} nokta` },
-      { yol: '/lokasyonlar/', ikon: 'bolge', baslik: 'Lokasyonlar', metin: 'Bölgeler ve kaleler: neresi tehlikeli, oraya nasıl girilir, içinde ne var.', sayi: `${DMZ.lokasyonlar.length} lokasyon` },
-      { yol: '/gorevler/', ikon: 'gorev', baslik: 'Görevler', metin: 'DMZ Orders sayfa sayfa, adım adım Türkçe. Bitirdiğin görevi işaretle.', sayi: gercekGorev ? `${gercekGorev} görev` : 'Hazırlanıyor' },
-      { yol: '/esyalar/', ikon: 'esya', baslik: 'Eşyalar', metin: 'Zırh, çanta, sağlık, anahtar, malzeme: ne işe yarar, nerede bulunur.', sayi: gercekEsya ? `${gercekEsya} eşya` : 'Hazırlanıyor' },
-      { yol: '/rehber/', ikon: 'kilavuz', baslik: 'Rehber', metin: 'Giriş, çıkış, tehlike seviyeleri, boss\'lar, araçlar ve oyundaki İngilizce terimlerin Türkçe sözlüğü.', sayi: `${(DMZ.rehber || []).length} konu` },
-    ];
-
-    // Arama en üstte: oyunda bir şey bulan direkt adını yazsın, sonuçlar hemen altında çıksın
-    el.innerHTML = `
-      <section class="ana-arama" aria-label="Sitede ara">
-        ${aramaKutusu('ana-ara', 'Her şeyi ara: anahtar, eşya, kale, görev…')}
-        <div class="genel-sonuclar" id="ana-sonuclar" hidden></div>
-      </section>
-      <section class="giris">
-        <div class="giris-metin">
-          <span class="ust-etiket">Modern Warfare 4 · DMZ · Hajin</span>
-          <h1>Hajin'de kaybolma.<br><em>Her şey Türkçe.</em></h1>
-          <div class="giris-dugmeler">
-            <a class="dugme dugme-vurgu dugme-buyuk" href="/harita/hajin/">${DMZ.ikon('harita')} Haritayı aç</a>
-            <a class="dugme dugme-buyuk" href="/lokasyonlar/">${DMZ.ikon('bolge')} Lokasyonlar</a>
-          </div>
-        </div>
-        <a class="giris-harita" href="/harita/hajin/" aria-label="Haritayı aç">
-          <img src="/harita/tiles/2/1/1.jpg" alt=""><img src="/harita/tiles/2/2/1.jpg" alt="">
-          <img src="/harita/tiles/2/1/2.jpg" alt=""><img src="/harita/tiles/2/2/2.jpg" alt="">
-          <span class="giris-harita-etiket">${DMZ.ikon('koordinat')} Hajin Yasak Bölgesi</span>
-        </a>
-      </section>
-
-      <section class="bolum-kartlari">
-        ${kartlar.map((k) => `
-          <a class="bolum-karti" href="${k.yol}">
-            <span class="bolum-ikon">${DMZ.ikon(k.ikon)}</span>
-            <h2>${k.baslik}</h2>
-            <p>${k.metin}</p>
-            <span class="bolum-alt"><b>${k.sayi}</b>${DMZ.ikon('ok')}</span>
-          </a>`).join('')}
-      </section>
-
-      <section class="iki-kolon">
-        <div class="kutu">
-          <h2 class="kutu-baslik">Nasıl kullanılır?</h2>
-          <ol class="adim-listesi">
-            <li><b>Ne arıyorsan yaz.</b> Her sayfanın üstündeki arama kutusu her şeyde arar: anahtar, eşya, kale, görev, terim. İlk harften süzmeye başlar, Türkçe de yazabilirsin.</li>
-            <li><b>Haritayı aç,</b> soldaki listeden görmek istediğin şeyleri seç. Başlıkların yanındaki anahtar o gruptaki her şeyi birden açıp kapatır. Telefonda "Katmanlar" düğmesine bas.</li>
-            <li><b>Bir noktaya dokun.</b> Türkçe açıklaması ve oyundaki İngilizce adı çıkar. "İşaretle" dersen oyundaki gibi etrafına altın halka gelir.</li>
-            <li><b>"Bağlantıyı kopyala"</b> ile o noktayı ekibine gönder, açan direkt oraya gider.</li>
-            <li><b>Yeni misin?</b> Önce <a href="/rehber/">Rehber</a>'i oku: giriş, çıkış ve oyundaki İngilizce terimler orada.</li>
-          </ol>
-        </div>
-        <div class="kutu kutu-vurgu">
-          <h2 class="kutu-baslik">Bir şey mi buldun?</h2>
-          <p>Bu site oyuncularla büyüyor. Çıkış noktası, anahtarlı kapı, kasa ya da görev bilgisi bulduysan ekran görüntüsünü al ve gönder, ekleyelim.</p>
-          <p class="iletisim">${site.iletisim ? `Gönder: ${DMZ.iletisimHtml()}` : 'İletişim bilgisi yakında eklenecek.'}</p>
-        </div>
-      </section>`;
-
+    el.innerHTML = DMZ.anaSayfaHtml();
     DMZ.Arama.bagla($('#ana-ara', el), $('#ana-sonuclar', el), { enter: true });
   }
 
@@ -115,18 +55,11 @@ DMZ.Sayfalar = (function () {
   const lokasyonDurumu = { tur: 'hepsi', sorgu: '' };
 
   // Kartın "Çevrede" satırı: haritadaki noktalardan bu lokasyona yakın olanların sayısı (yarıçap harita pikseli, yaklaşık)
-  const CEVRE_KATEGORILERI = ['giris', 'cikis', 'soncikis', 'boss', 'siginak', 'anahtar', 'kasa', 'kayipikmal', 'roket', 'sam', 'tegmen', 'iha', 'ammo', 'klinik', 'benzinlik', 'tekne', 'itfaiye', 'karakol', 'yerleske'];
-  const CEVRE_YARICAP = { ana: 330, kale: 200, ara: 230 };
-
+  // Hangi noktaların "çevrede" sayıldığı js/ortak.js'te (DMZ.cevredekiNoktalar); lokasyon sayfaları da aynısını listeler
   function cevredekiler(l, n) {
-    const r = CEVRE_YARICAP[l.tur] || 230;
     const sayim = {};
-    DMZ.tumNoktalar().forEach((p) => {
-      if (CEVRE_KATEGORILERI.includes(p.kategori) && (p.x - n.x) ** 2 + (p.y - n.y) ** 2 <= r * r) {
-        sayim[p.kategori] = (sayim[p.kategori] || 0) + 1;
-      }
-    });
-    return CEVRE_KATEGORILERI.filter((k) => sayim[k]).map((k) => {
+    DMZ.cevredekiNoktalar(l, n).forEach((p) => { sayim[p.kategori] = (sayim[p.kategori] || 0) + 1; });
+    return DMZ.CEVRE_KATEGORILERI.filter((k) => sayim[k]).map((k) => {
       const kat = DMZ.kategoriler[k];
       return `<span class="cevre-cip" style="${DMZ.renkStili(kat)}" title="${kacis(kat.ad)}">${DMZ.ikon(kat.ikon)}${sayim[k]}<span class="gizli-metin"> ${kacis(kat.ad)}</span></span>`;
     }).join('');
@@ -182,7 +115,7 @@ DMZ.Sayfalar = (function () {
     el.innerHTML = `
       <header class="sayfa-baslik">
         <span class="ust-etiket">Taktik istihbarat</span>
-        <h1>Lokasyonlar</h1>
+        <h1>Hajin lokasyonları</h1>
         <p>Hajin'deki bölgeler ve kaleler. Her kartta oyundaki İngilizce adı, Türkçe karşılığı, haritadaki yeri, çevresindeki önemli noktalar ve orada geçen DMZ emirleri var. Tehlike seviyesi oyunda pusulanın altında <b>Threat</b> olarak görünür: Low (Düşük), Medium (Orta), High (Yüksek), Critical (Kritik), Extreme (Aşırı).</p>
       </header>
       <p class="kaynak-notu">Tehlike seviyeleri ve bilgiler Activision'ın <a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-dmz-deep-dive-hajin" target="_blank" rel="noopener">resmi Hajin rehberinden</a> (5 Ekim 2026). Kartta gördüğün seviye, bölgedeki en tehlikeli alanınki.</p>
@@ -250,7 +183,7 @@ DMZ.Sayfalar = (function () {
     el.innerHTML = `
       <header class="sayfa-baslik">
         <span class="ust-etiket">Operasyonlar</span>
-        <h1>Görevler <small>DMZ Orders</small></h1>
+        <h1>DMZ Emirleri <small>Hajin görevleri (Orders)</small></h1>
         <p>Görevler oyunda sayfa sayfa açılıyor. Bir sayfaya dokun, görevleri adım adım gör, bitirdiğini işaretle. İşaretlerin sadece bu cihazda saklanır.</p>
       </header>
       <div class="rehber-liste gorev-bilgi">${(DMZ.gorevBilgi || []).map(rehberBolumu).join('')}</div>
@@ -384,7 +317,7 @@ DMZ.Sayfalar = (function () {
     el.innerHTML = `
       <header class="sayfa-baslik">
         <span class="ust-etiket">Ganimet ve ekipman</span>
-        <h1>Eşyalar</h1>
+        <h1>Eşyalar ve nerede bulunurlar</h1>
         <p>Her eşyanın oyundaki İngilizce adı, Türkçe karşılığı, nadirliği, değeri ve biliniyorsa ne işe yaradığı ve nerede bulunduğu.</p>
       </header>
       ${ornekVar ? ornekUyari('eşyalar') : `<p class="kaynak-notu">Açıklamalar Activision'ın resmi DMZ yazılarından. ${dmzhubVar
@@ -668,7 +601,7 @@ DMZ.Sayfalar = (function () {
     el.innerHTML = `
       <header class="sayfa-baslik">
         <span class="ust-etiket">Yeni başlayanlar için</span>
-        <h1>Rehber</h1>
+        <h1>Türkçe DMZ rehberi</h1>
         <p>DMZ'nin temelleri Türkçe: nasıl girilir, nasıl çıkılır, neye dikkat edilir. En altta oyunda geçen İngilizce terimlerin sözlüğü var.</p>
       </header>
       <p class="kaynak-notu">Kaynak: Activision'ın resmi DMZ yazıları
@@ -733,6 +666,7 @@ DMZ.Sayfalar = (function () {
             <tbody>${b.tablo.satirlar.map((s) => `<tr>${s.map((h, i) => `<td${i === 0 ? ' class="ilk"' : ''}>${kacis(h)}</td>`).join('')}</tr>`).join('')}</tbody>
           </table></div>` : ''}
         ${b.ipucu ? `<p class="rehber-ipucu">${DMZ.ikon('uyari')}<span><b>İpucu:</b> ${b.ipucu}</span></p>` : ''}
+        ${b.ekTablo === 'anahtarOdalari' ? DMZ.anahtarOdalariHtml(false) : ''}
       </section>`;
   }
 

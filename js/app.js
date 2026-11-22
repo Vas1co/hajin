@@ -1,5 +1,5 @@
 // Sayfa geçişleri (/harita/hajin/, /esyalar/ gibi gerçek adresler) ve menüler.
-// Sayfa içindeki seçim (haritada nokta, listede eşya) # işaretinden sonra: /harita/hajin/#n=..., /esyalar/#e=...
+// Sayfa içindeki seçim (haritada nokta, listede eşya) # işaretinden sonra: /harita/hajin/#n=..., /harita/x01/#n=..., /esyalar/#e=...
 // Google # sonrasını ayrı sayfa saymaz, böylece aynı sayfanın kopyaları dizine girmez. Eski ?n= linkleri de çalışır.
 // Her adresin sunucuda bir dosyası var (araclar/sayfalari_uret.mjs bu index.html'in kopyalarını yazar),
 // adres doğrudan açılınca da aynı uygulama yüklenir. Site içi tıklamalarda sayfa yenilenmez, sadece adres değişir.
@@ -15,8 +15,8 @@
     { id: 'ozellikler',  yol: '/ozellikler/',  ad: 'Özellikler',  kisa: 'Özellik',  ikon: 'operator', ciz: DMZ.Sayfalar.ozellikler, gizli: () => !DMZ.tumOzellikler().length },
     { id: 'rehber',      yol: '/rehber/',      ad: 'Rehber',      kisa: 'Rehber',   ikon: 'kilavuz', ciz: DMZ.Sayfalar.rehber },
   ].filter((s) => !s.gizli || !s.gizli());
-  // Haritalar /harita/<ad>/ adresinde. Şimdilik sadece Hajin; yeni harita (ör. Black Site) gelince buraya eklenir.
-  const HARITALAR = ['hajin'];
+  // Haritalar /harita/<ad>/ adresinde (veri/haritalar.js: Hajin, X01 Black Site)
+  const HARITALAR = DMZ.acikHaritalar();
   const cizilenler = new Set();
   // Sayfa ilk açıldığındaki <title> (Google'da çıkan); o sayfaya dönünce uygulama onu ezmesin
   const basliklar = { ana: DMZ.site.anaBaslik };
@@ -64,15 +64,18 @@
       if (a.dataset.sayfa === sayfa.id) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
     });
     document.body.dataset.sayfa = sayfa.id;
-    if (!oncekiAcik) basliklar[sayfa.id] = document.title;
-    document.title = basliklar[sayfa.id] || `${sayfa.ad} · ${DMZ.site.ad}`;
+    // Her haritanın kendi başlığı var (veri/haritalar.js); ilk açılan sayfanın <title>'ı (Google'da çıkan) korunur
+    const haritaId = sayfa.id === 'harita' ? bulunan.yol.split('/')[2] : null;
+    const baslikAnahtari = haritaId ? `harita-${haritaId}` : sayfa.id;
+    if (!oncekiAcik) basliklar[baslikAnahtari] = document.title;
+    document.title = basliklar[baslikAnahtari] || (haritaId && DMZ.haritalar[haritaId].baslik) || `${sayfa.ad} · ${DMZ.site.ad}`;
 
     if (sayfa.ciz && !cizilenler.has(sayfa.id)) {
       sayfa.ciz($(`#sayfa-${sayfa.id}`));
       cizilenler.add(sayfa.id);
     }
 
-    if (sayfa.id === 'harita') DMZ.Harita.goster(parametreler);
+    if (sayfa.id === 'harita') DMZ.Harita.goster(parametreler, haritaId);
     else if (oncekiAcik && oncekiAcik.id !== `sayfa-${sayfa.id}`) window.scrollTo(0, 0);
 
     if (sayfa.id === 'lokasyonlar' && parametreler.get('l')) {

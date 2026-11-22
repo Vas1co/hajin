@@ -134,14 +134,18 @@ DMZ.Arama = (function () {
       const yakin = DMZ.enYakinBolge(n);
       const nad = n.nadirlik && DMZ.nadirlikler[n.nadirlik];
       const katAd = n.kategori === 'bolge' ? (n.seviye === 'ana' ? 'Ana bölge' : 'Ara bölge') : kat.ad;
+      // Hajin dışındaki haritaların noktalarında harita ve kat adı da yazsın ("X01 Black Site · 1. kat")
+      const h = DMZ.noktaHaritasi(n) !== 'hajin' && DMZ.haritalar[DMZ.noktaHaritasi(n)];
+      const katBilgi = h && n.kat && (h.katlar || []).find((k) => k.kat === n.kat);
+      const yer = h && [h.ad, katBilgi && katBilgi.ad].filter(Boolean).join(' · ');
       ekle({
         grup: 'harita', id: n.id, baslik: n.ad, en: true,
-        alt: [(lok && lok.tr) || n.tr, katAd, !lok && yakin && `${yakin.ad} yakını`, n.izgara].filter(Boolean).join(' · '),
+        alt: [(lok && lok.tr) || n.tr, katAd, yer, !lok && yakin && `${yakin.ad} yakını`, n.izgara].filter(Boolean).join(' · '),
         ikon: DMZ.noktaRozeti(n, 'sonuc-ikon'),
-        hedef: `/harita/hajin/#n=${encodeURIComponent(n.id)}`,
+        hedef: DMZ.noktaLinki(n),
         lokasyonlu: !!lok, // bölge ve kalelerin lokasyon kartı da var, harita dışında kart olarak çıkarlar
       }, [n.ad, n.tr, n.anahtar, lok && lok.ad, lok && lok.tr],
-      [katAd, kat.en, yakin && yakin.ad, n.izgara, nad && nad.ad, ...((lok && lok.tehlikeDetay) || []).map((d) => d.ad),
+      [katAd, kat.en, yer, h && h.en, yakin && yakin.ad, n.izgara, nad && nad.ad, ...((lok && lok.tehlikeDetay) || []).map((d) => d.ad),
         ...[...(n.malzemeler || []), ...(n.kilavuzlar || [])].flatMap(esyaAdlari)],
       [n.aciklama]);
     });

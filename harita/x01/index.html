@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <!-- Bu dosya araclar/sayfalari_uret.mjs ile index.html'den üretildi, elle düzenleme -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0a08">
+  <meta name="description" content="MW4 DMZ Sezon 1 X01 Black Site haritası Türkçe: iki kat, anahtar odaları, Derin Kasa, gizli girişler, kasalar, silah dolapları, Wheelson Commander ve çıkış noktaları.">
+  <title>X01 Black Site Haritası – DMZ Türkçe İnteraktif Harita (Sezon 1)</title>
+  <!-- Arama motorları için asıl adres (eski github.io adresi buraya yönlenir) -->
+  <link rel="canonical" href="https://dmz.peekdock.com/harita/x01/">
+  <!-- Bağlantı Discord, WhatsApp gibi yerlerde paylaşılınca çıkan kart -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DMZ Rehberi">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:title" content="X01 Black Site Haritası – DMZ Türkçe İnteraktif Harita (Sezon 1)">
+  <meta property="og:description" content="MW4 DMZ Sezon 1 X01 Black Site haritası Türkçe: iki kat, anahtar odaları, Derin Kasa, gizli girişler, kasalar, silah dolapları, Wheelson Commander ve çıkış noktaları.">
+  <meta property="og:url" content="https://dmz.peekdock.com/harita/x01/">
+  <meta property="og:image" content="https://dmz.peekdock.com/logo2.jpg">
+  <meta name="twitter:card" content="summary">
+  <!-- Site ikonu: favicon/ klasöründe (yeni logodan). favicon.ico kökte de var, tarayıcılar orada arıyor.
+       192x192 ilk sırada: Google arama sonucundaki ikon için 48'in katı bir boyut istiyor (16/32'yi kullanmıyor). -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=East+Sea+Dokdo&display=swap">
+  <!-- Temaların yazı tipi (css/temalar.css); tarayıcı sadece tema açıksa indirir -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="/lib/leaflet/leaflet.css">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/temalar.css">
+  <!-- Site ayarları en başta: tema sayfa çizilmeden seçilsin -->
+  <script src="/veri/site.js"></script>
+  <script src="/js/tema.js"></script>
+  </head>
+<body>
+  <a class="atla" href="#icerik">İçeriğe geç</a>
+
+  <header class="ust">
+    <!-- Logo: logo2.jpg (kaynağı kaynak/logo2.JPG), adı resmin içinde. Eski göz logosuna dönmek için
+         logo-dmz sınıfını sil ve src="logo.gif" width="68" height="38" yap. -->
+    <a class="logo logo-dmz" href="/">
+      <img class="logo-resim" src="/logo2.jpg" alt="" width="729" height="272">
+      <span class="logo-yazi"><b data-site-ad>Hajin Rehberi</b><small data-site-alt>MW4 DMZ · Türkçe</small></span>
+    </a>
+    <nav id="ust-menu" class="ust-menu" aria-label="Ana menü"></nav>
+    <span class="canli"><i></i>Sezon 0</span>
+  </header>
+
+  <main id="icerik">
+    <section id="sayfa-ana" class="sayfa" hidden><!--uretilen--><!--/uretilen--></section>
+
+    <section id="sayfa-harita" class="sayfa sayfa-harita" hidden>
+      <!-- Bilgisayarda haritanın solunda durur, telefonda alttan açılır -->
+      <aside class="harita-panel" id="harita-panel" aria-label="Katmanlar">
+        <div class="panel-ust">
+          <label class="arama-kutusu">
+            <span data-ikon="ara"></span>
+            <input type="search" id="harita-ara" placeholder="Ara: anahtar, kale, eşya, görev…" autocomplete="off" aria-label="Haritada ve bütün sitede ara">
+          </label>
+          <button class="dugme-ikon panel-kapat" id="panel-kapat" aria-label="Paneli kapat" data-ikon="kapat"></button>
+        </div>
+        <div id="harita-sonuclar" class="arama-sonuclari" hidden></div>
+        <div class="panel-govde">
+          <!-- Haritanın başlığı ve tanıtımı (js/ortak.js DMZ.haritaGirisHtml); sayfa üretilirken de içine yazılır -->
+          <div class="harita-giris" id="harita-giris"><!--uretilen-->
+    <h1 class="harita-h1">X01 Black Site İnteraktif Haritası</h1>
+    <p class="harita-giris-metin">Sezon 1 ile gelen X01, Hajin&#39;in altındaki GRANIT Arms yeraltı tesisi; Hajin&#39;den girilir. İki kattaki anahtar odalarını, Derin Kasa&#39;yı, gizli girişleri, kasaları, silah dolaplarını ve çıkışları Türkçe açıklamalarıyla gör.</p>
+    <nav class="harita-secici" aria-label="Haritalar">
+      <a href="/harita/hajin/"><svg class="ikon " viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M384 476.1L192 421.2l0-385.3L384 90.8l0 385.3zm32-1.2l0-386.5L543.1 37.5c15.8-6.3 32.9 5.3 32.9 22.3l0 334.8c0 9.8-6 18.6-15.1 22.3L416 474.8zM15.1 95.1L160 37.2l0 386.5L32.9 474.5C17.1 480.8 0 469.2 0 452.2L0 117.4c0-9.8 6-18.6 15.1-22.3z"/></svg><span>Hajin</span></a>
+      <a href="/harita/x01/" aria-current="page"><svg class="ikon " viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M384 476.1L192 421.2l0-385.3L384 90.8l0 385.3zm32-1.2l0-386.5L543.1 37.5c15.8-6.3 32.9 5.3 32.9 22.3l0 334.8c0 9.8-6 18.6-15.1 22.3L416 474.8zM15.1 95.1L160 37.2l0 386.5L32.9 474.5C17.1 480.8 0 469.2 0 452.2L0 117.4c0-9.8 6-18.6 15.1-22.3z"/></svg><span>X01 Black Site</span></a></nav><!--/uretilen--></div>
+          <div class="isaret-ozeti" id="isaret-ozeti" hidden>
+            <span data-ikon="isaretle"></span>
+            <span id="isaret-sayisi"></span>
+            <button class="dugme dugme-kucuk" id="isaret-temizle">Temizle</button>
+          </div>
+          <div id="harita-filtreler"></div>
+          <div class="panel-alt">
+            <button class="dugme dugme-kucuk" id="filtre-hepsi">Hepsini göster</button>
+            <button class="dugme dugme-kucuk" id="filtre-hicbiri">Hepsini gizle</button>
+          </div>
+          <div id="harita-nasil"><!--uretilen-->
+    <details class="harita-nasil">
+      <summary>Haritada neler var, nasıl kullanılır?</summary>
+      <p>İki kat var: 1. kat (<span lang="en">First Floor</span>) ve 2. kat (<span lang="en">Second Floor</span>). Haritanın üstündeki kat düğmesiyle geçiş yap; merdivenler ve halatlar katların bağlandığı yerleri gösterir.</p>
+      <ul class="harita-sayilar"><li><b>18</b> Merdiven <span lang="en">(Stairs)</span></li><li><b>17</b> Silah Dolabı <span lang="en">(Weapon Locker)</span></li><li><b>15</b> Giriş Noktası <span lang="en">(Infil)</span></li><li><b>10</b> Anahtar Odası <span lang="en">(Key Room)</span></li><li><b>10</b> Mühimmat ve Zırh Sandığı <span lang="en">(Ammo Armor Cache)</span></li><li><b>7</b> Kasa <span lang="en">(Safe)</span></li><li><b>7</b> Yükselme Halatı <span lang="en">(Ascender)</span></li><li><b>5</b> Gizli Giriş <span lang="en">(Hidden Entrance)</span></li><li><b>4</b> Ceset <span lang="en">(Corpse)</span></li><li><b>4</b> Çıkış Noktası <span lang="en">(Exfil)</span></li><li><b>3</b> Acil Çıkış <span lang="en">(Emergency Exfil)</span></li><li><b>2</b> Kart Kodlayıcı <span lang="en">(Keycard Encoder)</span></li><li><b>2</b> Mayın Tuzağı <span lang="en">(Mine Trap)</span></li><li><b>1</b> Kasa Kontrol Şalteri <span lang="en">(Vault Control Switch)</span></li><li><b>1</b> Argonaut Zırhı <span lang="en">(Argonaut Armor)</span></li><li><b>1</b> Wheelson Commander <span lang="en">(Wheelson Commander)</span></li><li><b>1</b> 3D Yazıcı <span lang="en">(3D Printer)</span></li><li><b>1</b> Ödül Terminali <span lang="en">(Bounty Terminal)</span></li></ul>
+      <p><b>Arama:</b> üstteki kutuya yazmaya başla; ilk harften itibaren bu haritadaki noktalar, sonra eşyalar, görevler ve rehber süzülür. Türkçe ya da oyundaki İngilizce adla yazabilirsin, Enter ilk sonuca götürür.</p>
+      <p><b>Filtreler:</b> listeden görmek istediğin kategorileri aç ya da kapat; başlıktaki anahtar o gruptaki her şeyi birden açar. Seçimin bu tarayıcıda hatırlanır.</p>
+      <p><b>Noktalar:</b> bir noktaya dokununca Türkçe açıklaması, oyundaki İngilizce adı ve ızgara kodu çıkar. "Bağlantıyı kopyala" ile ekibine gönder, linki açan aynı noktaya gelir. "İşaretle" oyundaki gibi etrafına altın halka koyar.</p>
+      <p>İlgili sayfalar: <a href="/lokasyonlar/">Hajin lokasyonları ve tehlike seviyeleri</a>, <a href="/rehber/anahtarlar/">anahtar odalarının listesi</a>, <a href="/esyalar/">eşya ve malzeme listesi</a>, <a href="/gorevler/">DMZ Emirleri adım adım</a>, <a href="/rehber/x01-black-site/">X01 Black Site rehberi</a>.</p>
+      <p class="soluk">Kat görselleri dmzmap.net&#39;in X01 haritasından (oyunun taktik haritası, Activision&#39;a ait); üstündeki ızgara oyundaki A–J, 0–8 ızgarası. Noktalar ve ızgara kodları DMZHub X01 haritasından Türkçeleştirildi, X01 bilgileri resmi Sezon 1 yama notlarıyla karşılaştırıldı. Resmi notlara göre X01&#39;de İHA ve gelişmiş İHA kullanılamıyor.</p>
+    </details>
+    <p class="harita-imza">Bir <a href="https://peekdock.com/">peekdock</a> projesi · <a href="/">DMZ Rehberi ana sayfa</a></p><!--/uretilen--></div>
+        </div>
+      </aside>
+
+      <div class="harita-alan">
+        <div id="harita" class="harita-kap"></div>
+        <div class="harita-araclar">
+          <button class="arac" id="arac-katman" aria-expanded="false" aria-controls="harita-panel" data-ikon="katman"><span>Katmanlar</span></button>
+          <button class="arac" id="arac-koordinat" aria-pressed="false" data-ikon="koordinat"><span>Koordinat</span></button>
+          <button class="arac" id="arac-sifirla" data-ikon="sifirla"><span>Sıfırla</span></button>
+        </div>
+        <div id="kat-secici" class="kat-secici" role="group" aria-label="Kat" hidden></div>
+        <div id="koordinat-gosterge" class="koordinat-gosterge" hidden></div>
+      </div>
+    </section>
+
+    <section id="sayfa-lokasyonlar" class="sayfa" hidden></section>
+    <section id="sayfa-gorevler" class="sayfa" hidden></section>
+    <section id="sayfa-esyalar" class="sayfa" hidden></section>
+    <section id="sayfa-ozellikler" class="sayfa" hidden></section>
+    <section id="sayfa-rehber" class="sayfa" hidden></section>
+  </main>
+
+  <footer class="alt-bilgi">
+    <p id="site-guncelleme"></p>
+    <p class="alt-iletisim" id="site-iletisim" hidden></p>
+    <!-- Arama motorları bu bağlantılardan araclar/sayfalari_uret.mjs'in ürettiği sayfaları bulur -->
+    <p class="alt-baglantilar">Sayfalar: <a href="/harita/hajin/">Hajin interaktif haritası</a> · <a href="/harita/x01/">X01 Black Site haritası</a> · <a href="/lokasyonlar/">Lokasyonlar</a> · <a href="/esyalar/">Eşyalar</a> · <a href="/gorevler/">DMZ Emirleri</a> · <a href="/ozellikler/">Özellikler</a> · <a href="/rehber/">Rehber</a> · <a href="/rehber/sozluk/">Terimler sözlüğü</a></p>
+    <p class="alt-peekdock">Bir <a href="https://peekdock.com/">peekdock</a> projesi.</p>
+    <p>Resmi olmayan bir hayran sitesidir, Activision ile bağlantısı yoktur. Call of Duty, Modern Warfare, harita görseli ve oyun ikonları Activision'a aittir. Harita koordinatları ve oyun ikonları callofduty.com'daki resmi haritadan alınmıştır.</p>
+  </footer>
+
+  <nav id="alt-menu" class="alt-menu" aria-label="Menü"></nav>
+
+  <!-- Harita kütüphanesi projenin içinde: internet olmadan da çalışır (Leaflet 1.9.4, BSD-2 lisansı: lib/leaflet/LICENSE) -->
+  <script src="/lib/leaflet/leaflet.js"></script>
+
+  <!-- Veriler: bilgileri bu dosyalardan düzenle (veri/site.js sayfanın başında yükleniyor) -->
+  <script src="/veri/kategoriler.js"></script>
+  <script src="/veri/haritalar.js"></script>
+  <script src="/veri/resmi_noktalar.js"></script>
+  <script src="/veri/noktalar.js"></script>
+  <script src="/veri/x01_noktalar.js"></script>
+  <script src="/veri/lokasyonlar.js"></script>
+  <script src="/veri/gorevler.js"></script>
+  <script src="/veri/esyalar.js"></script>
+  <script src="/veri/esyalar_dmzhub.js"></script>
+  <script src="/veri/malzemeler.js"></script>
+  <script src="/veri/kilavuzlar.js"></script>
+  <script src="/veri/esya_resimleri.js"></script>
+  <script src="/veri/ozellikler.js"></script>
+  <script src="/veri/ozellik_resimleri.js"></script>
+  <script src="/veri/rehber.js"></script>
+  <script src="/veri/tren.js"></script>
+
+  <script src="/js/koruma.js"></script>
+  <script src="/js/ikonlar.js"></script>
+  <script src="/js/ortak.js"></script>
+  <script src="/js/arama.js"></script>
+  <script src="/js/tren.js"></script>
+  <script src="/js/harita.js"></script>
+  <script src="/js/sayfalar.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

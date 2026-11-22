@@ -5,16 +5,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0a0a08">
-  <meta name="description" content="MW4 DMZ Hajin interaktif haritası Türkçe: 347 nokta. Anahtar odaları, kasalar, çıkış noktaları, 3D yazıcı malzemeleri, silah kılavuzları, boss&#39;lar.">
-  <title>Hajin haritası (interaktif, Türkçe): anahtar odaları, kasalar, çıkışlar · MW4 DMZ</title>
+  <meta name="description" content="Call of Duty: Modern Warfare 4 DMZ Hajin haritası Türkçe: anahtar odaları, kasalar, çıkış ve son çıkış noktaları, boss alanları, 3D yazıcı malzemeleri. Ara, filtrele, noktayı ekibine gönder.">
+  <title>DMZ Hajin Haritası – Türkçe İnteraktif Harita | peekdock</title>
   <!-- Arama motorları için asıl adres (eski github.io adresi buraya yönlenir) -->
   <link rel="canonical" href="https://dmz.peekdock.com/harita/hajin/">
   <!-- Bağlantı Discord, WhatsApp gibi yerlerde paylaşılınca çıkan kart -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="DMZ Rehberi">
   <meta property="og:locale" content="tr_TR">
-  <meta property="og:title" content="Hajin haritası (interaktif, Türkçe): anahtar odaları, kasalar, çıkışlar · MW4 DMZ">
-  <meta property="og:description" content="MW4 DMZ Hajin interaktif haritası Türkçe: 347 nokta. Anahtar odaları, kasalar, çıkış noktaları, 3D yazıcı malzemeleri, silah kılavuzları, boss&#39;lar.">
+  <meta property="og:title" content="DMZ Hajin Haritası – Türkçe İnteraktif Harita | peekdock">
+  <meta property="og:description" content="Call of Duty: Modern Warfare 4 DMZ Hajin haritası Türkçe: anahtar odaları, kasalar, çıkış ve son çıkış noktaları, boss alanları, 3D yazıcı malzemeleri. Ara, filtrele, noktayı ekibine gönder.">
   <meta property="og:url" content="https://dmz.peekdock.com/harita/hajin/">
   <meta property="og:image" content="https://dmz.peekdock.com/logo2.jpg">
   <meta name="twitter:card" content="summary">
@@ -36,7 +36,7 @@
   <!-- Site ayarları en başta: tema sayfa çizilmeden seçilsin -->
   <script src="/veri/site.js"></script>
   <script src="/js/tema.js"></script>
-</head>
+  </head>
 <body>
   <a class="atla" href="#icerik">İçeriğe geç</a>
 
@@ -52,7 +52,7 @@
   </header>
 
   <main id="icerik">
-    <section id="sayfa-ana" class="sayfa" hidden></section>
+    <section id="sayfa-ana" class="sayfa" hidden><!--uretilen--><!--/uretilen--></section>
 
     <section id="sayfa-harita" class="sayfa sayfa-harita" hidden>
       <!-- Bilgisayarda haritanın solunda durur, telefonda alttan açılır -->
@@ -66,6 +66,13 @@
         </div>
         <div id="harita-sonuclar" class="arama-sonuclari" hidden></div>
         <div class="panel-govde">
+          <!-- Haritanın başlığı ve tanıtımı (js/ortak.js DMZ.haritaGirisHtml); sayfa üretilirken de içine yazılır -->
+          <div class="harita-giris" id="harita-giris"><!--uretilen-->
+    <h1 class="harita-h1">DMZ Hajin İnteraktif Haritası</h1>
+    <p class="harita-giris-metin">Call of Duty: Modern Warfare 4 DMZ&#39;nin ana bölgesi Hajin için Türkçe interaktif harita. Anahtar odalarını, kasaları, çıkışları, boss alanlarını ve 3D yazıcı malzemelerinin arandığı yerleri tek haritada gör; her noktanın Türkçe açıklaması var.</p>
+    <nav class="harita-secici" aria-label="Haritalar">
+      <a href="/harita/hajin/" aria-current="page"><svg class="ikon " viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M384 476.1L192 421.2l0-385.3L384 90.8l0 385.3zm32-1.2l0-386.5L543.1 37.5c15.8-6.3 32.9 5.3 32.9 22.3l0 334.8c0 9.8-6 18.6-15.1 22.3L416 474.8zM15.1 95.1L160 37.2l0 386.5L32.9 474.5C17.1 480.8 0 469.2 0 452.2L0 117.4c0-9.8 6-18.6 15.1-22.3z"/></svg><span>Hajin</span></a>
+      <a href="/harita/x01/"><svg class="ikon " viewBox="0 0 576 512" fill="currentColor" aria-hidden="true"><path d="M384 476.1L192 421.2l0-385.3L384 90.8l0 385.3zm32-1.2l0-386.5L543.1 37.5c15.8-6.3 32.9 5.3 32.9 22.3l0 334.8c0 9.8-6 18.6-15.1 22.3L416 474.8zM15.1 95.1L160 37.2l0 386.5L32.9 474.5C17.1 480.8 0 469.2 0 452.2L0 117.4c0-9.8 6-18.6 15.1-22.3z"/></svg><span>X01 Black Site</span></a></nav><!--/uretilen--></div>
           <div class="isaret-ozeti" id="isaret-ozeti" hidden>
             <span data-ikon="isaretle"></span>
             <span id="isaret-sayisi"></span>
@@ -76,6 +83,18 @@
             <button class="dugme dugme-kucuk" id="filtre-hepsi">Hepsini göster</button>
             <button class="dugme dugme-kucuk" id="filtre-hicbiri">Hepsini gizle</button>
           </div>
+          <div id="harita-nasil"><!--uretilen-->
+    <details class="harita-nasil">
+      <summary>Haritada neler var, nasıl kullanılır?</summary>
+      <p>Haritada 312 nokta ve 35 bölge adı var.</p>
+      <ul class="harita-sayilar"><li><b>54</b> Anahtar Odası <span lang="en">(Key Room)</span></li><li><b>28</b> Mühimmat ve Zırh Sandığı <span lang="en">(Ammo Armor Cache)</span></li><li><b>27</b> Kasa <span lang="en">(Safe)</span></li><li><b>26</b> Çıkış Noktası <span lang="en">(Exfil)</span></li><li><b>18</b> Benzin İstasyonu <span lang="en">(Gas Station)</span></li><li><b>18</b> Giriş Noktası <span lang="en">(Infil)</span></li><li><b>14</b> İHA Kulesi <span lang="en">(UAV Tower)</span></li><li><b>14</b> Yazıcı Malzemesi <span lang="en">(Printer Ingredients)</span></li><li><b>13</b> Boss Alanı (Colossus) <span lang="en">(Colossus Spawn)</span></li><li><b>12</b> Roket <span lang="en">(Rocket)</span></li><li><b>12</b> SAM Bataryası <span lang="en">(SAM Site)</span></li><li><b>11</b> Kayıp İkmal Sandığı <span lang="en">(Lost Supply Drop)</span></li><li><b>8</b> Klinik <span lang="en">(Clinic)</span></li><li><b>7</b> Kale <span lang="en">(Fortress)</span></li><li><b>6</b> Yerleşke <span lang="en">(Compound)</span></li><li><b>6</b> Tekne Benzinliği <span lang="en">(Marine Gas Station)</span></li><li><b>6</b> İtfaiye <span lang="en">(Fire Station)</span></li><li><b>6</b> Sığınak (Silo) <span lang="en">(Bunker)</span></li><li><b>6</b> Silah Kılavuzu <span lang="en">(Weapon Manuals)</span></li><li><b>5</b> Karakol <span lang="en">(Police Station)</span></li><li><b>5</b> Teğmen Kulesi <span lang="en">(Lieutenant Tower)</span></li><li><b>5</b> Hikaye Görevi Girişi <span lang="en">(Story Mission Infil)</span></li><li><b>5</b> Son Çıkış <span lang="en">(Final Exfil)</span></li></ul>
+      <p><b>Arama:</b> üstteki kutuya yazmaya başla; ilk harften itibaren bu haritadaki noktalar, sonra eşyalar, görevler ve rehber süzülür. Türkçe ya da oyundaki İngilizce adla yazabilirsin, Enter ilk sonuca götürür.</p>
+      <p><b>Filtreler:</b> listeden görmek istediğin kategorileri aç ya da kapat; başlıktaki anahtar o gruptaki her şeyi birden açar. Seçimin bu tarayıcıda hatırlanır.</p>
+      <p><b>Noktalar:</b> bir noktaya dokununca Türkçe açıklaması, oyundaki İngilizce adı ve ızgara kodu çıkar. "Bağlantıyı kopyala" ile ekibine gönder, linki açan aynı noktaya gelir. "İşaretle" oyundaki gibi etrafına altın halka koyar.</p>
+      <p>İlgili sayfalar: <a href="/lokasyonlar/">Hajin lokasyonları ve tehlike seviyeleri</a>, <a href="/rehber/anahtarlar/">anahtar odalarının listesi</a>, <a href="/esyalar/">eşya ve malzeme listesi</a>, <a href="/gorevler/">DMZ Emirleri adım adım</a>.</p>
+      <p class="soluk">Bölge adları, ikmal noktaları ve kaleler Activision&#39;ın resmi Hajin haritasından; anahtar odaları, kasalar, çıkışlar ve boss alanlarının çoğu DMZHub haritasından Türkçeleştirildi.</p>
+    </details>
+    <p class="harita-imza">Bir <a href="https://peekdock.com/">peekdock</a> projesi · <a href="/">DMZ Rehberi ana sayfa</a></p><!--/uretilen--></div>
         </div>
       </aside>
 
@@ -86,6 +105,7 @@
           <button class="arac" id="arac-koordinat" aria-pressed="false" data-ikon="koordinat"><span>Koordinat</span></button>
           <button class="arac" id="arac-sifirla" data-ikon="sifirla"><span>Sıfırla</span></button>
         </div>
+        <div id="kat-secici" class="kat-secici" role="group" aria-label="Kat" hidden></div>
         <div id="koordinat-gosterge" class="koordinat-gosterge" hidden></div>
       </div>
     </section>
@@ -101,7 +121,8 @@
     <p id="site-guncelleme"></p>
     <p class="alt-iletisim" id="site-iletisim" hidden></p>
     <!-- Arama motorları bu bağlantılardan araclar/sayfalari_uret.mjs'in ürettiği sayfaları bulur -->
-    <p class="alt-baglantilar">Sayfalar: <a href="/lokasyonlar/">Lokasyonlar</a> · <a href="/esyalar/">Eşyalar</a> · <a href="/gorevler/">DMZ Emirleri</a> · <a href="/rehber/">Rehber</a> · <a href="/rehber/sozluk/">Terimler sözlüğü</a></p>
+    <p class="alt-baglantilar">Sayfalar: <a href="/harita/hajin/">Hajin interaktif haritası</a> · <a href="/harita/x01/">X01 Black Site haritası</a> · <a href="/lokasyonlar/">Lokasyonlar</a> · <a href="/esyalar/">Eşyalar</a> · <a href="/gorevler/">DMZ Emirleri</a> · <a href="/ozellikler/">Özellikler</a> · <a href="/rehber/">Rehber</a> · <a href="/rehber/sozluk/">Terimler sözlüğü</a></p>
+    <p class="alt-peekdock">Bir <a href="https://peekdock.com/">peekdock</a> projesi.</p>
     <p>Resmi olmayan bir hayran sitesidir, Activision ile bağlantısı yoktur. Call of Duty, Modern Warfare, harita görseli ve oyun ikonları Activision'a aittir. Harita koordinatları ve oyun ikonları callofduty.com'daki resmi haritadan alınmıştır.</p>
   </footer>
 
@@ -112,8 +133,10 @@
 
   <!-- Veriler: bilgileri bu dosyalardan düzenle (veri/site.js sayfanın başında yükleniyor) -->
   <script src="/veri/kategoriler.js"></script>
+  <script src="/veri/haritalar.js"></script>
   <script src="/veri/resmi_noktalar.js"></script>
   <script src="/veri/noktalar.js"></script>
+  <script src="/veri/x01_noktalar.js"></script>
   <script src="/veri/lokasyonlar.js"></script>
   <script src="/veri/gorevler.js"></script>
   <script src="/veri/esyalar.js"></script>

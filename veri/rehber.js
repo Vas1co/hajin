@@ -241,6 +241,9 @@ DMZ.rehber = [
   },
   {
     id: 'anahtarlar', baslik: 'Anahtarlar ve kilitli odalar', ikon: 'anahtar',
+    // Google'da çıkan başlık ve açıklama (araclar/sayfalari_uret.mjs); yazılmazsa bölüm başlığından üretilir
+    seoBaslik: 'DMZ Hajin anahtar konumları: bütün anahtar odaları Türkçe · DMZ Rehberi',
+    seoAciklama: 'MW4 DMZ Hajin ve X01 anahtar odalarının listesi: oda, anahtar, nadirlik, ızgara kodu ve haritada yeri. Anahtarlar nerede çıkar, DRC dolapları nerede.',
     maddeler: [
       'Anahtarlar kilitli odaları ve dolapları açar. Genelde ceketlerde ve ev eşyası kaplarında çıkar.',
       'Anahtarın açıklamasında açtığı yerin ızgara kodu yazar (ör. D7).',
@@ -249,6 +252,25 @@ DMZ.rehber = [
       'En değerli kilitler DRC silah dolapları (Ultra nadirlik): Chang-san Air Base cephaneliğinde, Haneul Nuclear Reactor\'da ve NuriGO Mall laboratuvarlarında.',
     ],
     ipucu: 'Bilinen 46 anahtarın listesi ve nadirlikleri <a href="/esyalar/">Eşyalar</a> sayfasında, "Anahtarlar" kategorisinde.',
+    // Aşağıya Hajin'deki bütün anahtar odalarının tablosu eklenir (js/ortak.js DMZ.anahtarOdalariHtml):
+    // oda, anahtar, nadirlik, ızgara ve haritada göster bağlantısı. Veri veri/noktalar.js'teki anahtar noktalarından.
+    ekTablo: 'anahtarOdalari',
+  },
+  {
+    id: 'x01-black-site', baslik: 'X01 Black Site (Sezon 1)', ikon: 'kat',
+    seoBaslik: 'X01 Black Site rehberi (Türkçe): Derin Kasa, anahtar kartları, gizli odalar · DMZ Rehberi',
+    seoAciklama: 'MW4 DMZ Sezon 1 X01 Black Site Türkçe rehber: iki kat, Derin Kasa odaları, kasa kontrol operasyonu, anahtar kartları, gizli girişler, Wheelson Commander ve 3D yazıcı.',
+    metin: 'Sezon 1 ile gelen X01, Hajin\'in altındaki GRANIT Arms yeraltı tesisi. Resmi yama notlarına göre Hajin\'den keşfedilerek girilen yeni bir DMZ bölgesi; kendi DMZ emirleri, yeni tehditleri ve ekipmanı var. Bütün noktalar <a href="/harita/x01/">X01 Black Site haritasında</a>, iki kat ayrı ayrı.',
+    maddeler: [
+      '<b>İki kat:</b> birinci katta Derin Kasa (Deep Vault), laboratuvarlar, üretim hattı ve jeneratörler; ikinci katta ana depo, yönetim ofisleri, araç parkı ve kontrol odası var. Katlar merdivenler ve yükselme halatlarıyla (Ascender) bağlı.',
+      '<b>Derin Kasa:</b> Deep Vault 106 (birinci seviye, iki silah dolabı ve her zaman efsanevi pompalı çıkan LT sandığı), Deep Vault 301 ve dört kasalı Deep Vault 406. Çekirdek odada her zaman Argonaut zırhı çıkıyor.',
+      '<b>Kasa kontrol operasyonu:</b> çekirdek odadaki şalteri çalıştır, üst kattaki işaretli bilgisayardan kilitlemeyi başlat, düşman dalgalarını atlat ve şaltere dön; X01 DRC Vault Locker\'ın olduğu oda açılır.',
+      '<b>Anahtar kartları:</b> Yönetici Odası (Executive Room) için boş anahtar kartını (Encodable Blank Keycard) bir kart kodlayıcıda (Keycard Encoder) kodlaman gerekiyor. Teğmen Chol-Min\'in zula odasının kartı Tae-Hyun ve Blix teğmenlerinden düşüyor.',
+      '<b>Gizli girişler:</b> içeriden kilitli odalara havalandırma, kapak, vinçteki tank tareti ya da kırılan camla giriliyor; çoğunda kesin kasa ya da silah dolabı var. Yerleri haritada "Gizli Giriş" katmanında.',
+      '<b>Wheelson Commander:</b> birinci katın dış halkasında devriye gezen silahlı robot. Resmi notlara göre DDoS ve şok sopası taretini bir süre durduruyor.',
+      '<b>3D yazıcı:</b> resmi notlara göre X01\'in içinde kendi 3D yazıcısı var; DMZHub\'a göre üretim hattının ikinci katında.',
+    ],
+    ipucu: 'Resmi yama notlarına göre X01\'de İHA ve gelişmiş İHA kullanılamıyor, bombardıman (Bombing Run) da kapalı. Düşmanın yerini görmek için sese ve ızgara kodlarına güven.',
   },
   {
     id: 'gorev-noktalari', baslik: 'Haritadaki görev noktaları', ikon: 'harita',

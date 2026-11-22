@@ -6,14 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0a0a08">
   <meta name="description" content="MW4 DMZ Hajin haritasındaki 42 bölge ve kale: tehlike seviyeleri, nasıl girilir, içinde ne var. Hepsi Türkçe.">
-  <title>Hajin lokasyonları ve tehlike seviyeleri (Türkçe) · MW4 DMZ · DMZ Rehberi</title>
+  <title>Hajin lokasyonları: bölgeler, kaleler ve tehlike seviyeleri · DMZ Rehberi</title>
   <!-- Arama motorları için asıl adres (eski github.io adresi buraya yönlenir) -->
   <link rel="canonical" href="https://dmz.peekdock.com/lokasyonlar/">
   <!-- Bağlantı Discord, WhatsApp gibi yerlerde paylaşılınca çıkan kart -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="DMZ Rehberi">
   <meta property="og:locale" content="tr_TR">
-  <meta property="og:title" content="Hajin lokasyonları ve tehlike seviyeleri (Türkçe) · MW4 DMZ · DMZ Rehberi">
+  <meta property="og:title" content="Hajin lokasyonları: bölgeler, kaleler ve tehlike seviyeleri · DMZ Rehberi">
   <meta property="og:description" content="MW4 DMZ Hajin haritasındaki 42 bölge ve kale: tehlike seviyeleri, nasıl girilir, içinde ne var. Hepsi Türkçe.">
   <meta property="og:url" content="https://dmz.peekdock.com/lokasyonlar/">
   <meta property="og:image" content="https://dmz.peekdock.com/logo2.jpg">
@@ -36,7 +36,7 @@
   <!-- Site ayarları en başta: tema sayfa çizilmeden seçilsin -->
   <script src="/veri/site.js"></script>
   <script src="/js/tema.js"></script>
-</head>
+  </head>
 <body>
   <a class="atla" href="#icerik">İçeriğe geç</a>
 
@@ -52,7 +52,7 @@
   </header>
 
   <main id="icerik">
-    <section id="sayfa-ana" class="sayfa" hidden></section>
+    <section id="sayfa-ana" class="sayfa" hidden><!--uretilen--><!--/uretilen--></section>
 
     <section id="sayfa-harita" class="sayfa sayfa-harita" hidden>
       <!-- Bilgisayarda haritanın solunda durur, telefonda alttan açılır -->
@@ -66,6 +66,8 @@
         </div>
         <div id="harita-sonuclar" class="arama-sonuclari" hidden></div>
         <div class="panel-govde">
+          <!-- Haritanın başlığı ve tanıtımı (js/ortak.js DMZ.haritaGirisHtml); sayfa üretilirken de içine yazılır -->
+          <div class="harita-giris" id="harita-giris"><!--uretilen--><!--/uretilen--></div>
           <div class="isaret-ozeti" id="isaret-ozeti" hidden>
             <span data-ikon="isaretle"></span>
             <span id="isaret-sayisi"></span>
@@ -76,6 +78,7 @@
             <button class="dugme dugme-kucuk" id="filtre-hepsi">Hepsini göster</button>
             <button class="dugme dugme-kucuk" id="filtre-hicbiri">Hepsini gizle</button>
           </div>
+          <div id="harita-nasil"><!--uretilen--><!--/uretilen--></div>
         </div>
       </aside>
 
@@ -86,13 +89,14 @@
           <button class="arac" id="arac-koordinat" aria-pressed="false" data-ikon="koordinat"><span>Koordinat</span></button>
           <button class="arac" id="arac-sifirla" data-ikon="sifirla"><span>Sıfırla</span></button>
         </div>
+        <div id="kat-secici" class="kat-secici" role="group" aria-label="Kat" hidden></div>
         <div id="koordinat-gosterge" class="koordinat-gosterge" hidden></div>
       </div>
     </section>
 
     <section id="sayfa-lokasyonlar" class="sayfa" hidden>
-    <header class="sayfa-baslik"><h1>Lokasyonlar</h1>
-      <p>Hajin'deki bölgeler ve kaleler. Tehlike seviyesi oyunda pusulanın altında <b>Threat</b> olarak görünür.</p></header>
+    <header class="sayfa-baslik"><h1>Hajin lokasyonları</h1>
+      <p>Hajin'deki bölgeler ve kaleler. Tehlike seviyesi oyunda pusulanın altında <b>Threat</b> olarak görünür. Her lokasyonun yeri <a href="/harita/hajin/">Hajin interaktif haritasında</a>.</p></header>
     <h2 class="ara-baslik">Ana bölge</h2><ul class="statik-liste"><li><a href="/lokasyonlar/14th-political-prison/"><b lang="en">14th Political Prison</b><small>14. Siyasi Cezaevi · Tehlike: Kritik</small></a></li><li><a href="/lokasyonlar/chang-san-air-base/"><b lang="en">Chang-san Air Base</b><small>Chang-san Hava Üssü · Tehlike: Aşırı</small></a></li><li><a href="/lokasyonlar/deadtown/"><b lang="en">Deadtown</b><small>Ölü Kasaba · Tehlike: Orta</small></a></li><li><a href="/lokasyonlar/imjin-farmland/"><b lang="en">Imjin Farmland</b><small>Imjin Tarlaları · Tehlike: Orta</small></a></li><li><a href="/lokasyonlar/cheongun-village/"><b lang="en">Cheongun Village</b><small>Cheongun Köyü · Tehlike: Yüksek</small></a></li><li><a href="/lokasyonlar/haneul-nuclear-reactor/"><b lang="en">Haneul Nuclear Reactor</b><small>Haneul Nükleer Reaktörü · Tehlike: Yüksek</small></a></li><li><a href="/lokasyonlar/mirae-general-hospital/"><b lang="en">Mirae General Hospital</b><small>Mirae Genel Hastanesi · Tehlike: Düşük</small></a></li><li><a href="/lokasyonlar/nurigo-mall/"><b lang="en">NuriGo Mall</b><small>NuriGo AVM · Tehlike: Yüksek</small></a></li><li><a href="/lokasyonlar/cheonwang-peak-array/"><b lang="en">Cheonwang Peak Array</b><small>Cheonwang Zirvesi Anten Dizisi · Tehlike: Orta</small></a></li><li><a href="/lokasyonlar/the-grid/"><b lang="en">The Grid</b><small>Tahkimatlı Şehir Merkezi · Tehlike: Aşırı</small></a></li><li><a href="/lokasyonlar/songdo-wharf/"><b lang="en">Songdo Wharf</b><small>Songdo Rıhtımı · Tehlike: Düşük</small></a></li><li><a href="/lokasyonlar/wolves-stadium/"><b lang="en">Wolves Stadium</b><small>Wolves Stadyumu · Tehlike: Orta</small></a></li><li><a href="/lokasyonlar/hajin-river-heights/"><b lang="en">Hajin River Heights</b><small>Hajin Nehir Tepeleri · Tehlike: Orta</small></a></li></ul><h2 class="ara-baslik">Kale (Fortress)</h2><ul class="statik-liste"><li><a href="/lokasyonlar/kale-the-citadel/"><b lang="en">The Citadel</b><small>İç Kale · Tehlike: Kritik</small></a></li><li><a href="/lokasyonlar/kale-heavenly-luck-casino/"><b lang="en">Heavenly Luck Casino</b><small>Heavenly Luck Kumarhanesi · Tehlike: Yüksek</small></a></li><li><a href="/lokasyonlar/kale-mirae-general-hospital/"><b lang="en">Mirae General Hospital</b><small>Mirae Genel Hastanesi · Tehlike: Düşük</small></a></li><li><a href="/lokasyonlar/kale-admin-complex-no-2/"><b lang="en">Admin Complex No. 2</b><small>2 Numaralı İdari Bina</small></a></li><li><a href="/lokasyonlar/kale-re-education-center/"><b lang="en">Re-Education Center</b><small>Yeniden Eğitim Merkezi · Tehlike: Orta</small></a></li><li><a href="/lokasyonlar/kale-rice-mill/"><b lang="en">Rice Mill</b><small>Pirinç Değirmeni · Tehlike: Orta</small></a></li><li><a href="/lokasyonlar/kale-nurigo-mall/"><b lang="en">NuriGO Mall</b><small>NuriGO AVM</small></a></li></ul><h2 class="ara-baslik">Ara bölge</h2><ul class="statik-liste"><li><a href="/lokasyonlar/jayon-warehouses/"><b lang="en">Jayon Warehouses</b><small>Jayon Depoları</small></a></li><li><a href="/lokasyonlar/russian-border-crossing-west/"><b lang="en">Russian Border Crossing (West)</b><small>Rus Sınır Kapısı (Batı)</small></a></li><li><a href="/lokasyonlar/russian-border-crossing/"><b lang="en">Russian Border Crossing</b><small>Rus Sınır Kapısı · Tehlike: Düşük</small></a></li><li><a href="/lokasyonlar/russian-border-crossing-east/"><b lang="en">Russian Border Crossing (East)</b><small>Rus Sınır Kapısı (Doğu)</small></a></li><li><a href="/lokasyonlar/hanrim-village/"><b lang="en">Hanrim Village</b><small>Hanrim Köyü</small></a></li><li><a href="/lokasyonlar/revolution-dam/"><b lang="en">Revolution Dam</b><small>Devrim Barajı</small></a></li><li><a href="/lokasyonlar/tong-il-village/"><b lang="en">Tong-il Village</b><small>Tong-il Köyü</small></a></li><li><a href="/lokasyonlar/pyonghwa-village/"><b lang="en">Pyonghwa Village</b><small>Pyonghwa Köyü</small></a></li><li><a href="/lokasyonlar/namjin-riverside/"><b lang="en">Namjin Riverside</b><small>Namjin Nehir Kıyısı</small></a></li><li><a href="/lokasyonlar/south-island/"><b lang="en">South Island</b><small>Güney Ada · Tehlike: Orta</small></a></li><li><a href="/lokasyonlar/cheongun-outskirts/"><b lang="en">Cheongun Outskirts</b><small>Cheongun Kenar Mahalleleri · Tehlike: Düşük</small></a></li><li><a href="/lokasyonlar/imjin-suburb/"><b lang="en">Imjin Suburb</b><small>Imjin Banliyösü</small></a></li><li><a href="/lokasyonlar/mujin-pass/"><b lang="en">Mujin Pass</b><small>Mujin Geçidi</small></a></li><li><a href="/lokasyonlar/daesong-ridge/"><b lang="en">Daesong Ridge</b><small>Daesong Sırtı</small></a></li><li><a href="/lokasyonlar/oamsik-turtle-islands/"><b lang="en">Oamsik Turtle Islands</b><small>Oamsik Kaplumbağa Adaları · Tehlike: Düşük</small></a></li><li><a href="/lokasyonlar/nurigo-west/"><b lang="en">NuriGO West</b><small>NuriGO Batı · Tehlike: Yüksek</small></a></li><li><a href="/lokasyonlar/shoreline-station/"><b lang="en">Shoreline Station</b><small>Sahil İstasyonu · Tehlike: Düşük</small></a></li><li><a href="/lokasyonlar/nurigo-east/"><b lang="en">NuriGO East</b><small>NuriGO Doğu · Tehlike: Orta</small></a></li><li><a href="/lokasyonlar/dbn-headquarters/"><b lang="en">DBN Headquarters</b><small>DBN Genel Merkezi · Tehlike: Kritik</small></a></li><li><a href="/lokasyonlar/hanex-bank/"><b lang="en">Hanex Bank</b><small>Hanex Bankası · Tehlike: Kritik</small></a></li><li><a href="/lokasyonlar/construction-zone/"><b lang="en">Construction Zone</b><small>İnşaat Alanı · Tehlike: Kritik</small></a></li><li><a href="/lokasyonlar/songdo-pier/"><b lang="en">Songdo Pier</b><small>Songdo İskelesi</small></a></li></ul></section>
     <section id="sayfa-gorevler" class="sayfa" hidden></section>
     <section id="sayfa-esyalar" class="sayfa" hidden></section>
@@ -104,7 +108,8 @@
     <p id="site-guncelleme"></p>
     <p class="alt-iletisim" id="site-iletisim" hidden></p>
     <!-- Arama motorları bu bağlantılardan araclar/sayfalari_uret.mjs'in ürettiği sayfaları bulur -->
-    <p class="alt-baglantilar">Sayfalar: <a href="/lokasyonlar/">Lokasyonlar</a> · <a href="/esyalar/">Eşyalar</a> · <a href="/gorevler/">DMZ Emirleri</a> · <a href="/rehber/">Rehber</a> · <a href="/rehber/sozluk/">Terimler sözlüğü</a></p>
+    <p class="alt-baglantilar">Sayfalar: <a href="/harita/hajin/">Hajin interaktif haritası</a> · <a href="/harita/x01/">X01 Black Site haritası</a> · <a href="/lokasyonlar/">Lokasyonlar</a> · <a href="/esyalar/">Eşyalar</a> · <a href="/gorevler/">DMZ Emirleri</a> · <a href="/ozellikler/">Özellikler</a> · <a href="/rehber/">Rehber</a> · <a href="/rehber/sozluk/">Terimler sözlüğü</a></p>
+    <p class="alt-peekdock">Bir <a href="https://peekdock.com/">peekdock</a> projesi.</p>
     <p>Resmi olmayan bir hayran sitesidir, Activision ile bağlantısı yoktur. Call of Duty, Modern Warfare, harita görseli ve oyun ikonları Activision'a aittir. Harita koordinatları ve oyun ikonları callofduty.com'daki resmi haritadan alınmıştır.</p>
   </footer>
 
@@ -115,8 +120,10 @@
 
   <!-- Veriler: bilgileri bu dosyalardan düzenle (veri/site.js sayfanın başında yükleniyor) -->
   <script src="/veri/kategoriler.js"></script>
+  <script src="/veri/haritalar.js"></script>
   <script src="/veri/resmi_noktalar.js"></script>
   <script src="/veri/noktalar.js"></script>
+  <script src="/veri/x01_noktalar.js"></script>
   <script src="/veri/lokasyonlar.js"></script>
   <script src="/veri/gorevler.js"></script>
   <script src="/veri/esyalar.js"></script>

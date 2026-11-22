@@ -5,12 +5,12 @@ DMZ.site = {
   ad: 'DMZ Rehberi',
   altBaslik: 'MW4 DMZ Hajin · Türkçe',
   // Ana sayfanın sekme başlığı (Google'da çıkan). index.html'deki <title> ile aynı olmalı.
-  anaBaslik: 'DMZ Hajin Haritası ve Türkçe Rehber (MW4) · DMZ Rehberi',
+  anaBaslik: 'DMZ Rehberi: Türkçe Modern Warfare 4 DMZ Kılavuzu | peekdock',
   // Tema: 'radyasyon-sade', 'klasik' (eski yeşilimsi koyu renkler), 'radyasyon' (uyarı şeritli),
   // 'radyasyon-kehribar' ya da 'menu'. Hepsi css/temalar.css'te.
   // Başkasına bakmak için adrese ?tema=klasik ekle, sol altta tema düğmeleri çıkar.
   tema: 'radyasyon-sade',
-  guncelleme: '30 Ekim 2026',
+  guncelleme: '22 Kasım 2026',
   // Arkadaşların bilgi gönderebileceği yer: e-posta adresi ya da 'Discord: kullaniciadi' gibi bir yazı.
   // Ana sayfada ve her sayfanın altında çıkar; e-postaysa tıklanınca mail açılır. Boş kalırsa "yakında" yazar.
   iletisim: 'dmz@peekdock.com',
