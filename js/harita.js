@@ -8,7 +8,6 @@ DMZ.Harita = (function () {
 
   const MAX_ZOOM = 4;          // 4096 piksel = 16 x 256 piksellik karo
   const ISARET_ANAHTARI = 'hajin.harita.isaretli'; // nokta id'leri bütün haritalarda farklı, tek liste yeter
-  const DMZHUB_HARITA = { hajin: 'hajin', x01: 'x01-black-site' };
 
   let harita;
   let kurulu = false;
@@ -96,7 +95,7 @@ DMZ.Harita = (function () {
       // Katın harita resmi (veri/haritalar.js: gorsel), üstünde oyundaki ızgara ince çizgilerle
       const g = katBilgisi().gorsel;
       zemin = L.layerGroup([
-        L.imageOverlay(g.url, sinir(g), { attribution: 'Harita görseli: <a href="https://dmzmap.net/x01-black-site" target="_blank" rel="noopener">dmzmap.net</a> (© Activision) · Noktalar: DMZHub', className: 'harita-kat-resmi' }),
+        L.imageOverlay(g.url, sinir(g), { attribution: 'Harita görseli © Activision', className: 'harita-kat-resmi' }),
         semaCiz(true),
       ]);
     } else {
@@ -150,7 +149,7 @@ DMZ.Harita = (function () {
       <g class="sema-yazi" font-size="${hucre * 0.11}">${etiketler}</g>
       ${ustte ? '' : `<text class="sema-baslik" x="${a.x2}" y="${a.y1 + satir * hucre + pay * 0.62}" font-size="${hucre * 0.22}">${kacis(H().ad)} · ${kacis(kat.ad)} (ızgara şeması)</text>`}`;
     return L.svgOverlay(svg, L.latLngBounds(ll(x0, y0 + yuk), ll(x0 + gen, y0)), {
-      interactive: false, className: ustte ? 'harita-sema harita-sema-ust' : 'harita-sema', attribution: ustte ? '' : 'Noktalar: DMZHub · Harita görseli yakında',
+      interactive: false, className: ustte ? 'harita-sema harita-sema-ust' : 'harita-sema', attribution: ustte ? '' : 'Harita görseli yakında',
     });
   }
 
@@ -242,7 +241,7 @@ DMZ.Harita = (function () {
     const rozet = n.kaynak === 'resmi'
       ? '<span class="rozet rozet-resmi">Resmi veri</span>'
       : n.kaynak === 'dmzhub'
-        ? `<a class="rozet rozet-dmzhub" href="https://dmzhub.gg/maps/${DMZHUB_HARITA[aktif] || 'hajin'}" target="_blank" rel="noopener">Kaynak: DMZHub</a>`
+        ? ''
         : n.kaynak === 'ipucu'
           ? '<a class="rozet rozet-ipucu" href="/rehber/#b=malzeme-yerleri">Oyun ipucu: 3D yazıcı</a>'
           : n.kaynak === 'rapor'

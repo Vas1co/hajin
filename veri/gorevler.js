@@ -176,7 +176,7 @@ DMZ.gorevler = [
         adimlar: ['5 dinamik operasyon bitir.', 'Rastgele görev seçeneğiyle (Random Mission Deploy) bir hikaye görevi bitir.'] },
       { id: 'e10-3', ad: 'Healer', tr: 'Metal toplama',
         adimlar: ['3 reaktif metal (Reactive Metals) üret ya da çıkar. Genelde garajlarda ve inşaat alanlarında bulunur.', '30 metal (Metals) çıkar.', 'Bir zırh kutusu (Armor Box) üret.'],
-        ipucu: 'Bu emrin adı DMZHub\'da 7. sayfadaki "Healer" ile aynı yazıyor, oyunda farklı olabilir.' },
+        ipucu: 'Bu emrin adı 7. sayfadaki "Healer" ile aynı yazıyor, oyunda farklı olabilir.' },
     ],
   },
   {
@@ -230,7 +230,7 @@ DMZ.gorevler = [
   },
   {
     id: 'e15', sayfa: 15, ad: '', tr: 'Sayfa 15', kaynak: 'dmzhub',
-    not: 'DMZHub\'da bu sayfa 13. sayfanın (The Grid 2/2) aynısı girilmiş, gerçek emirleri henüz belli değil. Oyunda görürsen ekran görüntüsünü at, ekleyelim.',
+    not: 'Bu sayfa 13. sayfanın (The Grid 2/2) aynısı girilmiş, gerçek emirleri henüz belli değil. Oyunda görürsen ekran görüntüsünü at, ekleyelim.',
     gorevler: [],
   },
   {

@@ -21,7 +21,7 @@ DMZ.haritalar = {
     h1: 'DMZ Hajin İnteraktif Haritası',
     aciklama: 'Call of Duty: Modern Warfare 4 DMZ Hajin haritası Türkçe: anahtar odaları, kasalar, çıkış ve son çıkış noktaları, boss alanları, 3D yazıcı malzemeleri. Ara, filtrele, noktayı ekibine gönder.',
     giris: 'Call of Duty: Modern Warfare 4 DMZ\'nin ana bölgesi Hajin için Türkçe interaktif harita. Anahtar odalarını, kasaları, çıkışları, boss alanlarını ve 3D yazıcı malzemelerinin arandığı yerleri tek haritada gör; her noktanın Türkçe açıklaması var.',
-    not: 'Bölge adları, ikmal noktaları ve kaleler Activision\'ın resmi Hajin haritasından; anahtar odaları, kasalar, çıkışlar ve boss alanlarının çoğu DMZHub haritasından Türkçeleştirildi.',
+    not: 'Bölge adları, ikmal noktaları ve kaleler Activision\'ın resmi Hajin haritasından.',
     karo: { url: '/harita/tiles/{z}/{x}/{y}.jpg', tileSize: 256, maxNativeZoom: 4, telif: 'Harita © Activision' },
     boyut: 4096,
     alan: { x1: 790, y1: 775, x2: 3300, y2: 3365 },
@@ -35,7 +35,7 @@ DMZ.haritalar = {
     h1: 'X01 Black Site İnteraktif Haritası',
     aciklama: 'MW4 DMZ Sezon 1 X01 Black Site haritası Türkçe: iki kat, anahtar odaları, Derin Kasa, gizli girişler, kasalar, silah dolapları, Wheelson Commander ve çıkış noktaları.',
     giris: 'Sezon 1 ile gelen X01, Hajin\'in altındaki GRANIT Arms yeraltı tesisi; Hajin\'den girilir. İki kattaki anahtar odalarını, Derin Kasa\'yı, gizli girişleri, kasaları, silah dolaplarını ve çıkışları Türkçe açıklamalarıyla gör.',
-    not: 'Kat görselleri dmzmap.net\'in X01 haritasından (oyunun taktik haritası, Activision\'a ait); üstündeki ızgara oyundaki A–J, 0–8 ızgarası. Noktalar ve ızgara kodları DMZHub X01 haritasından Türkçeleştirildi, X01 bilgileri resmi Sezon 1 yama notlarıyla karşılaştırıldı. Resmi notlara göre X01\'de İHA ve gelişmiş İHA kullanılamıyor.',
+    not: 'Kat görselleri Activision’a ait oyun içi taktik haritadan. üstündeki ızgara oyundaki A–J, 0–8 ızgarası. X01 bilgileri resmi Sezon 1 yama notlarıyla karşılaştırıldı. Resmi notlara göre X01\'de İHA ve gelişmiş İHA kullanılamıyor.',
     boyut: 4096,
     katlar: [
       { kat: 1, ad: '1. kat', en: 'First Floor', izgara: { x: 0.238, y: 0.252, w: 0.564, h: 0.506, sutun: 10, satir: 9 },

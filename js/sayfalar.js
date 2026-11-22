@@ -190,7 +190,7 @@ DMZ.Sayfalar = (function () {
       <h2 class="ara-baslik">Emir sayfaları</h2>
       ${ornekVar ? ornekUyari('görevler') : ''}
       ${dmzhubVar ? `
-      <p class="kaynak-notu">Emirler <a class="rozet rozet-dmzhub" href="https://dmzhub.gg/orders" target="_blank" rel="noopener">Kaynak: DMZHub</a> topluluk verisinden Türkçeleştirildi. Bazı sayfaların adı ve ödülü eksik olabilir; oyunda farklı görürsen haber ver, düzeltelim.</p>` : ''}
+      <p class="kaynak-notu">Bazı sayfaların adı ve ödülü eksik olabilir; oyunda farklı görürsen haber ver, düzeltelim.</p>` : ''}
       <div class="arac-cubugu">
         ${aramaKutusu('gorev-ara', 'Ara: görev, anahtar, eşya, lokasyon…')}
         ${sayfalar.length ? `<button class="dugme dugme-kucuk" id="gorev-sifirla">${DMZ.ikon('sifirla')} İlerlemeyi sıfırla</button>` : ''}
@@ -321,7 +321,7 @@ DMZ.Sayfalar = (function () {
         <p>Her eşyanın oyundaki İngilizce adı, Türkçe karşılığı, nadirliği, değeri ve biliniyorsa ne işe yaradığı ve nerede bulunduğu.</p>
       </header>
       ${ornekVar ? ornekUyari('eşyalar') : `<p class="kaynak-notu">Açıklamalar Activision'ın resmi DMZ yazılarından. ${dmzhubVar
-        ? 'Nadirlik, değer ve yığın bilgileri, diğer eşyalar ve eşya resimleri <a class="rozet rozet-dmzhub" href="https://dmzhub.gg/items" target="_blank" rel="noopener">Kaynak: DMZHub</a> eşya veritabanından; oyun içi görseller Activision\'a aittir.'
+        ? 'Oyun içi görseller Activision\'a aittir.'
         : 'Nadirlik ve fiyatlar oyunda gördükçe eklenecek.'}</p>`}
       <div class="arac-cubugu">
         ${aramaKutusu('esya-ara', 'Ara: eşya, anahtar, lokasyon, görev…')}
@@ -520,8 +520,7 @@ DMZ.Sayfalar = (function () {
         <h1>Özellikler</h1>
         <p>Operatörünün yetenek ağaçları (Traits): hangi özellik ne işe yarar, hangisini seçmeli, prestijde ne olur. Oyundaki İngilizce adı ve Türkçe karşılığıyla.</p>
       </header>
-      <p class="kaynak-notu">Özellik listesi, açıklamalar ve ikonlar <a class="rozet rozet-dmzhub" href="https://dmzhub.gg/traits" target="_blank" rel="noopener">Kaynak: DMZHub</a> özellik sayfasından, Türkçeleştirildi.
-        Puan kuralları, prestij ve dizilişler <a href="https://dmztracker.gg/guides/traits-guide/" target="_blank" rel="noopener">DMZTracker</a> ve
+      <p class="kaynak-notu">Puan kuralları, prestij ve dizilişler <a href="https://dmztracker.gg/guides/traits-guide/" target="_blank" rel="noopener">DMZTracker</a> ve
         <a href="https://codcentral.net/blog/mw4-dmz-traits/" target="_blank" rel="noopener">CODCentral</a> rehberlerinden. Oyun içi görseller Activision'a aittir.</p>
       <details class="kutu ozellik-kurallar"${matchMedia('(min-width: 900px)').matches ? ' open' : ''}>
         <summary><span class="bolum-ikon">${DMZ.ikon('kilavuz')}</span>Nasıl çalışır?</summary>
@@ -607,7 +606,7 @@ DMZ.Sayfalar = (function () {
       <p class="kaynak-notu">Kaynak: Activision'ın resmi DMZ yazıları
         (<a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-dmz-deep-dive-hajin" target="_blank" rel="noopener">Hajin rehberi</a>,
         <a href="https://www.callofduty.com/blog/2026/10/call-of-duty-modern-warfare-4-dmz-how-to-play-forward-operating-base-guide" target="_blank" rel="noopener">Üs rehberi</a>), kendi cümlelerimizle özetlendi.
-        Üretim, anahtarlar, görev noktaları ve dronlar bölümleri DMZ Emirleri'nden ve DMZHub eşya verisinden derlendi.</p>
+        Üretim, anahtarlar, görev noktaları ve dronlar bölümleri DMZ Emirleri ve eşya verilerinden derlendi.</p>
       <div class="arac-cubugu">${aramaKutusu('rehber-ara', 'Ara: konu, terim, anahtar, eşya…')}</div>
       <div class="genel-sonuclar" id="rehber-sonuclar" hidden></div>
       <nav class="cipler rehber-icindekiler" aria-label="Rehber bölümleri">

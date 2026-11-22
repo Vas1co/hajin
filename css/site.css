@@ -643,7 +643,8 @@ a.malzeme-cip:hover { border-color: var(--n-renk); }
 .harita-giris-metin { margin: 6px 0 0; color: var(--soluk); font-size: 13px; line-height: 1.45; }
 .harita-secici { display: flex; gap: 6px; margin-top: 10px; }
 .harita-secici a {
-  flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 34px; padding: 4px 8px;
+  flex: 1 1 auto; display: inline-flex; align-items: center; justify-content: center; gap: 5px; min-height: 34px; padding: 4px 8px;
+  white-space: nowrap; min-width: 0;
   border: 1px solid var(--cizgi-guclu); border-radius: 8px; color: var(--soluk); text-decoration: none; font: 600 13px var(--govde-font);
 }
 .harita-secici a .ikon { width: 14px; height: 14px; }
