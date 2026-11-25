@@ -314,8 +314,7 @@ DMZ.anaSayfaHtml = function () {
           </div>
         </div>
         <a class="giris-harita" href="/harita/hajin/" aria-label="Hajin interaktif haritasını aç">
-          <img src="/harita/tiles/2/1/1.jpg" alt=""><img src="/harita/tiles/2/2/1.jpg" alt="">
-          <img src="/harita/tiles/2/1/2.jpg" alt=""><img src="/harita/tiles/2/2/2.jpg" alt="">
+          <img src="/resimler/ana-harita.webp" alt="Hajin interaktif haritası: kaleler, anahtar odaları, çıkışlar ve lokasyonlar">
           <span class="giris-harita-etiket">${DMZ.ikon('koordinat')} Hajin Yasak Bölgesi</span>
         </a>
       </section>

@@ -304,10 +304,11 @@ body[data-sayfa="harita"] .alt-bilgi { display: none; }
 .ana-arama .genel-sonuclar { margin: 10px 0 0; }
 
 .giris-harita {
-  position: relative; display: grid; grid-template-columns: 1fr 1fr; aspect-ratio: 1;
+  position: relative; display: grid; grid-template-columns: 1fr; aspect-ratio: 1;
   border-radius: 12px; overflow: hidden; border: 1px solid var(--cizgi-guclu);
 }
 .giris-harita img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+.giris-harita img[src$="ana-harita.webp"] { object-position: 70% 50%; }
 .giris-harita:hover img { transform: scale(1.04); }
 .giris-harita::after {
   content: ''; position: absolute; inset: 0; pointer-events: none;

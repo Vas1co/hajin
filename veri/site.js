@@ -29,7 +29,7 @@ DMZ.site = {
   // Haritanın sağ üstünde, kuzeydoğudaki boş arazide duran yazı. Harita ile birlikte büyüyüp küçülür.
   // "ust" satırının ilk kelimesi beyaz, gerisi turuncu. "imza" Korece harflerle "Vasco" (바스코).
   // Kaldırmak için haritaYazisi: null yap.
-  haritaYazisi: { ust: 'DMZ TÜRKİYE', ad: 'HAJİN', imza: '바스코' },
+  haritaYazisi: { ust: '', ad: 'HAJİN', imza: '바스코' },
   // Haritada raylarda giden hızlı tren (güzergâhı veri/tren.js'te). Kapatmak için false yap.
   haritaTreni: false,
 };
